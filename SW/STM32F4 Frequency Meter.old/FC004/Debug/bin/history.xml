@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=FC004.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\FC004 -TC:\CooCox\CoIDE\configuration\ProgramData\FC004/arm-gcc-link.ld -g">
+      <target file="FC004.elf" lastModified="14a6df45150">
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14a6df44e51"/>
+         <source file="..\obj\main.o" lastModified="14a6df44e85"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14a6df44edc"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14a6df44f1f"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14a6df44f54"/>
+      </target>
+   </processor>
+</history>

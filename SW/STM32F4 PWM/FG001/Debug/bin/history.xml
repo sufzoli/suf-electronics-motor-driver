@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=FG001.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\FG001 -TC:\CooCox\CoIDE\configuration\ProgramData\FG001/arm-gcc-link.ld -g">
+      <target file="FG001.elf" lastModified="14a9a19b963">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="14a9a19aa02"/>
+         <source file="..\obj\stm32f4xx_sdio.o" lastModified="14a9a19aa5d"/>
+         <source file="..\obj\stm32f4xx_dma2d.o" lastModified="14a9a19aab7"/>
+         <source file="..\obj\stm32f4xx_hash.o" lastModified="14a9a19ab0f"/>
+         <source file="..\obj\stm32f4xx_cryp_aes.o" lastModified="14a9a19abad"/>
+         <source file="..\obj\stm32f4xx_hash_sha1.o" lastModified="14a9a19abf9"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="14a9a19ac5e"/>
+         <source file="..\obj\stm32f4xx_pwr.o" lastModified="14a9a19acad"/>
+         <source file="..\obj\stm32f4xx_can.o" lastModified="14a9a19ad1e"/>
+         <source file="..\obj\stm32f4xx_wwdg.o" lastModified="14a9a19ad65"/>
+         <source file="..\obj\stm32f4xx_hash_md5.o" lastModified="14a9a19adb3"/>
+         <source file="..\obj\stm32f4xx_dac.o" lastModified="14a9a19ae05"/>
+         <source file="..\obj\stm32f4xx_ltdc.o" lastModified="14a9a19ae6c"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14a9a19ae96"/>
+         <source file="..\obj\stm32f4xx_crc.o" lastModified="14a9a19aedc"/>
+         <source file="..\obj\stm32f4xx_iwdg.o" lastModified="14a9a19af20"/>
+         <source file="..\obj\main.o" lastModified="14a9a19af5f"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14a9a19afcb"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="14a9a19b034"/>
+         <source file="..\obj\stm32f4xx_dcmi.o" lastModified="14a9a19b084"/>
+         <source file="..\obj\stm32f4xx_cryp_des.o" lastModified="14a9a19b0d0"/>
+         <source file="..\obj\stm32f4xx_cryp.o" lastModified="14a9a19b12c"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14a9a19b180"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="14a9a19b1eb"/>
+         <source file="..\obj\stm32f4xx_sai.o" lastModified="14a9a19b243"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14a9a19b289"/>
+         <source file="..\obj\stm32f4xx_dma.o" lastModified="14a9a19b2e4"/>
+         <source file="..\obj\stm32f4xx_fmc.o" lastModified="14a9a19b352"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="14a9a19b3b3"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="14a9a19b41d"/>
+         <source file="..\obj\stm32f4xx_rng.o" lastModified="14a9a19b467"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="14a9a19b4b0"/>
+         <source file="..\obj\misc.o" lastModified="14a9a19b4f7"/>
+         <source file="..\obj\stm32f4xx_rtc.o" lastModified="14a9a19b580"/>
+         <source file="..\obj\stm32f4xx_cryp_tdes.o" lastModified="14a9a19b5cc"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="14a9a19b672"/>
+         <source file="..\obj\stm32f4xx_dbgmcu.o" lastModified="14a9a19b6b7"/>
+      </target>
+   </processor>
+</history>

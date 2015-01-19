@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSTM32F429_439xx -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_lib -I..\..\..\..\..\DATA\SourceControll\3d_party_repos\stm32f429 -I..\..\..\..\..\DATA\SourceControll\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter -I..\..\..\..\..\DATA\SourceControll\3d_party_repos -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_lib\include -I..\..\..\..\..\DATA\SourceControll\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device">
+      <target file="stm32f4xx_cryp_aes.o" lastModified="14a80affa07">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_cryp_aes.c" lastModified="14239bc9506"/>
+      </target>
+      <target file="usbd_usr.o" lastModified="14a81ef7975">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_usr.c" lastModified="149ee09e5a2"/>
+      </target>
+      <target file="misc.o" lastModified="14a80b00800">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14239bc941c"/>
+      </target>
+      <target file="stm32f4xx_ltdc.o" lastModified="14a80affda5">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_ltdc.c" lastModified="14239bc96ea"/>
+      </target>
+      <target file="stm32f4xx_cryp.o" lastModified="14a80b002a8">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_cryp.c" lastModified="14239bc94d7"/>
+      </target>
+      <target file="usbd_ioreq.o" lastModified="14a81ef7ee9">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_ioreq.c" lastModified="149ee09e59b"/>
+      </target>
+      <target file="stm32f4xx_cryp_des.o" lastModified="14a80b0024e">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_cryp_des.c" lastModified="14239bc9506"/>
+      </target>
+      <target file="usbd_req.o" lastModified="14a81ef7d8d">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_req.c" lastModified="149ee09e59f"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="14a80b00a1b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14239bc9871"/>
+      </target>
+      <target file="usbd_cdc_core.o" lastModified="14a81ef7e47">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_cdc_core.c" lastModified="149ee09e587"/>
+      </target>
+      <target file="stm32f4xx_iwdg.o" lastModified="14a80affe59">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_iwdg.c" lastModified="14239bc96cb"/>
+      </target>
+      <target file="usbd_desc.o" lastModified="14a81ef7c41">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_desc.c" lastModified="149ee09e597"/>
+      </target>
+      <target file="stm32f4xx_exti.o" lastModified="14a80b007ba">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14239bc95a2"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="14a80b002f9">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14239bc965e"/>
+      </target>
+      <target file="usb_bsp.o" lastModified="14a81ef7d2d">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usb_bsp.c" lastModified="149ee09e56c"/>
+      </target>
+      <target file="tm_stm32f4_usb_vcp.o" lastModified="14a81ef7c95">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\tm_stm32f4_usb_vcp.c" lastModified="149ee09e564"/>
+      </target>
+      <target file="usbd_core.o" lastModified="14a81ef79c6">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_core.c" lastModified="149ee09e591"/>
+      </target>
+      <target file="stm32f4xx_usart.o" lastModified="14a80affba2">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="14239bc98a0"/>
+      </target>
+      <target file="stm32f4xx_rtc.o" lastModified="14a80b008e0">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rtc.c" lastModified="14239bc97a6"/>
+      </target>
+      <target file="stm32f4xx_hash_sha1.o" lastModified="14a80affb42">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_hash_sha1.c" lastModified="14239bc969c"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="14a80afff60">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14239bc9748"/>
+      </target>
+      <target file="stm32f4xx_dac.o" lastModified="14a80affd41">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dac.c" lastModified="14239bc9535"/>
+      </target>
+      <target file="stm32f4xx_can.o" lastModified="14a80affc5f">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_can.c" lastModified="14239bc94b8"/>
+      </target>
+      <target file="stm32f4xx_pwr.o" lastModified="14a80affbf0">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_pwr.c" lastModified="1426b6cf42d"/>
+      </target>
+      <target file="stm32f4xx_wwdg.o" lastModified="14a80affca6">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_wwdg.c" lastModified="14239bc98a0"/>
+      </target>
+      <target file="stm32f4xx_rng.o" lastModified="14a80b00772">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rng.c" lastModified="14239bc9758"/>
+      </target>
+      <target file="stm32f4xx_adc.o" lastModified="14a80afffc7">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="14239bc946a"/>
+      </target>
+      <target file="stm32f4xx_flash.o" lastModified="14a80b0035f">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14239bc95d1"/>
+      </target>
+      <target file="stm32f4xx_cryp_tdes.o" lastModified="14a80b00979">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_cryp_tdes.c" lastModified="14239bc9516"/>
+      </target>
+      <target file="usb_dcd.o" lastModified="14a81ef7e9f">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usb_dcd.c" lastModified="149ee09e578"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14a80affdcf">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="1457784479b"/>
+      </target>
+      <target file="usbd_cdc_vcp.o" lastModified="14a81ef7cdd">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usbd_cdc_vcp.c" lastModified="149ee09e58b"/>
+      </target>
+      <target file="stm32f4xx_dcmi.o" lastModified="14a80b00017">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dcmi.c" lastModified="14239bc9554"/>
+      </target>
+      <target file="stm32f4xx_dma.o" lastModified="14a80b0049a">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="14239bc9573"/>
+      </target>
+      <target file="stm32f4xx_sai.o" lastModified="14a80b003fd">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_sai.c" lastModified="14239bc97c5"/>
+      </target>
+      <target file="stm32f4xx_crc.o" lastModified="14a80affe14">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_crc.c" lastModified="14239bc94b8"/>
+      </target>
+      <target file="stm32f4xx_sdio.o" lastModified="14a80aff979">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_sdio.c" lastModified="14239bc97e4"/>
+      </target>
+      <target file="stm32f4xx_hash_md5.o" lastModified="14a80affcef">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_hash_md5.c" lastModified="14239bc968d"/>
+      </target>
+      <target file="stm32f4xx_dbgmcu.o" lastModified="14a80b00a5d">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dbgmcu.c" lastModified="14239bc9545"/>
+      </target>
+      <target file="usb_core.o" lastModified="14a81ef7930">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usb_core.c" lastModified="149ee09e573"/>
+      </target>
+      <target file="stm32f4xx_i2c.o" lastModified="14a80b0072d">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_i2c.c" lastModified="14239bc96bc"/>
+      </target>
+      <target file="stm32f4xx_syscfg.o" lastModified="14a80aff88f">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14239bc9813"/>
+      </target>
+      <target file="stm32f4xx_hash.o" lastModified="14a80affab3">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_hash.c" lastModified="14239bc967d"/>
+      </target>
+      <target file="stm32f4xx_spi.o" lastModified="14a80b006c9">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14239bc9804"/>
+      </target>
+      <target file="main.o" lastModified="14a83533c60">
+         <source file="..\..\..\main.c" lastModified="14a835339cb"/>
+      </target>
+      <target file="stm32f4xx_fmc.o" lastModified="14a80b00553">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_fmc.c" lastModified="14239bc9600"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="14a80b00442">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14a6e7a8afd"/>
+      </target>
+      <target file="stm32f4xx_dma2d.o" lastModified="14a80affa5d">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma2d.c" lastModified="14239bc9593"/>
+      </target>
+      <target file="usb_dcd_int.o" lastModified="14a81ef7df7">
+         <source file="..\..\..\..\..\..\..\..\3d_party_repos\stm32f429\00-STM32F429_LIBRARIES\usb_cdc_device\usb_dcd_int.c" lastModified="149ee09e57d"/>
+      </target>
+   </processor>
+</history>

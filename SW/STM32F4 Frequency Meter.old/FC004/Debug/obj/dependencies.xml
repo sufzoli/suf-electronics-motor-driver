@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_lib /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_lib\include">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14a6de6be2e">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14a6de6af7e">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14a6de6be17">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="14a6df45062">
+         <include file="..\..\..\cmsis\core_cm4.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14a6de6be2a">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14a6de6be1b">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+   </includePath>
+</dependencies>

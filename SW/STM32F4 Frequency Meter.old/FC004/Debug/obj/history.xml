@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_lib -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\STM32F4 Frequency Meter\cmsis_lib\include">
+      <target file="stm32f4xx_rcc.o" lastModified="14a6df44edc">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14a6de6be2e"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="14a6df44f54">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14a6df44c88"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="14a6df44f1f">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14a6de6be1b"/>
+      </target>
+      <target file="main.o" lastModified="14a6df44e85">
+         <source file="..\..\..\main.c" lastModified="14a6df44c0e"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14a6df44e51">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14a6df44c9a"/>
+      </target>
+   </processor>
+</history>
