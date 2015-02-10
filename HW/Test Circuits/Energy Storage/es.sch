@@ -30,6 +30,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:es-cache
 EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
@@ -119,7 +120,7 @@ F 1 "IN" V 3700 3300 60  0000 C CNN
 F 2 "MD-TEST-HDR-F" H 3700 3300 60  0001 C CNN
 F 3 "" H 3700 3300 60  0000 C CNN
 	1    3700 3300
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L MD-TEST-HDR J2
@@ -130,7 +131,7 @@ F 1 "OUT" V 5900 3300 60  0000 C CNN
 F 2 "MD-TEST-HDR-M" H 5900 3300 60  0001 C CNN
 F 3 "" H 5900 3300 60  0000 C CNN
 	1    5900 3300
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	4000 2950 4000 3200
