@@ -3,7 +3,7 @@
   (general
     (links 34)
     (no_connects 0)
-    (area 88.706 58.414919 148.424 109.225081)
+    (area 18.856 17.774919 78.574 68.585081)
     (thickness 1.6)
     (drawings 4)
     (tracks 80)
@@ -129,13 +129,13 @@
     (add_net VDD)
   )
 
-  (module TO220-2 (layer F.Cu) (tedit 525D9A0F) (tstamp 54DCAF76)
+  (module TO220-2 (layer F.Cu) (tedit 54E02F59) (tstamp 54DCAF76)
     (at 60.96 52.07 180)
     (path /54DCAB09)
     (fp_text reference D3 (at -3.175 0 270) (layer F.SilkS)
       (effects (font (size 1.524 1.016) (thickness 0.2032)))
     )
-    (fp_text value MBR10100 (at 0.635 -6.35 180) (layer F.SilkS)
+    (fp_text value MBR10100 (at 0.635 -6.35 180) (layer F.SilkS) hide
       (effects (font (size 1.524 1.016) (thickness 0.2032)))
     )
     (fp_line (start 1.905 -5.08) (end 2.54 -5.08) (layer F.SilkS) (width 0.381))
@@ -226,13 +226,13 @@
     )
   )
 
-  (module R4 (layer F.Cu) (tedit 52119F90) (tstamp 54DCAFAC)
+  (module R4 (layer F.Cu) (tedit 54E02F73) (tstamp 54DCAFAC)
     (at 35.56 62.23 180)
     (descr "Resitance 4 pas")
     (tags R)
     (path /54B5A882)
     (autoplace_cost180 10)
-    (fp_text reference R3 (at 0 0.18 180) (layer F.SilkS)
+    (fp_text reference R3 (at 0 -0.127 180) (layer F.SilkS)
       (effects (font (size 1.5 1.5) (thickness 0.2032)))
     )
     (fp_text value 1K8 (at 0 0 180) (layer F.SilkS) hide
@@ -260,13 +260,13 @@
     )
   )
 
-  (module R4 (layer F.Cu) (tedit 52119F90) (tstamp 54DCAFB9)
+  (module R4 (layer F.Cu) (tedit 54E02F48) (tstamp 54DCAFB9)
     (at 44.45 27.94 180)
     (descr "Resitance 4 pas")
     (tags R)
     (path /54C35874)
     (autoplace_cost180 10)
-    (fp_text reference R4 (at 0 0.18 180) (layer F.SilkS)
+    (fp_text reference R4 (at 0 -0.127 180) (layer F.SilkS)
       (effects (font (size 1.5 1.5) (thickness 0.2032)))
     )
     (fp_text value 1 (at 0 0 180) (layer F.SilkS) hide
@@ -294,13 +294,13 @@
     )
   )
 
-  (module R4 (layer F.Cu) (tedit 52119F90) (tstamp 54DCAFC6)
+  (module R4 (layer F.Cu) (tedit 54E02F38) (tstamp 54DCAFC6)
     (at 44.45 35.56 270)
     (descr "Resitance 4 pas")
     (tags R)
     (path /54C358C7)
     (autoplace_cost180 10)
-    (fp_text reference R1 (at 0 0.18 270) (layer F.SilkS)
+    (fp_text reference R1 (at 0 -0.127 270) (layer F.SilkS)
       (effects (font (size 1.5 1.5) (thickness 0.2032)))
     )
     (fp_text value 100 (at 0 0 270) (layer F.SilkS) hide
@@ -328,10 +328,10 @@
     )
   )
 
-  (module MD-TEST-HDR-M (layer F.Cu) (tedit 54D8F1D0) (tstamp 54DCAFDE)
+  (module MD-TEST-HDR-M (layer F.Cu) (tedit 54E02FA7) (tstamp 54DCAFDE)
     (at 66.04 43.18 90)
     (path /54DCAB2B)
-    (fp_text reference J3 (at 0 -3.81 90) (layer F.SilkS)
+    (fp_text reference J3 (at -0.127 0 90) (layer F.SilkS)
       (effects (font (size 1.5 1.5) (thickness 0.2)))
     )
     (fp_text value OUT (at 0 11.43 90) (layer F.SilkS) hide
@@ -435,13 +435,13 @@
     )
   )
 
-  (module CONN_NCW254-02S (layer F.Cu) (tedit 525A1D9E) (tstamp 54DCB012)
+  (module CONN_NCW254-02S (layer F.Cu) (tedit 54E02FB0) (tstamp 54DCB012)
     (at 25.4 57.15 270)
     (path /54DCAB49)
-    (fp_text reference J2 (at 0 -4.445 270) (layer F.SilkS)
+    (fp_text reference J2 (at 0 -3.683 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value PWM_IN (at 0 5.715 270) (layer F.SilkS)
+    (fp_text value PWM_IN (at 0 5.715 270) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -1.25 -2.6) (end -1.25 -2) (layer F.SilkS) (width 0.15))
@@ -461,13 +461,13 @@
     )
   )
 
-  (module AUTOFUSE (layer F.Cu) (tedit 53D7251A) (tstamp 54DCB023)
+  (module AUTOFUSE (layer F.Cu) (tedit 54E02F24) (tstamp 54DCB023)
     (at 39.37 22.86)
     (path /54950B27)
     (fp_text reference F1 (at 0 -3.85) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value FUSE (at 0.05 4.05) (layer F.SilkS)
+    (fp_text value FUSE (at 0.05 4.05) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -10 -3) (end -10 3) (layer F.SilkS) (width 0.15))
@@ -511,13 +511,13 @@
     )
   )
 
-  (module TO-92_V (layer F.Cu) (tedit 4AD970F2) (tstamp 54DCB727)
+  (module TO-92_V (layer F.Cu) (tedit 54E02F68) (tstamp 54DCB727)
     (at 45.72 62.23 270)
     (path /54C35829)
-    (fp_text reference Q2 (at 0 -5.715 270) (layer F.SilkS)
+    (fp_text reference Q2 (at 0 -0.127 270) (layer F.SilkS)
       (effects (font (size 1.524 1.524) (thickness 0.3048)))
     )
-    (fp_text value BC546B (at 0.762 4.064 270) (layer F.SilkS)
+    (fp_text value BC546B (at 0.762 4.064 270) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3048)))
     )
     (fp_line (start 2.794 2.54) (end -2.794 2.54) (layer F.SilkS) (width 0.381))
@@ -538,13 +538,13 @@
     )
   )
 
-  (module TO-92_V (layer F.Cu) (tedit 4AD970F2) (tstamp 54DCB732)
+  (module TO-92_V (layer F.Cu) (tedit 54E02F42) (tstamp 54DCB732)
     (at 39.37 35.56)
     (path /54C35838)
-    (fp_text reference Q1 (at 0 -5.715) (layer F.SilkS)
+    (fp_text reference Q1 (at 0.127 0.127) (layer F.SilkS)
       (effects (font (size 1.524 1.524) (thickness 0.3048)))
     )
-    (fp_text value BC546B (at 0.762 4.064) (layer F.SilkS)
+    (fp_text value BC546B (at 0.762 4.064) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3048)))
     )
     (fp_line (start 2.794 2.54) (end -2.794 2.54) (layer F.SilkS) (width 0.381))
@@ -565,13 +565,13 @@
     )
   )
 
-  (module TO-220_V (layer F.Cu) (tedit 4AD99B76) (tstamp 54DCAF87)
+  (module TO-220_V (layer F.Cu) (tedit 54E02F52) (tstamp 54DCAF87)
     (at 60.96 34.29 180)
     (path /54B59908)
     (fp_text reference Q3 (at -3.175 0 270) (layer F.SilkS)
       (effects (font (size 1.524 1.016) (thickness 0.2032)))
     )
-    (fp_text value IRF9530 (at 0.635 -6.35 180) (layer F.SilkS)
+    (fp_text value IRF9530 (at 0.635 -6.35 180) (layer F.SilkS) hide
       (effects (font (size 1.524 1.016) (thickness 0.2032)))
     )
     (fp_line (start 1.905 -5.08) (end 2.54 -5.08) (layer F.SilkS) (width 0.381))
@@ -635,9 +635,9 @@
     )
   )
 
-  (module DP5050 (layer F.Cu) (tedit 5192A5EE) (tstamp 54DD86CF)
+  (module DP5050 (layer F.Cu) (tedit 54E02F7F) (tstamp 54DD86CF)
     (at 45.72 43.18)
-    (fp_text reference DP5050 (at 0 0) (layer F.SilkS)
+    (fp_text reference DP5050 (at 0 0) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3048)))
     )
     (fp_text value " " (at 0 0) (layer F.SilkS) hide

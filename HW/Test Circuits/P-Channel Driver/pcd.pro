@@ -1,6 +1,6 @@
-update=12/02/2015 23:29:58
+update=15/02/2015 06:39:37
 version=1
-last_client=kicad
+last_client=eeschema
 [cvpcb]
 version=1
 NetIExt=net
@@ -49,6 +49,8 @@ LibName19=dip_sockets
 LibName20=pga_sockets
 LibName21=valves
 LibName22=SOB
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=C:/DATA/KiCAD/library
@@ -89,5 +91,3 @@ LibName28=opto
 LibName29=atmel
 LibName30=contrib
 LibName31=valves
-[general]
-version=1
