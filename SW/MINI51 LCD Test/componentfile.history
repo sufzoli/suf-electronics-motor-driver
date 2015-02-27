@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<History> 
+  <File usedCount="2" path="cox_driver/lcd_character_hd44780/hd44780.c"/>  
+  <File usedCount="2" path="cox_driver/lcd_character_hd44780/hd44780.h"/>  
+  <File usedCount="2" path="cox_driver/lcd_character_hd44780/hw_hd44780.h"/>
+</History>

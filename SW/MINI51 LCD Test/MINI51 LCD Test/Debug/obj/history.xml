@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DMINI54LDE -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 LCD Test\CoX_Driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 LCD Test\CoX_Driver\LCD_Character_HD44780 -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 LCD Test\CoX\CoX_Peripheral\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 LCD Test -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 LCD Test\CoX\CoX_Peripheral -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 LCD Test\CoX">
+      <target file="xgpio.o" lastModified="14bb9f74652">
+         <source file="..\..\..\CoX\CoX_Peripheral\src\xgpio.c" lastModified="14bb9f1f8f1"/>
+      </target>
+      <target file="startup_coide.o" lastModified="14bb9f74604">
+         <source file="..\..\..\startup_coide.c" lastModified="14bb9f1f8f8"/>
+      </target>
+      <target file="hd44780.o" lastModified="14bc7c8b519">
+         <source file="..\..\..\CoX_Driver\LCD_Character_HD44780\hd44780.c" lastModified="14bc7c2e90d"/>
+      </target>
+      <target file="xsysctl.o" lastModified="14bb9f7e000">
+         <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="14bb9f1f854"/>
+      </target>
+      <target file="main.o" lastModified="14bc7c96fff">
+         <source file="..\..\..\main.c" lastModified="14bc7c96ea2"/>
+      </target>
+      <target file="xcore.o" lastModified="14bb9f7df8a">
+         <source file="..\..\..\CoX\CoX_Peripheral\src\xcore.c" lastModified="14bb9f7be7f"/>
+      </target>
+   </processor>
+</history>

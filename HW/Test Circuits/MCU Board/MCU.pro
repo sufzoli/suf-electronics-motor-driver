@@ -1,4 +1,4 @@
-update=23/02/2015 05:06:03
+update=17/01/2015 22:14:19
 version=1
 last_client=eeschema
 [cvpcb]
@@ -6,6 +6,8 @@ version=1
 NetIExt=net
 [cvpcb/libraries]
 EquName1=devcms
+[general]
+version=1
 [pcbnew]
 version=1
 LastNetListRead=
@@ -49,8 +51,6 @@ LibName19=dip_sockets
 LibName20=pga_sockets
 LibName21=valves
 LibName22=SOB
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=C:/DATA/KiCAD/library

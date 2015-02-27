@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=MINI51 LCD Test.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\MINI51 LCD Test -TC:\CooCox\CoIDE\configuration\ProgramData\MINI51 LCD Test/arm-gcc-link.ld -g">
+      <target file="MINI51 LCD Test.elf" lastModified="14bc7c971c0">
+         <source file="..\obj\startup_coide.o" lastModified="14bb9f74604"/>
+         <source file="..\obj\xcore.o" lastModified="14bb9f7df8a"/>
+         <source file="..\obj\xgpio.o" lastModified="14bb9f74652"/>
+         <source file="..\obj\main.o" lastModified="14bc7c96fff"/>
+         <source file="..\obj\xsysctl.o" lastModified="14bb9f7e000"/>
+         <source file="..\obj\hd44780.o" lastModified="14bc7c8b519"/>
+      </target>
+   </processor>
+</history>

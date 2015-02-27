@@ -1,0 +1,28 @@
+* C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SIM\passive filter high order.asc
+C1 N003 N002 1µ
+C2 N001 N004 10n
+C3 N004 0 10n
+R1 N001 N003 220k
+R2 N003 0 220k
+R3 N004 N003 1k
+V1 N002 0 AC 1
+V2 N001 0 5 Rser=0
+C4 N001 N005 2.2n
+C5 N005 0 2.2n
+R4 N005 N004 4.7k
+R5 N006 N005 22k
+C6 N001 N006 470p
+C7 N006 0 470p
+R6 N007 N006 100k
+C8 N001 N007 100p
+C9 N007 0 100p
+R7 N008 N007 470k
+C10 N001 N008 22p
+C11 N008 0 22p
+D1 N004 N001 1N4148
+D2 0 N004 1N4148
+.model D D
+.lib C:\Program Files (x86)\LTC\LTspiceIV\lib\cmp\standard.dio
+.ac dec 10 1 2meg
+.backanno
+.end
