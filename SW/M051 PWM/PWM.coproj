@@ -29,7 +29,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/pwm/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/pwm/link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -78,11 +78,11 @@
     <File name="cmsis_lib" path="" type="2"/>
     <File name="cmsis_core/core_cm0.h" path="cmsis_core/core_cm0.h" type="1"/>
     <File name="encoder.c" path="encoder.c" type="1"/>
-    <File name="cmsis_core/core_cmInstr.h" path="cmsis_core/core_cmInstr.h" type="1"/>
     <File name="cmsis_lib/inc" path="" type="2"/>
+    <File name="cmsis_core/core_cmInstr.h" path="cmsis_core/core_cmInstr.h" type="1"/>
     <File name="cmsis_lib/inc/SYS.h" path="cmsis_lib/inc/SYS.h" type="1"/>
-    <File name="encoder.h" path="encoder.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
+    <File name="encoder.h" path="encoder.h" type="1"/>
     <File name="cmsis_core/core_cmFunc.h" path="cmsis_core/core_cmFunc.h" type="1"/>
     <File name="hd44780.c" path="hd44780.c" type="1"/>
     <File name="display.h" path="display.h" type="1"/>
