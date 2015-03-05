@@ -1,0 +1,7 @@
+- Csebisev szûrõ tervezés
+- zavarszûrõ teszt panel
+- RT cikk folytatás
+- Nuvoton kijelzõ fabrikálás
+- PID controller
+- Feszültségmérés kialakítása
+- Hackaday.io update

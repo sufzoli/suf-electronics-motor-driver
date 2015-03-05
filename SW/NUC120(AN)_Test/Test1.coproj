@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Project version="2G - 1.7.6" name="MINI51 LCD Test">
-  <Target name="MINI51 LCD Test" isCurrent="1">
-    <Device manufacturerId="8" manufacturerName="Nuvoton" chipId="237" chipName="MINI54LDE" boardId="" boardName=""/>
+<Project version="2G - 1.7.6" name="Test1">
+  <Target name="Test1" isCurrent="1">
+    <Device manufacturerId="8" manufacturerName="Nuvoton" chipId="184" chipName="NUC120LE3AN" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
@@ -12,7 +12,7 @@
           <Includepath path="."/>
         </Includepaths>
         <DefinedSymbols>
-          <Define name="MINI54LDE"/>
+          <Define name="NUC120LE3AN"/>
         </DefinedSymbols>
       </Compile>
       <Link useDefault="0">
@@ -24,17 +24,17 @@
         <Option name="IsNewStartupCode" value="1"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
-          <Memory name="IROM1" type="ReadOnly" size="0x00004000" startValue="0x00000000"/>
-          <Memory name="IRAM1" type="ReadWrite" size="0x00000800" startValue="0x20000000"/>
+          <Memory name="IROM1" type="ReadOnly" size="0x00020000" startValue="0x00000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00004000" startValue="0x20000000"/>
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/mini51 lcd test/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/test1/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
         <Option name="Path" value="./"/>
-        <Option name="Name" value="MINI51 LCD Test"/>
+        <Option name="Name" value="Test1"/>
         <Option name="HEX" value="1"/>
         <Option name="BIN" value="1"/>
       </Output>
@@ -60,17 +60,18 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="Mini51_16.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="NUC1xx_128.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
   <Components path="./">
     <Component id="1" name="Character LCD HD44780 Driver" path="" type="1"/>
-    <Component id="404" name="xStartup" path="" type="2"/>
-    <Component id="405" name="xLowLayer" path="" type="2"/>
-    <Component id="406" name="xSysCtl" path="" type="2"/>
-    <Component id="407" name="xGPIO" path="" type="2"/>
-    <Component id="410" name="xCORE" path="" type="2"/>
+    <Component id="298" name="xStartup" path="" type="2"/>
+    <Component id="299" name="xLowLayer" path="" type="2"/>
+    <Component id="300" name="xSysCtl" path="" type="2"/>
+    <Component id="301" name="xGPIO" path="" type="2"/>
+    <Component id="308" name="xPWM" path="" type="2"/>
+    <Component id="312" name="xCORE" path="" type="2"/>
   </Components>
   <Files>
     <File name="CoX/CoX_Peripheral/inc/xhw_acmp.h" path="CoX/CoX_Peripheral/inc/xhw_acmp.h" type="1"/>
@@ -78,12 +79,14 @@
     <File name="CoX_Driver/LCD_Character_HD44780/hd44780.c" path="CoX_Driver/LCD_Character_HD44780/hd44780.c" type="1"/>
     <File name="CoX/CoX_Peripheral/src" path="" type="2"/>
     <File name="CoX/CoX_Peripheral/src/xgpio.c" path="CoX/CoX_Peripheral/src/xgpio.c" type="1"/>
+    <File name="encoder.h" path="encoder.h" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xcore.c" path="CoX/CoX_Peripheral/src/xcore.c" type="1"/>
     <File name="CoX_Driver/LCD_Character_HD44780/hd44780.h" path="CoX_Driver/LCD_Character_HD44780/hd44780.h" type="1"/>
     <File name="startup_coide.c" path="startup_coide.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xgpio.h" path="CoX/CoX_Peripheral/inc/xgpio.h" type="1"/>
-    <File name="CoX_Driver/LCD_Character_HD44780" path="" type="2"/>
+    <File name="display.c" path="display.c" type="1"/>
     <File name="CoX" path="" type="2"/>
+    <File name="CoX_Driver/LCD_Character_HD44780" path="" type="2"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_wdt.h" path="CoX/CoX_Peripheral/inc/xhw_wdt.h" type="1"/>
     <File name="CoX_Driver" path="" type="2"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_ints.h" path="CoX/CoX_Peripheral/inc/xhw_ints.h" type="1"/>
@@ -93,17 +96,24 @@
     <File name="CoX/CoX_Peripheral/inc/xhw_adc.h" path="CoX/CoX_Peripheral/inc/xhw_adc.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xdebug.h" path="CoX/CoX_Peripheral/inc/xdebug.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_i2c.h" path="CoX/CoX_Peripheral/inc/xhw_i2c.h" type="1"/>
+    <File name="CoX/CoX_Peripheral/src/xdebug.c" path="CoX/CoX_Peripheral/src/xdebug.c" type="1"/>
+    <File name="encoder.c" path="encoder.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_pwm.h" path="CoX/CoX_Peripheral/inc/xhw_pwm.h" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xhw_dma.h" path="CoX/CoX_Peripheral/inc/xhw_dma.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_types.h" path="CoX/CoX_Peripheral/inc/xhw_types.h" type="1"/>
     <File name="CoX_Driver/LCD_Character_HD44780/hw_hd44780.h" path="CoX_Driver/LCD_Character_HD44780/hw_hd44780.h" type="1"/>
+    <File name="display.h" path="display.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_nvic.h" path="CoX/CoX_Peripheral/inc/xhw_nvic.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xcore.h" path="CoX/CoX_Peripheral/inc/xcore.h" type="1"/>
-    <File name="CoX/CoX_Peripheral/src/xsysctl.c" path="CoX/CoX_Peripheral/src/xsysctl.c" type="1"/>
     <File name="CoX/CoX_Peripheral" path="" type="2"/>
+    <File name="CoX/CoX_Peripheral/src/xsysctl.c" path="CoX/CoX_Peripheral/src/xsysctl.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_gpio.h" path="CoX/CoX_Peripheral/inc/xhw_gpio.h" type="1"/>
+    <File name="CoX/CoX_Peripheral/src/xpwm.c" path="CoX/CoX_Peripheral/src/xpwm.c" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xpwm.h" path="CoX/CoX_Peripheral/inc/xpwm.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_memmap.h" path="CoX/CoX_Peripheral/inc/xhw_memmap.h" type="1"/>
-    <File name="CoX/CoX_Peripheral/inc/xhw_uart.h" path="CoX/CoX_Peripheral/inc/xhw_uart.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_timer.h" path="CoX/CoX_Peripheral/inc/xhw_timer.h" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xhw_uart.h" path="CoX/CoX_Peripheral/inc/xhw_uart.h" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xhw_rtc.h" path="CoX/CoX_Peripheral/inc/xhw_rtc.h" type="1"/>
   </Files>
 </Project>

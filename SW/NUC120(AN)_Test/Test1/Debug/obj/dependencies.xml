@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX_Driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX\CoX_Peripheral /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX_Driver\LCD_Character_HD44780 /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX\CoX_Peripheral\inc">
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h" lastModified="14bce89770e">
+      </source>
+      <source file="..\..\..\CoX_Driver\LCD_Character_HD44780\hd44780.h" lastModified="14bd6f227b4">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xpwm.h" lastModified="14bcebd140d">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h" lastModified="14bce89773e">
+      </source>
+      <source file="..\..\..\CoX_Driver\LCD_Character_HD44780\hd44780.c" lastModified="14bd54eecc0">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+         <include file="..\..\..\CoX_Driver\LCD_Character_HD44780\hw_hd44780.h"/>
+         <include file="..\..\..\CoX_Driver\LCD_Character_HD44780\hd44780.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xpwm.c" lastModified="14bcebd1414">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_pwm.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xpwm.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h" lastModified="14bce8976ec">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_pwm.h" lastModified="14bce897724">
+      </source>
+      <source file="..\..\..\display.h" lastModified="14bd167ef14">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xgpio.c" lastModified="14bce8976f0">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+      </source>
+      <source file="..\..\..\display.c" lastModified="14bd52ee654">
+         <include file="..\..\..\CoX_Driver\LCD_Character_HD44780\hd44780.h"/>
+         <include file="..\..\..\display.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xdebug.c" lastModified="14bce897749">
+      </source>
+      <source file="..\..\..\encoder.h" lastModified="14bd4a227fe">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h" lastModified="14bce897753">
+      </source>
+      <source file="..\..\..\CoX_Driver\LCD_Character_HD44780\hw_hd44780.h" lastModified="14bc4283cd7">
+      </source>
+      <source file="..\..\..\encoder.c" lastModified="14bd438751c">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+         <include file="..\..\..\encoder.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h" lastModified="14bce897647">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="14bce89764b">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_uart.h" lastModified="14bce897743">
+      </source>
+      <source file="..\..\..\main.c" lastModified="14bd8af1496">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h" lastModified="14bce897733">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h" lastModified="14bce8976fe">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h" lastModified="14bce897716">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xcore.c" lastModified="14bce897759">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h" lastModified="14bce89771b">
+      </source>
+      <source file="..\..\..\startup_coide.c" lastModified="14bce8976f6">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h" lastModified="14bce89771f">
+      </source>
+   </includePath>
+   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX_Driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX /I..\..\..\workspace /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX\CoX_Peripheral /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX_Driver\LCD_Character_HD44780 /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test /I..\..\.. /I..\..\..\workspace\TM1638-Test /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX\CoX_Peripheral\inc">
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h" lastModified="14bce89770e">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h" lastModified="14bce89773e">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h" lastModified="14bce8976ec">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xgpio.c" lastModified="14bce8976f0">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xdebug.c" lastModified="14bce897749">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h" lastModified="14bce897753">
+      </source>
+      <source file="..\..\..\CoX_Driver\LCD_Character_HD44780\hw_hd44780.h" lastModified="14bc4283cd7">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h" lastModified="14bce897647">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="14bce89764b">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h" lastModified="14bce897733">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h" lastModified="14bce8976fe">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h" lastModified="14bce897716">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h" lastModified="14bce89771b">
+      </source>
+      <source file="..\..\..\startup_coide.c" lastModified="14bce8976f6">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h" lastModified="14bce89771f">
+      </source>
+   </includePath>
+</dependencies>
