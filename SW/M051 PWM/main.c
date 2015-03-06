@@ -35,6 +35,7 @@
 #include "display.h"
 
 #include "hd44780.h"
+#include "encoder.h"
 
 #define PLLCON_SETTING      SYSCLK_PLLCON_50MHz_XTAL
 #define PLL_CLOCK           50000000
@@ -102,10 +103,15 @@ void SYS_Init(void)
     // Init Encoder GPIO
     _GPIO_SET_PIN_MODE(P0, 2, GPIO_PMD_INPUT);
     _GPIO_SET_PIN_MODE(P0, 3, GPIO_PMD_INPUT);
+    /*
     _GPIO_ENABLE_DEBOUNCE(P0, 2);
     _GPIO_ENABLE_DEBOUNCE(P0, 3);
-    _GPIO_SET_DEBOUNCE_TIME(GPIO_DBNCECON_DBCLKSRC_IRC10K, GPIO_DBNCECON_DBCLKSEL_4);
+    _GPIO_SET_DEBOUNCE_TIME(GPIO_DBNCECON_DBCLKSRC_HCLK, GPIO_DBNCECON_DBCLKSEL_16);
+    */
+    GPIO_EnableInt(P0, 2, GPIO_INT_RISING);
+    GPIO_EnableInt(P0, 3, GPIO_INT_RISING);
 
+    NVIC_EnableIRQ(GPIO_P0P1_IRQn);
 
 
 /*---------------------------------------------------------------------------------------------------------*/
@@ -119,11 +125,54 @@ void SYS_Init(void)
     SYS_LockReg();
 }
 
+const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
+static unsigned char ENCODER_PREV_STATE;
+ENCODER_Callback_Type ENCODER_USER_Callback;
+
+void GPIOP0P1_IRQHandler(void)
+{
+	SYS_SysTickDelay(100);
+    ENCODER_PREV_STATE = (ENCODER_PIN_B << 1) | ENCODER_PIN_A | (ENCODER_PREV_STATE << 2);
+    _GPIO_CLEAR_INT_STATUS(P0,2);
+    _GPIO_CLEAR_INT_STATUS(P0,3);
+    // encoder_count += ENCODER_TABLE[(ENCODER_PREV_STATE & 0x0f)];  /* Index into table */
+
+    switch (ENCODER_TABLE[(ENCODER_PREV_STATE & 0x0f)])
+    {
+    	case -1:
+    		ENCODER_USER_Callback(-1);
+    		break;
+    	case 1:
+    		ENCODER_USER_Callback(1);
+    	default:
+    		break;
+    }
+}
+
+void ENCODER_Init(ENCODER_Callback_Type CallBackFunc)
+{
+	ENCODER_USER_Callback = CallBackFunc;
+	ENCODER_PREV_STATE = (ENCODER_PIN_B << 1) | ENCODER_PIN_A | (ENCODER_PREV_STATE << 2);
+}
+
+void ENCODER_Callback(signed char cDirection)
+{
+	signed long temp;
+	temp = PWMA->CMR0;
+	temp += cDirection;
+	if(temp >= 0 && temp <= 250)
+	{
+		PWMA->CMR0 = temp;
+		DISPLAY_DUTY(PWMA->CMR0);
+	}
+}
 
 
 int main(void)
 {
 	SYS_Init();
+
+	ENCODER_Init(ENCODER_Callback);
 
 //	DISPLAY_Init();
 
@@ -158,6 +207,8 @@ int main(void)
 
     /* Enable PWM Timer */
     _PWM_ENABLE_TIMER(PWMA, PWM_CH0);
+
+    DISPLAY_DUTY(PWMA->CMR0);
 
     while(1)
     {

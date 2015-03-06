@@ -66,4 +66,4 @@
 extern void HD44780_Init();
 extern void HD44780_DisplayString(const char* pcString);
 extern void HD44780_LocationSet(unsigned char x, unsigned char y);
-extern void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, unsigned char len);
+extern void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, unsigned char len, unsigned char dp);

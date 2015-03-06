@@ -1,92 +1,53 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_core /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\hd44780">
-      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14bdbcb144d">
+   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib">
+      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14bea51a45b">
          <include file="..\..\..\cmsis_core\core_cm0.h"/>
          <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14bdbcb1468">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-      <source file="..\..\..\display.h" lastModified="14bd167ef14">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14bdbcb1455">
-      </source>
-      <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14bdbcb1446">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bdbcb1450">
-      </source>
-      <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14bdde78602">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-   </includePath>
-   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_core /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM">
-      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14bdbcb144d">
-         <include file="..\..\..\cmsis_core\core_cm0.h"/>
-         <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14bdbcb1468">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14bdbcb1455">
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bdbcb1450">
-      </source>
-   </includePath>
-   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_core /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\hd44780">
-      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14bdbcb144d">
-         <include file="..\..\..\cmsis_core\core_cm0.h"/>
-         <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14bdbcb1468">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14bdbcb1455">
-      </source>
-      <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14bdbcb1446">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bdbcb1450">
-      </source>
-   </includePath>
-   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_core /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM">
-      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14bdbcb144d">
-         <include file="..\..\..\cmsis_core\core_cm0.h"/>
-         <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
-      </source>
-      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="14bdbcb1841">
+      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="14bea51a84a">
          <include file="..\..\..\cmsis_core\core_cmInstr.h"/>
          <include file="..\..\..\cmsis_core\core_cmFunc.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14bdbcb1468">
+      <source file="..\..\..\encoder.h" lastModified="14bec16e84a">
+      </source>
+      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14bea51a473">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\display.h" lastModified="14bd167ef14">
+      <source file="..\..\..\encoder.c" lastModified="14bea51a477">
+         <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
+         <include file="..\..\..\encoder.h"/>
       </source>
-      <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14bdbcb1c2e">
+      <source file="..\..\..\display.h" lastModified="14bed752f50">
       </source>
-      <source file="..\..\..\display.c" lastModified="14be815066f">
+      <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14bea51ac37">
+      </source>
+      <source file="..\..\..\display.c" lastModified="14bec1de200">
          <include file="..\..\..\hd44780.h"/>
          <include file="..\..\..\display.h"/>
       </source>
-      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14bdbcb1c2c">
+      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14bea51ac35">
       </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14bdbcb1455">
+      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14bea51a460">
       </source>
-      <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14bdbcb1446">
+      <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14bea51a46e">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\hd44780.h" lastModified="14be8253562">
+      <source file="..\..\..\hd44780.h" lastModified="14bec16e86a">
       </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bdbcb1c23">
+      <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bea51ac2f">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bdbcb1450">
+      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bea51a45d">
       </source>
-      <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14bdde78602">
+      <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14bea51a46c">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
+      </source>
+      <source file="..\..\..\hd44780.c" lastModified="14bed7c3200">
+         <include file="..\..\..\hd44780.h"/>
+         <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
+         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
       </source>
    </includePath>
 </dependencies>

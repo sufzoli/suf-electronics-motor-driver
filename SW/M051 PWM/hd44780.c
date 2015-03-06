@@ -27,7 +27,7 @@ void HD44780_Write(unsigned char rs_mode, unsigned char data)
 
 void HD44780_Reset()
 {
-	HD44780_PIN_RS = rs_mode;
+	HD44780_PIN_RS = HD44780_RS_COMMAND;
 	HD44780_PIN_E = HD44780_E_ENABLE;
 
     HD44780_PIN_D7 = 0;
@@ -77,7 +77,7 @@ void HD44780_DisplayString(const char* pcString)
     }
 }
 
-void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, unsigned char len)
+void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, unsigned char len, unsigned char dp)
 {
     unsigned char xpos;
     xpos = x;
@@ -91,6 +91,13 @@ void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, uns
     {
     	while(n != 0)
     	{
+        	if(x-xpos == dp && dp != 0)
+        	{
+        		HD44780_LocationSet(xpos, y);
+            	SYS_SysTickDelay(HD44780_EN_DELAY);
+        		HD44780_Write(HD44780_RS_DATA, '.');
+               	xpos--;
+        	}
     		HD44780_LocationSet(xpos, y);
         	SYS_SysTickDelay(HD44780_EN_DELAY);
     		HD44780_Write(HD44780_RS_DATA, (n % 10) + '0');

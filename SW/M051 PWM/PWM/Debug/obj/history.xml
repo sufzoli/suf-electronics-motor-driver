@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_core -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\MINI51 PWM">
-      <target file="hd44780.o" lastModified="14be827c11f">
-         <source file="..\..\..\hd44780.c" lastModified="14be86bfb1a"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib">
+      <target file="hd44780.o" lastModified="14bed7c33bf">
+         <source file="..\..\..\hd44780.c" lastModified="14bed7c3200"/>
       </target>
-      <target file="encoder.o" lastModified="14be8d2a83e">
-         <source file="..\..\..\encoder.c" lastModified="14be8d2a454"/>
+      <target file="encoder.o" lastModified="14beb9f43da">
+         <source file="..\..\..\encoder.c" lastModified="14bea51a477"/>
       </target>
-      <target file="display.o" lastModified="14be82537b6">
-         <source file="..\..\..\display.c" lastModified="14be815066f"/>
+      <target file="display.o" lastModified="14bed75316e">
+         <source file="..\..\..\display.c" lastModified="14bec1de200"/>
       </target>
-      <target file="startup_M051Series.o" lastModified="14be6ab862a">
-         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bdbcb1450"/>
+      <target file="startup_M051Series.o" lastModified="14beb9f42c9">
+         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bea51a45d"/>
       </target>
-      <target file="main.o" lastModified="14be8d2a7e3">
-         <source file="..\..\..\main.c" lastModified="14be8d2a42f"/>
+      <target file="main.o" lastModified="14bed96ed02">
+         <source file="..\..\..\main.c" lastModified="14bed96ea96"/>
       </target>
-      <target file="system_M051Series.o" lastModified="14be6ab8813">
-         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bdbcb1453"/>
+      <target file="system_M051Series.o" lastModified="14beb9f4523">
+         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bea51a45f"/>
       </target>
    </processor>
 </history>
