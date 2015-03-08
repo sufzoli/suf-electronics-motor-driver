@@ -89,7 +89,7 @@ void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, uns
     }
     else
     {
-    	while(n != 0)
+    	while(n != 0 || (dp != 0 && xpos + dp + 1  > x))
     	{
         	if(x-xpos == dp && dp != 0)
         	{
@@ -100,8 +100,15 @@ void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, uns
         	}
     		HD44780_LocationSet(xpos, y);
         	SYS_SysTickDelay(HD44780_EN_DELAY);
-    		HD44780_Write(HD44780_RS_DATA, (n % 10) + '0');
-        	n /= 10;
+        	if(n != 0)
+        	{
+				HD44780_Write(HD44780_RS_DATA, (n % 10) + '0');
+				n /= 10;
+        	}
+        	else
+        	{
+        		HD44780_Write(HD44780_RS_DATA, '0');
+        	}
         	xpos--;
     	}
     	while(x-xpos < len)

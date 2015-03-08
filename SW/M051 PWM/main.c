@@ -8,7 +8,7 @@
  * P0.3 - Rotary Encoder B (37)
  *
  * P2.0 - Motor Drive PWM (19)
- * P2.1 - Motor Rotation Measure (20) - PWM Capture
+ *
  * P2.2 - Software Control Signal Measure (22) - PWM Capture
  *
  *
@@ -18,6 +18,8 @@
  * P3.3 - LCD D7 (9)
  * P3.4 - LCD E (10)
  * P3.5 - LCD RS (11)
+ *
+ * P4.0 - Motor Rotation Measure (20) - TMR2 Capture
  *
  * P4.4 - I2C SCL (28)
  * P4.5 - I2C SDA (29)
@@ -31,6 +33,7 @@
 #include "sys.h"
 #include "pwm.h"
 #include "gpio.h"
+#include "timer.h"
 
 #include "display.h"
 
@@ -75,9 +78,9 @@ void SYS_Init(void)
     SYSCLK->CLKSEL0 = SYSCLK_CLKSEL0_STCLK_HCLK_DIV2 | SYSCLK_CLKSEL0_HCLK_PLL;
 
     /* Enable IP clock */
-    SYSCLK->APBCLK = SYSCLK_APBCLK_PWM01_EN_Msk;
+    SYSCLK->APBCLK = SYSCLK_APBCLK_PWM01_EN_Msk | SYSCLK_APBCLK_PWM23_EN_Msk | SYSCLK_APBCLK_TMR2_EN_Msk;
     /* IP clock source */
-    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_PWM01_HCLK;
+    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_PWM01_HCLK | SYSCLK_CLKSEL1_PWM23_HCLK | SYSCLK_CLKSEL1_TMR2_HCLK;
     /* IP clock source */
     // SYSCLK->CLKSEL2 = SYSCLK_CLKSEL2_PWM01_XTAL|SYSCLK_CLKSEL2_PWM23_XTAL;
 
@@ -112,6 +115,8 @@ void SYS_Init(void)
     GPIO_EnableInt(P0, 3, GPIO_INT_RISING);
 
     NVIC_EnableIRQ(GPIO_P0P1_IRQn);
+    NVIC_EnableIRQ(TMR2_IRQn);
+    NVIC_EnableIRQ(PWMA_IRQn);
 
 
 /*---------------------------------------------------------------------------------------------------------*/
@@ -121,13 +126,84 @@ void SYS_Init(void)
     // SYS->P3_MFP = SYS_MFP_P30_RXD0 | SYS_MFP_P31_TXD0;
     /* Set P2 multi-function pins for PWMB Channel0~3  */
     SYS->P2_MFP = SYS_MFP_P20_PWM0;
+    SYS->P4_MFP = SYS_MFP_P40_T2EX;
     /* Lock protected registers */
     SYS_LockReg();
 }
 
+
 const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
 static unsigned char ENCODER_PREV_STATE;
 ENCODER_Callback_Type ENCODER_USER_Callback;
+//static unsigned long rpm_count;
+static unsigned long prevccr; // Previous value of the capture register
+static unsigned long counter;
+static unsigned long count_result;
+unsigned char result_ready;
+unsigned char duty_changed;
+unsigned int duty_pwm;
+
+void TMR2_IRQHandler(void)
+{
+	unsigned long ccrvalue;
+	if(_TIMER_GET_CAP_INT_FLAG(TIMER2))
+	{
+		// Clear TIMER2 Capture Interrupt Flag
+		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+//		rpm_count =  TIMER2->TCAP;
+
+		// store the actual value of the counter
+		count_result = counter;
+		// clear master counter
+		counter = 0;
+		// get the capture data
+		ccrvalue = TIMER2->TCAP;
+		// process data
+		//
+		//          || <--------------------------------------------------- count_result ------------------------------------------------> ||
+		//  prevccr || 0x10000 - prevccr | 0x10000 overflow | 0x10000 overflow | ..... | 0x10000 overflow | 0x10000 overflow | ccr ||
+		count_result += ccrvalue - prevccr;
+		// store current ccr for the next count
+		prevccr = ccrvalue;
+		// indicate that we have a valid count result
+		result_ready = 1;
+	}
+	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
+	{
+		// Clear TIMER2 Compare Interrupt Flag
+		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+		if(counter < 0xFEFFFFFF)
+		{
+			counter += 0x10000;
+		}
+		/*
+		if(counter > 0x2800000)
+		{
+			oor = 1;
+		}
+		*/
+	}
+}
+
+void PWMA_IRQHandler(void)
+{
+	unsigned long disp_count;
+	unsigned int disp_duty;
+	_PWM_CLEAR_TIMER_PERIOD_INT_FLAG(PWMA,PWM_CH3);
+	if(result_ready)
+	{
+		disp_count = 3000000000 / count_result;
+		// disp_count = count_result;
+		result_ready = 0;
+		DISPLAY_RPM(disp_count);
+	}
+	if(duty_changed)
+	{
+		disp_duty = duty_pwm;
+		duty_changed = 0;
+		DISPLAY_DUTY(disp_duty);
+	}
+}
 
 void GPIOP0P1_IRQHandler(void)
 {
@@ -157,6 +233,17 @@ void ENCODER_Init(ENCODER_Callback_Type CallBackFunc)
 
 void ENCODER_Callback(signed char cDirection)
 {
+
+	signed long temp;
+	temp = duty_pwm;
+	temp += cDirection;
+	if(temp >= 0 && temp <= 250)
+	{
+		PWMA->CMR0 = temp;
+		duty_pwm = temp;
+		duty_changed = 1;
+	}
+/*
 	signed long temp;
 	temp = PWMA->CMR0;
 	temp += cDirection;
@@ -165,6 +252,7 @@ void ENCODER_Callback(signed char cDirection)
 		PWMA->CMR0 = temp;
 		DISPLAY_DUTY(PWMA->CMR0);
 	}
+*/
 }
 
 
@@ -179,7 +267,9 @@ int main(void)
 //	HD44780_Init();
 //	HD44780_DisplayString("Hello World!");
 	DISPLAY_Init();
-	DISPLAY_RPM(10000);
+	// DISPLAY_RPM(10000);
+
+	// ------ PWM -------
 
     /*Set Pwm mode*/
     _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH0);
@@ -192,6 +282,8 @@ int main(void)
 
     /*Set PWM Timer duty*/
     PWMA->CMR0 = 125;
+    duty_pwm = 125;
+    duty_changed = 1;
 
     /*Set PWM Timer period*/
     PWMA->CNR0 = 250;
@@ -208,9 +300,55 @@ int main(void)
     /* Enable PWM Timer */
     _PWM_ENABLE_TIMER(PWMA, PWM_CH0);
 
-    DISPLAY_DUTY(PWMA->CMR0);
+    // ---- PWM Timer used as sisplay update
+
+    /*Set Pwm mode*/
+    _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH3);
+
+    /*Set PWM Timer clock prescaler*/
+    _PWM_SET_TIMER_PRESCALE(PWMA,PWM_CH3, 255); // Divided by 256
+
+    /*Set PWM Timer clock divider select*/
+    _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH3,PWM_CSR_DIV16);
+
+    /*Set PWM Timer duty*/
+    PWMA->CMR3 = 1250;
+
+    /*Set PWM Timer period*/
+    PWMA->CNR3 = 2500;
+
+    /* Enable PWM Output pin */
+//    _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH0);
+
+    /* Enable Timer period Interrupt */
+    _PWM_ENABLE_TIMER_PERIOD_INT(PWMA, PWM_CH3);
+
+    /* Enable PWMA NVIC */
+    // NVIC_EnableIRQ(PWMA_IRQn);
+
+    /* Enable PWM Timer */
+    _PWM_ENABLE_TIMER(PWMA, PWM_CH3);
+
+
+    // -------- Timer (Rotational Speed Measurement)  ------
+
+    _TIMER_RESET(TIMER2);
+
+    // Enable TIMER1 counter input and capture function
+    TIMER2->TCMPR = 0xFFFFFF;
+    TIMER2->TCSR = TIMER_TCSR_CEN_Msk | TIMER_TCSR_IE_Msk | TIMER_TCSR_MODE_CONTINUOUS | TIMER_TCSR_TDR_EN_Msk | TIMER_TCSR_PRESCALE(1);
+    TIMER2->TEXCON = TIMER_TEXCON_MODE_CAP | TIMER_TEXCON_TEXIEN_ENABLE | TIMER_TEXCON_TEX_EDGE_RISING | TIMER_TEXCON_TEXEN_ENABLE;
+
+    // DISPLAY_DUTY(PWMA->CMR0);
 
     while(1)
     {
+    	/*
+    	if(result_ready)
+    	{
+    		DISPLAY_RPM(count_result);
+    	}
+    	SYS_SysTickDelay(200000);
+    	*/
     }
 }
