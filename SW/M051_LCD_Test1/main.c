@@ -103,7 +103,6 @@ void SYS_Init(void)
 int main(void)
 {
 	HD44780_Init();
-	HD44780_CLS();
 	SYS_SysTickDelay(2000000);
 	HD44780_DisplayString("Hello World!");
 

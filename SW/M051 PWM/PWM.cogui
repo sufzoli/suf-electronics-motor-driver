@@ -31,7 +31,7 @@
 <input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="1884" subPageIndex="2" verticalPosition="0"/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/main.c" title="main.c" tooltip="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/main.c" title="main.c" tooltip="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6268" selectionTopPixel="0"/>
 </editor>
@@ -471,35 +471,18 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-fc002\Software\Development\main.c">
+<persistable uri="file:/C:/DATA/Source%20Control/SUF-Github/Electronics/suf-electronics-fc002/Software/Development/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-fc002\Software\Release\main.c">
+<persistable uri="file:/C:/DATA/Source%20Control/SUF-Github/Electronics/suf-electronics-fc002/Software/Release/main.c"/>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.c" tooltip="PWM/hd44780.c">
 <persistable path="/PWM/hd44780.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.h" tooltip="PWM/hd44780.h">
-<persistable path="/PWM/hd44780.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.h" tooltip="PWM/display.h">
-<persistable path="/PWM/display.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.c" tooltip="PWM/display.c">
-<persistable path="/PWM/display.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_M051Series.c" tooltip="PWM/cmsis_boot/startup/startup_M051Series.c">
-<persistable path="/PWM/cmsis_boot/startup/startup_M051Series.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="M051Series.h" tooltip="PWM/cmsis_boot/M051Series.h">
-<persistable path="/PWM/cmsis_boot/M051Series.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PWM.h" tooltip="PWM/cmsis_lib/inc/PWM.h">
-<persistable path="/PWM/cmsis_lib/inc/PWM.h"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-fc002\Software\Development\main.c">
-<persistable uri="file:/C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-fc002/Software/Development/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TIMER.h" tooltip="PWM/cmsis_lib/inc/TIMER.h">
-<persistable path="/PWM/cmsis_lib/inc/TIMER.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm0.h" tooltip="PWM/cmsis_core/core_cm0.h">
-<persistable path="/PWM/cmsis_core/core_cm0.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GPIO.h" tooltip="PWM/cmsis_lib/inc/GPIO.h">
 <persistable path="/PWM/cmsis_lib/inc/GPIO.h"/>
@@ -510,8 +493,26 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="PWM/encoder.c">
 <persistable path="/PWM/encoder.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.h" tooltip="PWM/display.h">
+<persistable path="/PWM/display.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.c" tooltip="PWM/display.c">
+<persistable path="/PWM/display.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.h" tooltip="PWM/hd44780.h">
+<persistable path="/PWM/hd44780.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="M051Series.h" tooltip="PWM/cmsis_boot/M051Series.h">
+<persistable path="/PWM/cmsis_boot/M051Series.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SYS.h" tooltip="PWM/cmsis_lib/inc/SYS.h">
 <persistable path="/PWM/cmsis_lib/inc/SYS.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="PWM/main.c">
+<persistable path="/PWM/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.h" tooltip="C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\NUC120(AN)_Test\CoX_Driver\LCD_Character_HD44780\hd44780.h">
+<persistable uri="file:/C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/NUC120(AN)_Test/CoX_Driver/LCD_Character_HD44780/hd44780.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SYS.h" tooltip="PWM/cmsis_lib/inc/SYS.h">
 <persistable path="/PWM/cmsis_lib/inc/SYS.h"/>

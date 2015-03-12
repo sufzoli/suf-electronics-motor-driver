@@ -18,6 +18,7 @@
 
 #define HD44780_EN_DELAY	100
 #define HD44780_INIT_DELAY	10000
+#define HD44780_QUEUE_LEN	32
 
 #define HD44780_RS_COMMAND      0
 #define HD44780_RS_DATA         1
