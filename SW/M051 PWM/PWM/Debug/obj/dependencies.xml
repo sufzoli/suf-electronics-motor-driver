@@ -23,6 +23,16 @@
       <source file="..\..\..\cmsis_lib\inc\TIMER.h" lastModified="14bf0f3210f">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
+      <source file="..\..\..\main.c" lastModified="14bfb4e800e">
+         <include file="..\..\..\cmsis_boot\M051Series.h"/>
+         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
+         <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
+         <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
+         <include file="..\..\..\cmsis_lib\inc\TIMER.h"/>
+         <include file="..\..\..\display.h"/>
+         <include file="..\..\..\hd44780.h"/>
+         <include file="..\..\..\encoder.h"/>
+      </source>
       <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14bea51ac37">
       </source>
       <source file="..\..\..\display.c" lastModified="14bfb4c3af8">
@@ -36,7 +46,7 @@
       <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14bea51a46e">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\hd44780.h" lastModified="14bec16e86a">
+      <source file="..\..\..\hd44780.h" lastModified="14c0a8bd060">
       </source>
       <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bea51ac2f">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
@@ -46,11 +56,6 @@
       </source>
       <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14bea51a46c">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
-      </source>
-      <source file="..\..\..\hd44780.c" lastModified="14bf63de0a9">
-         <include file="..\..\..\hd44780.h"/>
-         <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
-         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
       </source>
    </includePath>
 </dependencies>

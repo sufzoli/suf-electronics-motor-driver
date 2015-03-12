@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=Test1.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Test1 -TC:\CooCox\CoIDE\configuration\ProgramData\Test1/arm-gcc-link.ld -g">
+      <target file="Test1.elf" lastModified="14c0c63ff8d">
+         <source file="..\obj\startup_M051Series.o" lastModified="14c0c57b87d"/>
+         <source file="..\obj\main.o" lastModified="14c0c63fd8a"/>
+         <source file="..\obj\hd44780.o" lastModified="14c0c58ee4b"/>
+         <source file="..\obj\system_M051Series.o" lastModified="14c0c57bab2"/>
+      </target>
+   </processor>
+</history>

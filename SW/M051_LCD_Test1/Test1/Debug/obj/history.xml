@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_LCD_Test1\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_LCD_Test1\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_LCD_Test1\cmsis_core -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_LCD_Test1\cmsis_lib -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_LCD_Test1">
+      <target file="hd44780.o" lastModified="14c0c58ee4b">
+         <source file="..\..\..\hd44780.c" lastModified="14c0c58ec9a"/>
+      </target>
+      <target file="startup_M051Series.o" lastModified="14c0c57b87d">
+         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14c0a90e21b"/>
+      </target>
+      <target file="main.o" lastModified="14c0c63fd8a">
+         <source file="..\..\..\main.c" lastModified="14c0c63fbe9"/>
+      </target>
+      <target file="system_M051Series.o" lastModified="14c0c57bab2">
+         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14c0a90e21e"/>
+      </target>
+   </processor>
+</history>
