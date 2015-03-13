@@ -125,8 +125,10 @@ void SYS_Init(void)
     /* Set P3 multi-function pins for UART0 RXD and TXD  */
     // SYS->P3_MFP = SYS_MFP_P30_RXD0 | SYS_MFP_P31_TXD0;
     /* Set P2 multi-function pins for PWMB Channel0~3  */
-    SYS->P2_MFP = SYS_MFP_P20_PWM0;
+    SYS->P2_MFP = SYS_MFP_P20_PWM0 | SYS_MFP_P22_PWM2; // P2.2 teszt jel, késõbb leszedendõ
     SYS->P4_MFP = SYS_MFP_P40_T2EX;
+
+
     /* Lock protected registers */
     SYS_LockReg();
 }
@@ -142,6 +144,44 @@ static unsigned long count_result;
 unsigned char result_ready;
 unsigned char duty_changed;
 unsigned int duty_pwm;
+
+// RPM Counter
+static unsigned long count_result_set[12];
+static unsigned int count_pointer;
+static unsigned char countset_ready;
+static unsigned long countset_result;
+
+void RPM_Clear()
+{
+	int i;
+	countset_ready = 0;
+	for(i=0; i<12; i++)
+	{
+		count_result_set[i] = 0;
+	}
+	count_pointer = 0;
+	countset_result = 0;
+}
+
+void RPM_Add(unsigned long value)
+{
+	countset_result += value;
+	count_result_set[count_pointer] = value;
+	count_pointer = count_pointer == 11 ? 0 : count_pointer + 1;
+	if(countset_ready)
+	{
+		countset_result -= count_result_set[count_pointer];
+		result_ready = 1;
+	}
+	else
+	{
+		if(count_pointer == 0)
+		{
+			countset_ready = 1;
+		}
+	}
+}
+
 
 void TMR2_IRQHandler(void)
 {
@@ -166,15 +206,20 @@ void TMR2_IRQHandler(void)
 		// store current ccr for the next count
 		prevccr = ccrvalue;
 		// indicate that we have a valid count result
-		result_ready = 1;
+		RPM_Add(count_result);
+		// result_ready = 1;
 	}
 	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
 	{
 		// Clear TIMER2 Compare Interrupt Flag
 		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+
+		// Itt kellene még kezelni az underflow-t
+		// ha bekövetkezik, meghívni az RPM_Clear-t
+
 		if(counter < 0xFEFFFFFF)
 		{
-			counter += 0x10000;
+			counter += 0x1000000;
 		}
 		/*
 		if(counter > 0x2800000)
@@ -192,8 +237,8 @@ void PWMA_IRQHandler(void)
 	_PWM_CLEAR_TIMER_PERIOD_INT_FLAG(PWMA,PWM_CH3);
 	if(result_ready)
 	{
-		disp_count = 3000000000 / count_result;
-		// disp_count = count_result;
+		// disp_count = 3000000000 / countset_result;
+		disp_count = count_result;
 		result_ready = 0;
 		DISPLAY_RPM(disp_count);
 	}
@@ -259,6 +304,7 @@ void ENCODER_Callback(signed char cDirection)
 int main(void)
 {
 	SYS_Init();
+	DISPLAY_Init();
 
 	ENCODER_Init(ENCODER_Callback);
 
@@ -266,7 +312,6 @@ int main(void)
 
 //	HD44780_Init();
 //	HD44780_DisplayString("Hello World!");
-	DISPLAY_Init();
 	// DISPLAY_RPM(10000);
 
 	// ------ PWM -------
@@ -300,7 +345,7 @@ int main(void)
     /* Enable PWM Timer */
     _PWM_ENABLE_TIMER(PWMA, PWM_CH0);
 
-    // ---- PWM Timer used as sisplay update
+    // ---- PWM Timer used as display update
 
     /*Set Pwm mode*/
     _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH3);
@@ -329,6 +374,28 @@ int main(void)
     /* Enable PWM Timer */
     _PWM_ENABLE_TIMER(PWMA, PWM_CH3);
 
+
+
+    // PWM timer used for test signal
+
+    //	Set Pwm mode
+    _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH2);
+    // Set PWM Timer clock prescaler
+    _PWM_SET_TIMER_PRESCALE(PWMA,PWM_CH2, 9); // Divided by 10
+    // Set PWM Timer clock divider select
+    _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH2,PWM_CSR_DIV1);
+    // Set PWM Timer duty
+    PWMA->CMR2 = 500;
+    // Set PWM Timer period
+    PWMA->CNR2 = 1000;
+    // Enable PWM Output pin
+    _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH2);
+    // Enable Timer period Interrupt
+    // _PWM_ENABLE_TIMER_PERIOD_INT(PWMA, PWM_CH3);
+    // Enable PWMA NVIC
+    // NVIC_EnableIRQ(PWMA_IRQn);
+    // Enable PWM Timer
+    _PWM_ENABLE_TIMER(PWMA, PWM_CH2);
 
     // -------- Timer (Rotational Speed Measurement)  ------
 

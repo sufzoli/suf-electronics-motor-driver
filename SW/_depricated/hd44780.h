@@ -16,9 +16,8 @@
 #define HD44780_FUNC_LINES	HD44780_FUNC_LINES_2
 #define HD44780_FUNC_FONT	HD44780_FUNC_FONT_5x8
 
-#define HD44780_EN_DELAY	100
+#define HD44780_EN_DELAY	2000
 #define HD44780_INIT_DELAY	20000
-#define HD44780_QUEUE_LEN	32
 
 #define HD44780_RS_COMMAND      0
 #define HD44780_RS_DATA         1
@@ -65,7 +64,6 @@
 #define HD44780_SHIFT_LEFT      		0x00      /*!< Shift to the left  */
 
 extern void HD44780_Init();
-extern void HD44780_CLS();
 extern void HD44780_DisplayString(const char* pcString);
 extern void HD44780_LocationSet(unsigned char x, unsigned char y);
 extern void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, unsigned char len, unsigned char dp);
