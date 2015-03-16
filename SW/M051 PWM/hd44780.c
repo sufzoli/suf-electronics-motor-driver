@@ -134,6 +134,7 @@ void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, uns
     if (n == 0)
     {
         HD44780_Write(HD44780_RS_DATA,'0');
+        xpos--;
     }
     else
     {
@@ -153,14 +154,23 @@ void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, uns
         	{
         		HD44780_Write(HD44780_RS_DATA, '0');
         	}
+
+        	if((x-xpos) > len)
+        	{
+        		xpos = x;
+        		HD44780_LocationSet(xpos, y);
+        		HD44780_Write(HD44780_RS_DATA, ' ');
+        		break;
+        	}
+
         	xpos--;
     	}
-    	while(x-xpos < len)
-    	{
-    		HD44780_Write(HD44780_RS_DATA, ' ');
-    		xpos--;
-    	}
     }
+	while((x-xpos) <= len)
+	{
+		HD44780_Write(HD44780_RS_DATA, ' ');
+		xpos--;
+	}
     HD44780_Write(HD44780_RS_COMMAND, HD44780_CMD_ENTRY_MODE | HD44780_ENTRY_ADDR_INC);
 }
 

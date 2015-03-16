@@ -114,6 +114,11 @@ void SYS_Init(void)
     GPIO_EnableInt(P0, 2, GPIO_INT_RISING);
     GPIO_EnableInt(P0, 3, GPIO_INT_RISING);
 
+    NVIC_SetPriority(TMR2_IRQn,0);
+    NVIC_SetPriority(SysTick_IRQn,1);
+    NVIC_SetPriority(GPIO_P0P1_IRQn,2);
+    NVIC_SetPriority(PWMA_IRQn,3);
+
     NVIC_EnableIRQ(GPIO_P0P1_IRQn);
     NVIC_EnableIRQ(TMR2_IRQn);
     NVIC_EnableIRQ(PWMA_IRQn);
@@ -138,96 +143,111 @@ const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
 static unsigned char ENCODER_PREV_STATE;
 ENCODER_Callback_Type ENCODER_USER_Callback;
 //static unsigned long rpm_count;
-static unsigned long prevccr; // Previous value of the capture register
-static unsigned long counter;
-static unsigned long count_result;
-unsigned char result_ready;
+volatile static unsigned long prevccr; // Previous value of the capture register
+volatile static unsigned long counter;
+volatile static unsigned long count_result;
+// unsigned char result_ready;
 unsigned char duty_changed;
 unsigned int duty_pwm;
 
 // RPM Counter
-static unsigned long count_result_set[12];
-static unsigned int count_pointer;
-static unsigned char countset_ready;
-static unsigned long countset_result;
+volatile static unsigned int count_pointer;
+volatile static unsigned char countset_ready;
+volatile static unsigned long countset_result;
+volatile static unsigned long count_result_set[13];
+
+// Interrupt interlock error handling
+volatile static unsigned char race_error;
 
 void RPM_Clear()
 {
 	int i;
 	countset_ready = 0;
-	for(i=0; i<12; i++)
+	count_pointer = 0;
+	countset_result = 0;
+	for(i=0; i<13; i++)
 	{
 		count_result_set[i] = 0;
 	}
-	count_pointer = 0;
-	countset_result = 0;
 }
 
 void RPM_Add(unsigned long value)
 {
 	countset_result += value;
 	count_result_set[count_pointer] = value;
-	count_pointer = count_pointer == 11 ? 0 : count_pointer + 1;
-	if(countset_ready)
+	count_pointer = ((count_pointer == 12) ? 0 : (count_pointer + 1));
+	countset_result -= count_result_set[count_pointer];
+	if(count_pointer == 0)
 	{
-		countset_result -= count_result_set[count_pointer];
-		result_ready = 1;
-	}
-	else
-	{
-		if(count_pointer == 0)
-		{
-			countset_ready = 1;
-		}
+		countset_ready = 1;
 	}
 }
 
 
 void TMR2_IRQHandler(void)
 {
+	int i;
 	unsigned long ccrvalue;
+	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
+	{
+		// countset_result++;
+		// Itt kellene még kezelni az underflow-t
+		// ha bekövetkezik, meghívni az RPM_Clear-t
+
+		if(counter < 0x7EFFFFFF && race_error == 0)
+		{
+			counter += 0x1000000;
+		}
+		race_error = 0;
+		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+
+
+		if(counter > 0x2000000)
+		{
+			RPM_Clear();
+			counter = 0;
+		}
+	}
+
 	if(_TIMER_GET_CAP_INT_FLAG(TIMER2))
 	{
-		// Clear TIMER2 Capture Interrupt Flag
-		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
-//		rpm_count =  TIMER2->TCAP;
+		// get the capture data
+		ccrvalue = TIMER2->TCAP & 0xFFFFFF;
 
+		// if there is a race condition between the two function of the
+		// interrupt handler
+		// when a compare and the capture event happens almost the same time
+		// and the capture event wins the counter value kept at 0 (the compare event increase it)
+		// the previous value is higher because the counter reset already happened.
+		if(prevccr > ccrvalue && counter == 0)
+		{
+			counter += 0x1000000;
+			race_error = 1;
+		}
 		// store the actual value of the counter
 		count_result = counter;
 		// clear master counter
 		counter = 0;
-		// get the capture data
-		ccrvalue = TIMER2->TCAP;
+
 		// process data
 		//
 		//          || <--------------------------------------------------- count_result ------------------------------------------------> ||
 		//  prevccr || 0x10000 - prevccr | 0x10000 overflow | 0x10000 overflow | ..... | 0x10000 overflow | 0x10000 overflow | ccr ||
-		count_result += ccrvalue - prevccr;
+		count_result += ccrvalue;
+		count_result -=	prevccr;
 		// store current ccr for the next count
 		prevccr = ccrvalue;
-		// indicate that we have a valid count result
+
+		if(count_result > 0x1000000)
+		{
+			count_result -= 0x1000000;
+		}
+		// countset_result++;
 		RPM_Add(count_result);
-		// result_ready = 1;
+		// Clear TIMER2 Capture Interrupt Flag
+		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
 	}
-	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
-	{
-		// Clear TIMER2 Compare Interrupt Flag
-		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
 
-		// Itt kellene még kezelni az underflow-t
-		// ha bekövetkezik, meghívni az RPM_Clear-t
-
-		if(counter < 0xFEFFFFFF)
-		{
-			counter += 0x1000000;
-		}
-		/*
-		if(counter > 0x2800000)
-		{
-			oor = 1;
-		}
-		*/
-	}
 }
 
 void PWMA_IRQHandler(void)
@@ -235,19 +255,24 @@ void PWMA_IRQHandler(void)
 	unsigned long disp_count;
 	unsigned int disp_duty;
 	_PWM_CLEAR_TIMER_PERIOD_INT_FLAG(PWMA,PWM_CH3);
-	if(result_ready)
+	if(countset_ready && (countset_result > 0))
 	{
-		// disp_count = 3000000000 / countset_result;
-		disp_count = count_result;
-		result_ready = 0;
-		DISPLAY_RPM(disp_count);
+		disp_count = 3000000000 / countset_result;
+//		disp_count = countset_result;
 	}
+	else
+	{
+		disp_count = 0;
+	}
+	DISPLAY_RPM(disp_count);
+
 	if(duty_changed)
 	{
 		disp_duty = duty_pwm;
 		duty_changed = 0;
 		DISPLAY_DUTY(disp_duty);
 	}
+
 }
 
 void GPIOP0P1_IRQHandler(void)
@@ -282,22 +307,12 @@ void ENCODER_Callback(signed char cDirection)
 	signed long temp;
 	temp = duty_pwm;
 	temp += cDirection;
-	if(temp >= 0 && temp <= 250)
+	if(temp >= 0 && temp < 250)
 	{
 		PWMA->CMR0 = temp;
 		duty_pwm = temp;
 		duty_changed = 1;
 	}
-/*
-	signed long temp;
-	temp = PWMA->CMR0;
-	temp += cDirection;
-	if(temp >= 0 && temp <= 250)
-	{
-		PWMA->CMR0 = temp;
-		DISPLAY_DUTY(PWMA->CMR0);
-	}
-*/
 }
 
 
@@ -306,13 +321,10 @@ int main(void)
 	SYS_Init();
 	DISPLAY_Init();
 
+	counter = 0;
+	RPM_Clear();
+
 	ENCODER_Init(ENCODER_Callback);
-
-//	DISPLAY_Init();
-
-//	HD44780_Init();
-//	HD44780_DisplayString("Hello World!");
-	// DISPLAY_RPM(10000);
 
 	// ------ PWM -------
 
@@ -326,12 +338,12 @@ int main(void)
     _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH0,PWM_CSR_DIV1);
 
     /*Set PWM Timer duty*/
-    PWMA->CMR0 = 125;
-    duty_pwm = 125;
+    PWMA->CMR0 = 0;
+    duty_pwm = 0;
     duty_changed = 1;
 
     /*Set PWM Timer period*/
-    PWMA->CNR0 = 250;
+    PWMA->CNR0 = 249;
 
     /* Enable PWM Output pin */
     _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH0);
@@ -385,9 +397,9 @@ int main(void)
     // Set PWM Timer clock divider select
     _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH2,PWM_CSR_DIV1);
     // Set PWM Timer duty
-    PWMA->CMR2 = 500;
+    PWMA->CMR2 = 499;
     // Set PWM Timer period
-    PWMA->CNR2 = 1000;
+    PWMA->CNR2 = 999;
     // Enable PWM Output pin
     _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH2);
     // Enable Timer period Interrupt
@@ -402,20 +414,16 @@ int main(void)
     _TIMER_RESET(TIMER2);
 
     // Enable TIMER1 counter input and capture function
-    TIMER2->TCMPR = 0xFFFFFF;
-    TIMER2->TCSR = TIMER_TCSR_CEN_Msk | TIMER_TCSR_IE_Msk | TIMER_TCSR_MODE_CONTINUOUS | TIMER_TCSR_TDR_EN_Msk | TIMER_TCSR_PRESCALE(1);
+//    TIMER2->TCMPR = 0xFFFFFF;
+    TIMER2->TCMPR = 0;
+    TIMER2->TCSR = TIMER_TCSR_CEN_ENABLE | TIMER_TCSR_IE_ENABLE | TIMER_TCSR_MODE_PERIODIC | TIMER_TCSR_PRESCALE(1);
+//    TIMER2->TCSR = TIMER_TCSR_CEN_Msk | TIMER_TCSR_IE_Msk | TIMER_TCSR_MODE_PERIODIC | TIMER_TCSR_TDR_EN_Msk | TIMER_TCSR_PRESCALE(1);
     TIMER2->TEXCON = TIMER_TEXCON_MODE_CAP | TIMER_TEXCON_TEXIEN_ENABLE | TIMER_TEXCON_TEX_EDGE_RISING | TIMER_TEXCON_TEXEN_ENABLE;
+
+    _TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+    _TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
 
     // DISPLAY_DUTY(PWMA->CMR0);
 
-    while(1)
-    {
-    	/*
-    	if(result_ready)
-    	{
-    		DISPLAY_RPM(count_result);
-    	}
-    	SYS_SysTickDelay(200000);
-    	*/
-    }
+    while(1) {}
 }

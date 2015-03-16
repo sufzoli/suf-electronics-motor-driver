@@ -1,10 +1,10 @@
 Archive member included because of file (symbol)
 
-c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
-                              ..\obj\hd44780.o (__aeabi_uidiv)
-c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
-                              c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
-c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                              ..\obj\main.o (__aeabi_uidiv)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
                               ..\obj\system_M051Series.o (memcpy)
 
 Allocating common symbols
@@ -12,7 +12,7 @@ Common symbol       size              file
 
 duty_changed        0x1               ..\obj\main.o
 duty_pwm            0x4               ..\obj\main.o
-result_ready        0x1               ..\obj\main.o
+display_busy        0x1               ..\obj\display.o
 ENCODER_USER_Callback
                     0x4               ..\obj\main.o
 
@@ -26,9 +26,7 @@ Discarded input sections
  .text.PWM_ResetPwmController
                 0x00000000       0x58 ..\obj\main.o
  .text.PWM_GetTimerClockSource
-                0x00000000       0xa4 ..\obj\main.o
- .text.RPM_Clear
-                0x00000000       0x4c ..\obj\main.o
+                0x00000000       0x98 ..\obj\main.o
  .text          0x00000000        0x0 ..\obj\display.o
  .data          0x00000000        0x0 ..\obj\display.o
  .bss           0x00000000        0x0 ..\obj\display.o
@@ -42,17 +40,17 @@ Discarded input sections
                 0x00000000       0xb0 ..\obj\system_M051Series.o
  .text.SystemCoreClockUpdate
                 0x00000000       0x88 ..\obj\system_M051Series.o
- .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
- .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
- .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
- .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
- .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
- .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
- .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
- .text.memcpy   0x00000000       0x84 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
+ .text.memcpy   0x00000000       0x7c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00000000       0x30 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy-stub.o)
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
 
 Memory Configuration
 
@@ -65,7 +63,7 @@ Linker script and memory map
 
                 0x20001000                _eram = 0x20001000
 
-.text           0x00000000      0xde4
+.text           0x00000000     0x10c0
  *(.isr_vector)
  .isr_vector    0x00000000       0xc0 ..\obj\startup_M051Series.o
                 0x00000000                g_pfnVectors
@@ -105,87 +103,92 @@ Linker script and memory map
                 0x00000124                GPIOP2P3P4_IRQHandler
  .text.NVIC_EnableIRQ
                 0x0000012c       0x2c ..\obj\main.o
+ .text.NVIC_SetPriority
+                0x00000158       0xd4 ..\obj\main.o
  .text.SYS_WaitingForClockReady
-                0x00000158       0x38 ..\obj\main.o
+                0x0000022c       0x38 ..\obj\main.o
  .text.SYS_SysTickDelay
-                0x00000190       0x3c ..\obj\main.o
+                0x00000264       0x3c ..\obj\main.o
  .text.SYS_UnlockReg
-                0x000001cc       0x3c ..\obj\main.o
+                0x000002a0       0x3c ..\obj\main.o
  .text.SYS_LockReg
-                0x00000208       0x14 ..\obj\main.o
+                0x000002dc       0x14 ..\obj\main.o
  .text.GPIO_EnableInt
-                0x0000021c       0x40 ..\obj\main.o
+                0x000002f0       0x3c ..\obj\main.o
  .text.SYS_Init
-                0x0000025c      0x178 ..\obj\main.o
-                0x0000025c                SYS_Init
- .text.RPM_Add  0x000003d4       0x84 ..\obj\main.o
-                0x000003d4                RPM_Add
+                0x0000032c      0x19c ..\obj\main.o
+                0x0000032c                SYS_Init
+ .text.RPM_Clear
+                0x000004c8       0x4c ..\obj\main.o
+                0x000004c8                RPM_Clear
+ .text.RPM_Add  0x00000514       0x70 ..\obj\main.o
+                0x00000514                RPM_Add
  .text.TMR2_IRQHandler
-                0x00000458       0x90 ..\obj\main.o
-                0x00000458                TMR2_IRQHandler
+                0x00000584      0x104 ..\obj\main.o
+                0x00000584                TMR2_IRQHandler
  .text.PWMA_IRQHandler
-                0x000004e8       0x60 ..\obj\main.o
-                0x000004e8                PWMA_IRQHandler
+                0x00000688       0x78 ..\obj\main.o
+                0x00000688                PWMA_IRQHandler
  .text.GPIOP0P1_IRQHandler
-                0x00000548       0x88 ..\obj\main.o
-                0x00000548                GPIOP0P1_IRQHandler
+                0x00000700       0x88 ..\obj\main.o
+                0x00000700                GPIOP0P1_IRQHandler
  .text.ENCODER_Init
-                0x000005d0       0x48 ..\obj\main.o
-                0x000005d0                ENCODER_Init
+                0x00000788       0x48 ..\obj\main.o
+                0x00000788                ENCODER_Init
  .text.ENCODER_Callback
-                0x00000618       0x50 ..\obj\main.o
-                0x00000618                ENCODER_Callback
- .text.main     0x00000668      0x16c ..\obj\main.o
-                0x00000668                main
+                0x000007d0       0x50 ..\obj\main.o
+                0x000007d0                ENCODER_Callback
+ .text.main     0x00000820      0x184 ..\obj\main.o
+                0x00000820                main
  .text.DISPLAY_Init
-                0x000007d4       0x48 ..\obj\display.o
-                0x000007d4                DISPLAY_Init
+                0x000009a4       0x54 ..\obj\display.o
+                0x000009a4                DISPLAY_Init
  .text.DISPLAY_RPM
-                0x0000081c       0x20 ..\obj\display.o
-                0x0000081c                DISPLAY_RPM
+                0x000009f8       0x38 ..\obj\display.o
+                0x000009f8                DISPLAY_RPM
  .text.DISPLAY_DUTY
-                0x0000083c       0x28 ..\obj\display.o
-                0x0000083c                DISPLAY_DUTY
+                0x00000a30       0x40 ..\obj\display.o
+                0x00000a30                DISPLAY_DUTY
  .text.SYS_SysTickDelay
-                0x00000864       0x3c ..\obj\hd44780.o
+                0x00000a70       0x3c ..\obj\hd44780.o
  .text.HD44780_Pulse
-                0x000008a0       0x30 ..\obj\hd44780.o
-                0x000008a0                HD44780_Pulse
+                0x00000aac       0x30 ..\obj\hd44780.o
+                0x00000aac                HD44780_Pulse
  .text.HD44780_ClearPins
-                0x000008d0       0x44 ..\obj\hd44780.o
-                0x000008d0                HD44780_ClearPins
+                0x00000adc       0x44 ..\obj\hd44780.o
+                0x00000adc                HD44780_ClearPins
  .text.HD44780_Write
-                0x00000914       0xd4 ..\obj\hd44780.o
-                0x00000914                HD44780_Write
+                0x00000b20       0xd4 ..\obj\hd44780.o
+                0x00000b20                HD44780_Write
  .text.HD44780_CLS
-                0x000009e8       0x2c ..\obj\hd44780.o
-                0x000009e8                HD44780_CLS
+                0x00000bf4       0x2c ..\obj\hd44780.o
+                0x00000bf4                HD44780_CLS
  .text.HD44780_Init
-                0x00000a14       0x44 ..\obj\hd44780.o
-                0x00000a14                HD44780_Init
+                0x00000c20       0x44 ..\obj\hd44780.o
+                0x00000c20                HD44780_Init
  .text.HD44780_DisplayString
-                0x00000a58       0x38 ..\obj\hd44780.o
-                0x00000a58                HD44780_DisplayString
+                0x00000c64       0x38 ..\obj\hd44780.o
+                0x00000c64                HD44780_DisplayString
  .text.HD44780_DisplayN_POS
-                0x00000a90      0x130 ..\obj\hd44780.o
-                0x00000a90                HD44780_DisplayN_POS
+                0x00000c9c      0x17c ..\obj\hd44780.o
+                0x00000c9c                HD44780_DisplayN_POS
  .text.HD44780_LocationSet
-                0x00000bc0       0x4c ..\obj\hd44780.o
-                0x00000bc0                HD44780_LocationSet
+                0x00000e18       0x4c ..\obj\hd44780.o
+                0x00000e18                HD44780_LocationSet
  .text.SYS_UnlockReg
-                0x00000c0c       0x3c ..\obj\system_M051Series.o
+                0x00000e64       0x3c ..\obj\system_M051Series.o
  .text.SYS_LockReg
-                0x00000c48       0x14 ..\obj\system_M051Series.o
+                0x00000ea0       0x14 ..\obj\system_M051Series.o
  .text.SystemInit
-                0x00000c5c       0xb8 ..\obj\system_M051Series.o
-                0x00000c5c                SystemInit
- .text          0x00000d14       0x9c c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
-                0x00000d14                __aeabi_uidiv
-                0x00000d14                __udivsi3
-                0x00000d9c                __aeabi_uidivmod
- .text          0x00000db0        0x4 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x00000db0                __aeabi_idiv0
-                0x00000db0                __aeabi_ldiv0
+                0x00000eb4       0xb8 ..\obj\system_M051Series.o
+                0x00000eb4                SystemInit
+ .text          0x00000f6c      0x120 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x00000f6c                __aeabi_uidiv
+                0x00000f6c                __udivsi3
+                0x00001078                __aeabi_uidivmod
+ .text          0x0000108c        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x0000108c                __aeabi_idiv0
+                0x0000108c                __aeabi_ldiv0
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -199,40 +202,40 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x00000db4       0x20 ..\obj\main.o
-                0x00000dc4                ENCODER_TABLE
- .rodata        0x00000dd4       0x10 ..\obj\display.o
+ .rodata        0x00001090       0x20 ..\obj\main.o
+                0x000010a0                ENCODER_TABLE
+ .rodata        0x000010b0       0x10 ..\obj\display.o
  *(.eh_fram e*)
 
-.glue_7         0x00000de4        0x0
+.glue_7         0x000010c0        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00000de4        0x0
+.glue_7t        0x000010c0        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000de4        0x0
+.vfp11_veneer   0x000010c0        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00000de4        0x0
+.v4_bx          0x000010c0        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00000de4        0x0
+.iplt           0x000010c0        0x0
  .iplt          0x00000000        0x0 ..\obj\startup_M051Series.o
 
-.rel.dyn        0x00000de4        0x0
+.rel.dyn        0x000010c0        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\startup_M051Series.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000de4                __exidx_start = .
+                0x000010c0                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00000de4                __exidx_end = .
-                0x00000de4                __etext = .
-                0x00000de4                _sidata = __etext
+                0x000010c0                __exidx_end = .
+                0x000010c0                __etext = .
+                0x000010c0                _sidata = __etext
 
-.data           0x20000000        0xc load address 0x00000de4
+.data           0x20000000        0xc load address 0x000010c0
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -260,37 +263,39 @@ Linker script and memory map
                 0x2000000c                __data_end__ = .
                 0x2000000c                _edata = __data_end__
 
-.igot.plt       0x2000000c        0x0 load address 0x00000df0
+.igot.plt       0x2000000c        0x0 load address 0x000010cc
  .igot.plt      0x00000000        0x0 ..\obj\startup_M051Series.o
 
-.bss            0x2000000c       0x5c load address 0x00000df0
+.bss            0x2000000c       0x64 load address 0x000010cc
                 0x2000000c                . = ALIGN (0x4)
                 0x2000000c                __bss_start__ = .
                 0x2000000c                _sbss = __bss_start__
  *(.bss*)
- .bss           0x2000000c       0x4c ..\obj\main.o
+ .bss           0x2000000c       0x54 ..\obj\main.o
  *(COMMON)
- COMMON         0x20000058       0x10 ..\obj\main.o
-                0x20000058                duty_changed
-                0x2000005c                duty_pwm
-                0x20000060                result_ready
-                0x20000064                ENCODER_USER_Callback
-                0x20000068                . = ALIGN (0x4)
-                0x20000068                __bss_end__ = .
-                0x20000068                _ebss = __bss_end__
+ COMMON         0x20000060        0xc ..\obj\main.o
+                0x20000060                duty_changed
+                0x20000064                duty_pwm
+                0x20000068                ENCODER_USER_Callback
+ COMMON         0x2000006c        0x1 ..\obj\display.o
+                0x2000006c                display_busy
+                0x20000070                . = ALIGN (0x4)
+ *fill*         0x2000006d        0x3 
+                0x20000070                __bss_end__ = .
+                0x20000070                _ebss = __bss_end__
 
-.heap           0x20000068        0x0
-                0x20000068                __end__ = .
-                0x20000068                _end = __end__
-                0x20000068                end = __end__
+.heap           0x20000070        0x0
+                0x20000070                __end__ = .
+                0x20000070                _end = __end__
+                0x20000070                end = __end__
  *(.heap*)
-                0x20000068                __HeapLimit = .
+                0x20000070                __HeapLimit = .
 
-.co_stack       0x20000068      0x400 load address 0x00000e4c
-                0x20000068                . = ALIGN (0x8)
+.co_stack       0x20000070      0x400 load address 0x00001130
+                0x20000070                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
- .co_stack      0x20000068      0x400 ..\obj\startup_M051Series.o
-                0x20000068                pulStack
+ .co_stack      0x20000070      0x400 ..\obj\startup_M051Series.o
+                0x20000070                pulStack
                 0x20001000                __StackTop = (ORIGIN (ram) + 0x1000)
                 0x20000c00                __StackLimit = (__StackTop - SIZEOF (.co_stack))
                 0x20001000                PROVIDE (__stack, __StackTop)
@@ -301,68 +306,69 @@ LOAD ..\obj\display.o
 LOAD ..\obj\hd44780.o
 LOAD ..\obj\system_M051Series.o
 START GROUP
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg.a
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libc.a
 END GROUP
 OUTPUT(PWM.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x134f
+.debug_info     0x00000000     0x144b
  .debug_info    0x00000000       0xff ..\obj\startup_M051Series.o
- .debug_info    0x000000ff      0xb3f ..\obj\main.o
- .debug_info    0x00000c3e       0x97 ..\obj\display.o
- .debug_info    0x00000cd5      0x260 ..\obj\hd44780.o
- .debug_info    0x00000f35      0x41a ..\obj\system_M051Series.o
+ .debug_info    0x000000ff      0xc23 ..\obj\main.o
+ .debug_info    0x00000d22       0xaf ..\obj\display.o
+ .debug_info    0x00000dd1      0x260 ..\obj\hd44780.o
+ .debug_info    0x00001031      0x41a ..\obj\system_M051Series.o
 
-.debug_abbrev   0x00000000      0x5bb
+.debug_abbrev   0x00000000      0x5f1
  .debug_abbrev  0x00000000       0xa7 ..\obj\startup_M051Series.o
- .debug_abbrev  0x000000a7      0x247 ..\obj\main.o
- .debug_abbrev  0x000002ee       0x7a ..\obj\display.o
- .debug_abbrev  0x00000368      0x13e ..\obj\hd44780.o
- .debug_abbrev  0x000004a6      0x115 ..\obj\system_M051Series.o
+ .debug_abbrev  0x000000a7      0x26c ..\obj\main.o
+ .debug_abbrev  0x00000313       0x8b ..\obj\display.o
+ .debug_abbrev  0x0000039e      0x13e ..\obj\hd44780.o
+ .debug_abbrev  0x000004dc      0x115 ..\obj\system_M051Series.o
 
-.debug_aranges  0x00000000      0x198
+.debug_aranges  0x00000000      0x1a0
  .debug_aranges
                 0x00000000       0x28 ..\obj\startup_M051Series.o
  .debug_aranges
-                0x00000028       0xa0 ..\obj\main.o
+                0x00000028       0xa8 ..\obj\main.o
  .debug_aranges
-                0x000000c8       0x30 ..\obj\display.o
+                0x000000d0       0x30 ..\obj\display.o
  .debug_aranges
-                0x000000f8       0x60 ..\obj\hd44780.o
+                0x00000100       0x60 ..\obj\hd44780.o
  .debug_aranges
-                0x00000158       0x40 ..\obj\system_M051Series.o
+                0x00000160       0x40 ..\obj\system_M051Series.o
 
-.debug_ranges   0x00000000      0x148
+.debug_ranges   0x00000000      0x150
  .debug_ranges  0x00000000       0x18 ..\obj\startup_M051Series.o
- .debug_ranges  0x00000018       0x90 ..\obj\main.o
- .debug_ranges  0x000000a8       0x20 ..\obj\display.o
- .debug_ranges  0x000000c8       0x50 ..\obj\hd44780.o
- .debug_ranges  0x00000118       0x30 ..\obj\system_M051Series.o
+ .debug_ranges  0x00000018       0x98 ..\obj\main.o
+ .debug_ranges  0x000000b0       0x20 ..\obj\display.o
+ .debug_ranges  0x000000d0       0x50 ..\obj\hd44780.o
+ .debug_ranges  0x00000120       0x30 ..\obj\system_M051Series.o
 
-.debug_line     0x00000000      0xd12
+.debug_line     0x00000000      0xd4a
  .debug_line    0x00000000       0xd6 ..\obj\startup_M051Series.o
- .debug_line    0x000000d6      0x546 ..\obj\main.o
- .debug_line    0x0000061c       0xb9 ..\obj\display.o
- .debug_line    0x000006d5      0x3af ..\obj\hd44780.o
- .debug_line    0x00000a84      0x28e ..\obj\system_M051Series.o
+ .debug_line    0x000000d6      0x57d ..\obj\main.o
+ .debug_line    0x00000653       0xc0 ..\obj\display.o
+ .debug_line    0x00000713      0x3a9 ..\obj\hd44780.o
+ .debug_line    0x00000abc      0x28e ..\obj\system_M051Series.o
 
-.debug_str      0x00000000      0xb65
+.debug_str      0x00000000      0xc26
  .debug_str     0x00000000      0x171 ..\obj\startup_M051Series.o
                                 0x183 (size before relaxing)
- .debug_str     0x00000171      0x6ba ..\obj\main.o
-                                0x797 (size before relaxing)
- .debug_str     0x0000082b       0x94 ..\obj\display.o
-                                0x134 (size before relaxing)
- .debug_str     0x000008bf      0x104 ..\obj\hd44780.o
+ .debug_str     0x00000171      0x76e ..\obj\main.o
+                                0x7cf (size before relaxing)
+ .debug_str     0x000008df       0xa1 ..\obj\display.o
+                                0x14f (size before relaxing)
+ .debug_str     0x00000980      0x104 ..\obj\hd44780.o
                                 0x265 (size before relaxing)
- .debug_str     0x000009c3      0x1a2 ..\obj\system_M051Series.o
+ .debug_str     0x00000a84      0x1a2 ..\obj\system_M051Series.o
                                 0x40d (size before relaxing)
 
-.comment        0x00000000       0x70
+.comment        0x00000000       0xe0
  .comment       0x00000000       0x70 ..\obj\startup_M051Series.o
                                  0x71 (size before relaxing)
- .comment       0x00000000       0x71 ..\obj\main.o
+ .comment       0x00000070       0x70 ..\obj\main.o
+                                 0x71 (size before relaxing)
  .comment       0x00000000       0x71 ..\obj\display.o
  .comment       0x00000000       0x71 ..\obj\hd44780.o
  .comment       0x00000000       0x71 ..\obj\system_M051Series.o
@@ -380,14 +386,14 @@ OUTPUT(PWM.elf elf32-littlearm)
  .ARM.attributes
                 0x000000c4       0x31 ..\obj\system_M051Series.o
  .ARM.attributes
-                0x000000f5       0x1e c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+                0x000000f5       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x00000113       0x1e c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x00000113       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x00000000      0x4bc
+.debug_frame    0x00000000      0x4e0
  .debug_frame   0x00000000       0x4c ..\obj\startup_M051Series.o
- .debug_frame   0x0000004c      0x21c ..\obj\main.o
- .debug_frame   0x00000268       0x6c ..\obj\display.o
- .debug_frame   0x000002d4      0x120 ..\obj\hd44780.o
- .debug_frame   0x000003f4       0xa8 ..\obj\system_M051Series.o
- .debug_frame   0x0000049c       0x20 c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000004c      0x240 ..\obj\main.o
+ .debug_frame   0x0000028c       0x6c ..\obj\display.o
+ .debug_frame   0x000002f8      0x120 ..\obj\hd44780.o
+ .debug_frame   0x00000418       0xa8 ..\obj\system_M051Series.o
+ .debug_frame   0x000004c0       0x20 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
