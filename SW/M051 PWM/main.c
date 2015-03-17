@@ -39,6 +39,7 @@
 
 #include "hd44780.h"
 #include "encoder.h"
+#include "pwm_freq.h"
 
 #define PLLCON_SETTING      SYSCLK_PLLCON_50MHz_XTAL
 #define PLL_CLOCK           50000000
@@ -186,7 +187,7 @@ void RPM_Add(unsigned long value)
 
 void TMR2_IRQHandler(void)
 {
-	int i;
+//	int i;
 	unsigned long ccrvalue;
 	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
 	{
@@ -258,7 +259,6 @@ void PWMA_IRQHandler(void)
 	if(countset_ready && (countset_result > 0))
 	{
 		disp_count = 3000000000 / countset_result;
-//		disp_count = countset_result;
 	}
 	else
 	{
@@ -275,13 +275,25 @@ void PWMA_IRQHandler(void)
 
 }
 
+unsigned long RPM_COUNT_GetPeriodLength()
+{
+	return countset_ready ? countset_result : 0;
+}
+
+void MOTOR_PWM_SetDuty(unsigned long value)
+{
+	if(value >= 0 && value < 250)
+	{
+		PWMA->CMR0 = value;
+	}
+}
+
 void GPIOP0P1_IRQHandler(void)
 {
-	SYS_SysTickDelay(100);
+	SYS_SysTickDelay(200);
     ENCODER_PREV_STATE = (ENCODER_PIN_B << 1) | ENCODER_PIN_A | (ENCODER_PREV_STATE << 2);
     _GPIO_CLEAR_INT_STATUS(P0,2);
     _GPIO_CLEAR_INT_STATUS(P0,3);
-    // encoder_count += ENCODER_TABLE[(ENCODER_PREV_STATE & 0x0f)];  /* Index into table */
 
     switch (ENCODER_TABLE[(ENCODER_PREV_STATE & 0x0f)])
     {
@@ -315,11 +327,42 @@ void ENCODER_Callback(signed char cDirection)
 	}
 }
 
+void RPM_Init()
+{
+    _TIMER_RESET(TIMER2);
+
+    // Enable TIMER1 counter input and capture function
+    TIMER2->TCMPR = 0;
+    TIMER2->TCSR = TIMER_TCSR_CEN_ENABLE | TIMER_TCSR_IE_ENABLE | TIMER_TCSR_MODE_PERIODIC | TIMER_TCSR_PRESCALE(1);
+    TIMER2->TEXCON = TIMER_TEXCON_MODE_CAP | TIMER_TEXCON_TEXIEN_ENABLE | TIMER_TEXCON_TEX_EDGE_RISING | TIMER_TEXCON_TEXEN_ENABLE;
+
+    _TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+    _TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+}
+
+void TEST_INIT()
+{
+    //	Set Pwm mode
+    _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH2);
+    // Set PWM Timer clock prescaler
+    _PWM_SET_TIMER_PRESCALE(PWMA,PWM_CH2, 9); // Divided by 10
+    // Set PWM Timer clock divider select
+    _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH2,PWM_CSR_DIV1);
+    // Set PWM Timer duty
+    PWMA->CMR2 = 499;
+    // Set PWM Timer period
+    PWMA->CNR2 = 999;
+    // Enable PWM Output pin
+    _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH2);
+    // Enable PWM Timer
+    _PWM_ENABLE_TIMER(PWMA, PWM_CH2);
+}
 
 int main(void)
 {
 	SYS_Init();
 	DISPLAY_Init();
+	DISPLAY_Mode(DISPLAY_MODE_CAL);
 
 	counter = 0;
 	RPM_Clear();
@@ -359,71 +402,34 @@ int main(void)
 
     // ---- PWM Timer used as display update
 
-    /*Set Pwm mode*/
+    // Set Pwm mode
     _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH3);
 
-    /*Set PWM Timer clock prescaler*/
+    // Set PWM Timer clock prescaler
     _PWM_SET_TIMER_PRESCALE(PWMA,PWM_CH3, 255); // Divided by 256
 
-    /*Set PWM Timer clock divider select*/
+    // Set PWM Timer clock divider select
     _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH3,PWM_CSR_DIV16);
 
-    /*Set PWM Timer duty*/
+    // Set PWM Timer duty
     PWMA->CMR3 = 1250;
 
-    /*Set PWM Timer period*/
+    // Set PWM Timer period
     PWMA->CNR3 = 2500;
 
-    /* Enable PWM Output pin */
-//    _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH0);
-
-    /* Enable Timer period Interrupt */
+    // Enable Timer period Interrupt
     _PWM_ENABLE_TIMER_PERIOD_INT(PWMA, PWM_CH3);
 
-    /* Enable PWMA NVIC */
-    // NVIC_EnableIRQ(PWMA_IRQn);
-
-    /* Enable PWM Timer */
+    // Enable PWM Timer
     _PWM_ENABLE_TIMER(PWMA, PWM_CH3);
 
 
-
     // PWM timer used for test signal
+    TEST_INIT();
+    // Timer Rotational Speed Measurement
+    RPM_Init();
 
-    //	Set Pwm mode
-    _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH2);
-    // Set PWM Timer clock prescaler
-    _PWM_SET_TIMER_PRESCALE(PWMA,PWM_CH2, 9); // Divided by 10
-    // Set PWM Timer clock divider select
-    _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH2,PWM_CSR_DIV1);
-    // Set PWM Timer duty
-    PWMA->CMR2 = 499;
-    // Set PWM Timer period
-    PWMA->CNR2 = 999;
-    // Enable PWM Output pin
-    _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH2);
-    // Enable Timer period Interrupt
-    // _PWM_ENABLE_TIMER_PERIOD_INT(PWMA, PWM_CH3);
-    // Enable PWMA NVIC
-    // NVIC_EnableIRQ(PWMA_IRQn);
-    // Enable PWM Timer
-    _PWM_ENABLE_TIMER(PWMA, PWM_CH2);
-
-    // -------- Timer (Rotational Speed Measurement)  ------
-
-    _TIMER_RESET(TIMER2);
-
-    // Enable TIMER1 counter input and capture function
-//    TIMER2->TCMPR = 0xFFFFFF;
-    TIMER2->TCMPR = 0;
-    TIMER2->TCSR = TIMER_TCSR_CEN_ENABLE | TIMER_TCSR_IE_ENABLE | TIMER_TCSR_MODE_PERIODIC | TIMER_TCSR_PRESCALE(1);
-//    TIMER2->TCSR = TIMER_TCSR_CEN_Msk | TIMER_TCSR_IE_Msk | TIMER_TCSR_MODE_PERIODIC | TIMER_TCSR_TDR_EN_Msk | TIMER_TCSR_PRESCALE(1);
-    TIMER2->TEXCON = TIMER_TEXCON_MODE_CAP | TIMER_TEXCON_TEXIEN_ENABLE | TIMER_TEXCON_TEX_EDGE_RISING | TIMER_TEXCON_TEXEN_ENABLE;
-
-    _TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
-    _TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
-
-    // DISPLAY_DUTY(PWMA->CMR0);
+    // PWM_RPM_Collect();
 
     while(1) {}
 }

@@ -1,20 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib">
-      <target file="encoder.o" lastModified="14beb9f43da">
-         <source file="..\..\..\encoder.c" lastModified="14bea51a477"/>
-      </target>
       <target file="hd44780.o" lastModified="14c20e6cdf3">
          <source file="..\..\..\hd44780.c" lastModified="14c20e6cb3f"/>
       </target>
-      <target file="display.o" lastModified="14c1c8d76fa">
-         <source file="..\..\..\display.c" lastModified="14c1c8d73e9"/>
+      <target file="encoder.o" lastModified="14beb9f43da">
+         <source file="..\..\..\encoder.c" lastModified="14bea51a477"/>
+      </target>
+      <target file="pwm_freq.o" lastModified="14c2613892b">
+         <source file="..\..\..\pwm_freq.c" lastModified="14c26037857"/>
+      </target>
+      <target file="display.o" lastModified="14c26178631">
+         <source file="..\..\..\display.c" lastModified="14c2617846e"/>
       </target>
       <target file="startup_M051Series.o" lastModified="14beb9f42c9">
          <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bea51a45d"/>
       </target>
-      <target file="main.o" lastModified="14c20e9b0f0">
-         <source file="..\..\..\main.c" lastModified="14c20e9ae86"/>
+      <target file="main.o" lastModified="14c2616c63d">
+         <source file="..\..\..\main.c" lastModified="14c2614da5c"/>
       </target>
       <target file="system_M051Series.o" lastModified="14beb9f4523">
          <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bea51a45f"/>
