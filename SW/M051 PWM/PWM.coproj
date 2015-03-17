@@ -29,7 +29,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/pwm/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/pwm/link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -85,8 +85,8 @@
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="hd44780.h" path="hd44780.h" type="1"/>
     <File name="cmsis_boot/M051Series.h" path="cmsis_boot/M051Series.h" type="1"/>
-    <File name="cmsis_core" path="" type="2"/>
     <File name="display.c" path="display.c" type="1"/>
+    <File name="cmsis_core" path="" type="2"/>
     <File name="cmsis_boot/system_M051Series.h" path="cmsis_boot/system_M051Series.h" type="1"/>
     <File name="cmsis_lib/inc/PWM.h" path="cmsis_lib/inc/PWM.h" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>

@@ -22,13 +22,14 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
 <input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">
-<subPage horizontalPosition="0" selectedItemId="1890" subPageIndex="2" verticalPosition="114"/>
+<subPage horizontalPosition="0" selectedItemId="1" subPageIndex="3" verticalPosition="0"/>
 </input>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="FMC.h" partName="FMC.h" path="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/cmsis_lib/inc/FMC.h" title="FMC.h" tooltip="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/cmsis_lib/inc/FMC.h" workbook="DefaultEditorWorkbook">
@@ -39,9 +40,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/pwm_freq.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="220" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="display.c" partName="display.c" path="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/display.c" title="display.c" tooltip="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/display.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="display.c" partName="display.c" path="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/display.c" title="display.c" tooltip="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/display.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/display.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="467" selectionTopPixel="270"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="522" selectionTopPixel="751"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="display.h" partName="display.h" path="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/display.h" title="display.h" tooltip="C:/DATA/SourceControll/SUF-GitHub/Electronics/suf-electronics-motor-driver/SW/M051 PWM/display.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/display.h"/>
@@ -51,6 +52,14 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6004" selectionTopPixel="127"/>
 </editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.c" partName="hd44780.c" path="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/hd44780.c" title="hd44780.c" tooltip="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/hd44780.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/hd44780.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="38" selectionOffset="3108" selectionTopPixel="2107"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.h" partName="hd44780.h" path="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/hd44780.h" title="hd44780.h" tooltip="C:/DATA/Source Control/SUF-Github/Electronics/suf-electronics-motor-driver/SW/M051 PWM/hd44780.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PWM/hd44780.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3207" selectionTopPixel="785"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
@@ -59,7 +68,7 @@
 </viewState>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="3">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/PWM"/>
 <element path="/PWM/cmsis_boot"/>
@@ -68,7 +77,7 @@
 <element path="/PWM/cmsis_lib/inc"/>
 </expanded>
 <selection>
-<element path="/PWM/main.c"/>
+<element path="/PWM"/>
 </selection>
 </viewState>
 </view>
@@ -297,7 +306,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/pwm_freq.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/pwm_freq.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/cmsis_core/core_cm0.h"/>
 <editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
@@ -307,151 +315,159 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/pwm_freq.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/display.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/display.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/hd44780.c"/>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="1" subPageIndex="3" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="1" subPageIndex="3" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/hd44780.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/PWM/hd44780.h"/>
 </editors>
-<item historyLabel="pwm_freq.h" index="2">
-<position info="not_deleted" x="32" y="0"/>
-</item>
-<item historyLabel="pwm_freq.c" index="1">
-<position info="not_deleted" x="160" y="17"/>
-</item>
-<item historyLabel="pwm_freq.h" index="2">
-<position info="not_deleted" x="12" y="0"/>
-</item>
-<item historyLabel="pwm_freq.c" index="1">
-<position info="not_deleted" x="160" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11828" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="732" y="0"/>
-</item>
-<item historyLabel="pwm_freq.h" index="2">
-<position info="not_deleted" x="12" y="18"/>
-</item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="11808" y="0"/>
 </item>
-<item historyLabel="pwm_freq.h" index="2">
+<item historyLabel="pwm_freq.h" index="1">
 <position info="not_deleted" x="12" y="18"/>
 </item>
-<item historyLabel="core_cm0.h" index="3">
+<item historyLabel="core_cm0.h" index="2">
 <position info="not_deleted" x="29070" y="16"/>
 </item>
-<item historyLabel="pwm_freq.h" index="2">
+<item historyLabel="pwm_freq.h" index="1">
 <position info="not_deleted" x="12" y="18"/>
 </item>
-<item historyLabel="Repository" index="4"/>
-<item historyLabel="FMC.h" index="5">
+<item historyLabel="Repository" index="3"/>
+<item historyLabel="FMC.h" index="4">
 <position info="not_deleted" x="1290" y="0"/>
 </item>
-<item historyLabel="pwm_freq.c" index="6">
+<item historyLabel="pwm_freq.c" index="5">
 <position info="not_deleted" x="220" y="0"/>
 </item>
-<item historyLabel="FMC.h" index="5">
+<item historyLabel="FMC.h" index="4">
 <position info="not_deleted" x="1290" y="0"/>
 </item>
-<item historyLabel="pwm_freq.c" index="6">
+<item historyLabel="pwm_freq.c" index="5">
 <position info="not_deleted" x="220" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="392" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="392" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1345" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="192" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1049" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="192" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1345" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="253" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1313" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="202" y="22"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1308" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="364" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1308" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10271" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1308" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10269" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="374" y="16"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="10271" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1308" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="374" y="16"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="1308" y="0"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="374" y="16"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="527" y="37"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="524" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6004" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="527" y="37"/>
 </item>
-<item historyLabel="display.h" index="8">
+<item historyLabel="display.h" index="7">
 <position info="not_deleted" x="331" y="0"/>
 </item>
-<item historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="467" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6004" y="0"/>
 </item>
-<item active="true" historyLabel="display.c" index="7">
+<item historyLabel="display.c" index="6">
 <position info="not_deleted" x="467" y="0"/>
+</item>
+<item historyLabel="hd44780.c" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Repository" index="9"/>
+<item historyLabel="Repository" index="10"/>
+<item historyLabel="hd44780.c" index="11">
+<position info="not_deleted" x="1773" y="0"/>
+</item>
+<item historyLabel="hd44780.h" index="12">
+<position info="not_deleted" x="3369" y="0"/>
+</item>
+<item historyLabel="hd44780.c" index="11">
+<position info="not_deleted" x="3108" y="38"/>
+</item>
+<item historyLabel="hd44780.h" index="12">
+<position info="not_deleted" x="3207" y="0"/>
+</item>
+<item active="true" historyLabel="hd44780.c" index="11">
+<position info="not_deleted" x="3108" y="38"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -460,29 +476,33 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="PWM/main.c">
-<persistable path="/PWM/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.h" tooltip="PWM/hd44780.h">
+<persistable path="/PWM/hd44780.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.h" tooltip="PWM/display.h">
-<persistable path="/PWM/display.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.c" tooltip="PWM/CoX_Driver/LCD_Character_HD44780/hd44780.c">
+<persistable path="/PWM/CoX_Driver/LCD_Character_HD44780/hd44780.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.c" tooltip="PWM/display.c">
-<persistable path="/PWM/display.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.c" tooltip="PWM/hd44780/hd44780.c">
+<persistable path="/PWM/hd44780/hd44780.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pwm_freq.c" tooltip="PWM/pwm_freq.c">
-<persistable path="/PWM/pwm_freq.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hd44780.c" tooltip="PWM/hd44780.c">
+<persistable path="/PWM/hd44780.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FMC.h" tooltip="PWM/cmsis_lib/inc/FMC.h">
-<persistable path="/PWM/cmsis_lib/inc/FMC.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="M051Series.h" tooltip="PWM/cmsis_boot/M051Series.h">
+<persistable path="/PWM/cmsis_boot/M051Series.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pwm_freq.h" tooltip="PWM/pwm_freq.h">
-<persistable path="/PWM/pwm_freq.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SYS.h" tooltip="PWM/cmsis_lib/inc/SYS.h">
+<persistable path="/PWM/cmsis_lib/inc/SYS.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rpm_count.h" tooltip="PWM/rpm_count.h">
-<persistable path="/PWM/rpm_count.h"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-fc002\Software\Development\main.c">
+<persistable uri="file:/C:/DATA/Source%20Control/SUF-Github/Electronics/suf-electronics-fc002/Software/Development/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor_pwm.h" tooltip="PWM/motor_pwm.h">
-<persistable path="/PWM/motor_pwm.h"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-fc002\Software\Release\main.c">
+<persistable uri="file:/C:/DATA/Source%20Control/SUF-Github/Electronics/suf-electronics-fc002/Software/Release/main.c"/>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GPIO.h" tooltip="PWM/cmsis_lib/inc/GPIO.h">
 <persistable path="/PWM/cmsis_lib/inc/GPIO.h"/>
@@ -490,14 +510,14 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.h" tooltip="PWM/encoder.h">
 <persistable path="/PWM/encoder.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="M051Series.h" tooltip="PWM/cmsis_boot/M051Series.h">
-<persistable path="/PWM/cmsis_boot/M051Series.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="PWM/encoder.c">
+<persistable path="/PWM/encoder.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm0.h" tooltip="PWM/cmsis_core/core_cm0.h">
-<persistable path="/PWM/cmsis_core/core_cm0.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.h" tooltip="PWM/display.h">
+<persistable path="/PWM/display.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SYS.h" tooltip="PWM/cmsis_lib/inc/SYS.h">
-<persistable path="/PWM/cmsis_lib/inc/SYS.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.c" tooltip="PWM/display.c">
+<persistable path="/PWM/display.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_M051Series.c" tooltip="PWM/cmsis_boot/startup/startup_M051Series.c">
 <persistable path="/PWM/cmsis_boot/startup/startup_M051Series.c"/>
