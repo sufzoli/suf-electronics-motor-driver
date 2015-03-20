@@ -4,6 +4,22 @@ c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none
                               ..\obj\main.o (__aeabi_uidiv)
 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
                               c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
+                              ..\obj\pid.o (__aeabi_dcmplt)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+                              ..\obj\pid.o (__aeabi_dadd)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o) (__eqdf2)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o) (__gedf2)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o) (__ledf2)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+                              ..\obj\pid.o (__aeabi_dmul)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+                              ..\obj\pid.o (__aeabi_dsub)
+c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
+                              c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o) (__clzsi2)
 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
                               ..\obj\system_M051Series.o (memcpy)
 
@@ -12,6 +28,8 @@ Common symbol       size              file
 
 duty_changed        0x1               ..\obj\main.o
 display_mode        0x1               ..\obj\display.o
+_expwm_callback_arr
+                    0x20              ..\obj\expwm.o
 duty_pwm            0x4               ..\obj\main.o
 display_busy        0x1               ..\obj\display.o
 ENCODER_USER_Callback
@@ -22,6 +40,30 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\startup_M051Series.o
  .data          0x00000000        0x0 ..\obj\startup_M051Series.o
  .bss           0x00000000        0x0 ..\obj\startup_M051Series.o
+ .text          0x00000000        0x0 ..\obj\expwm.o
+ .data          0x00000000        0x0 ..\obj\expwm.o
+ .bss           0x00000000        0x6 ..\obj\expwm.o
+ .text.NVIC_EnableIRQ
+                0x00000000       0x2c ..\obj\expwm.o
+ .text.PWM_ResetPwmController
+                0x00000000       0x58 ..\obj\expwm.o
+ .rodata        0x00000000       0x10 ..\obj\expwm.o
+ .text.PWM_GetTimerClockSource
+                0x00000000       0x98 ..\obj\expwm.o
+ .text.EXPWM_Init
+                0x00000000      0x118 ..\obj\expwm.o
+ .debug_info    0x00000000      0x786 ..\obj\expwm.o
+ .debug_abbrev  0x00000000      0x1ab ..\obj\expwm.o
+ .debug_aranges
+                0x00000000       0x38 ..\obj\expwm.o
+ .debug_ranges  0x00000000       0x28 ..\obj\expwm.o
+ .debug_line    0x00000000      0x3b0 ..\obj\expwm.o
+ .debug_str     0x00000000      0x5cb ..\obj\expwm.o
+ .comment       0x00000000       0x71 ..\obj\expwm.o
+ .debug_frame   0x00000000       0x90 ..\obj\expwm.o
+ .ARM.attributes
+                0x00000000       0x31 ..\obj\expwm.o
+ COMMON         0x00000000       0x20 ..\obj\expwm.o
  .text          0x00000000        0x0 ..\obj\pwm_freq.o
  .data          0x00000000        0x0 ..\obj\pwm_freq.o
  .bss           0x00000000        0x0 ..\obj\pwm_freq.o
@@ -62,11 +104,78 @@ Discarded input sections
  .text.DrvSYS_GetPLLClockFreq
                 0x00000000       0xb0 ..\obj\system_M051Series.o
  .text.SystemCoreClockUpdate
-                0x00000000       0x88 ..\obj\system_M051Series.o
+                0x00000000       0x8c ..\obj\system_M051Series.o
+ .text          0x00000000        0x0 ..\obj\pid.o
+ .data          0x00000000        0x0 ..\obj\pid.o
+ .bss           0x00000000        0x0 ..\obj\pid.o
+ .text.pid_Limit
+                0x00000000       0x48 ..\obj\pid.o
+ .text.PID_Init
+                0x00000000       0x14 ..\obj\pid.o
+ .text.PID_Compute
+                0x00000000      0x14c ..\obj\pid.o
+ .debug_info    0x00000000      0x1cf ..\obj\pid.o
+ .debug_abbrev  0x00000000       0xf7 ..\obj\pid.o
+ .debug_aranges
+                0x00000000       0x30 ..\obj\pid.o
+ .debug_ranges  0x00000000       0x20 ..\obj\pid.o
+ .debug_line    0x00000000       0xc6 ..\obj\pid.o
+ .debug_str     0x00000000      0x1cc ..\obj\pid.o
+ .comment       0x00000000       0x71 ..\obj\pid.o
+ .debug_frame   0x00000000       0x74 ..\obj\pid.o
+ .ARM.attributes
+                0x00000000       0x31 ..\obj\pid.o
  .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
  .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000       0x7c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
+ .text          0x00000000      0x650 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+ .debug_frame   0x00000000       0x38 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+ .text          0x00000000       0x88 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+ .debug_frame   0x00000000       0x38 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+ .text          0x00000000       0xe0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+ .debug_frame   0x00000000       0x38 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+ .text          0x00000000       0xcc c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+ .debug_frame   0x00000000       0x38 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+ .text          0x00000000      0x534 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .rodata        0x00000000       0x40 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .text          0x00000000      0x6f4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+ .text          0x00000000       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
  .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
  .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
  .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a(lib_a-memcpy.o)
@@ -334,11 +443,13 @@ Linker script and memory map
                 0x20001000                PROVIDE (__stack, __StackTop)
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
 LOAD ..\obj\startup_M051Series.o
+LOAD ..\obj\expwm.o
 LOAD ..\obj\pwm_freq.o
 LOAD ..\obj\main.o
 LOAD ..\obj\display.o
 LOAD ..\obj\hd44780.o
 LOAD ..\obj\system_M051Series.o
+LOAD ..\obj\pid.o
 START GROUP
 LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a
 LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg.a
@@ -379,30 +490,29 @@ OUTPUT(PWM.elf elf32-littlearm)
  .debug_ranges  0x000000f8       0x50 ..\obj\hd44780.o
  .debug_ranges  0x00000148       0x30 ..\obj\system_M051Series.o
 
-.debug_line     0x00000000      0xddb
+.debug_line     0x00000000      0xdd4
  .debug_line    0x00000000       0xd6 ..\obj\startup_M051Series.o
  .debug_line    0x000000d6      0x5df ..\obj\main.o
  .debug_line    0x000006b5       0xef ..\obj\display.o
  .debug_line    0x000007a4      0x3a9 ..\obj\hd44780.o
- .debug_line    0x00000b4d      0x28e ..\obj\system_M051Series.o
+ .debug_line    0x00000b4d      0x287 ..\obj\system_M051Series.o
 
-.debug_str      0x00000000      0xc7f
+.debug_str      0x00000000      0xc03
  .debug_str     0x00000000      0x171 ..\obj\startup_M051Series.o
                                 0x183 (size before relaxing)
- .debug_str     0x00000171      0x7ad ..\obj\main.o
+ .debug_str     0x00000171      0x731 ..\obj\main.o
                                 0x80e (size before relaxing)
- .debug_str     0x0000091e       0xbb ..\obj\display.o
+ .debug_str     0x000008a2       0xbb ..\obj\display.o
                                 0x16e (size before relaxing)
- .debug_str     0x000009d9      0x104 ..\obj\hd44780.o
+ .debug_str     0x0000095d      0x104 ..\obj\hd44780.o
                                 0x265 (size before relaxing)
- .debug_str     0x00000add      0x1a2 ..\obj\system_M051Series.o
+ .debug_str     0x00000a61      0x1a2 ..\obj\system_M051Series.o
                                 0x40d (size before relaxing)
 
-.comment        0x00000000       0xe0
+.comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\startup_M051Series.o
                                  0x71 (size before relaxing)
- .comment       0x00000070       0x70 ..\obj\main.o
-                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ..\obj\main.o
  .comment       0x00000000       0x71 ..\obj\display.o
  .comment       0x00000000       0x71 ..\obj\hd44780.o
  .comment       0x00000000       0x71 ..\obj\system_M051Series.o
