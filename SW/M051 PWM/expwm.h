@@ -32,5 +32,6 @@ typedef struct
 #define SYS_MFP_P42_PWM2    0x00000004UL
 #define SYS_MFP_P43_PWM3    0x00000008UL  */
 
-
+extern void EXPWM_Init(expwmtype *data);
+extern void EXPWM_SetDuty(expwmtype *data, unsigned int duty);
 

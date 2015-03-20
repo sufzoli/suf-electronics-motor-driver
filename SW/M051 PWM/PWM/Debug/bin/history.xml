@@ -1,1 +1,15 @@
-<history/>
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=PWM.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\PWM -TC:\CooCox\CoIDE\configuration\ProgramData\PWM/arm-gcc-link.ld -g">
+      <target file="PWM.elf" lastModified="14c3864da55">
+         <source file="..\obj\startup_M051Series.o" lastModified="14c3820f7e1"/>
+         <source file="..\obj\expwm.o" lastModified="14c386391b0"/>
+         <source file="..\obj\pwm_freq.o" lastModified="14c3820f8dd"/>
+         <source file="..\obj\main.o" lastModified="14c3864d877"/>
+         <source file="..\obj\display.o" lastModified="14c3820fb04"/>
+         <source file="..\obj\hd44780.o" lastModified="14c3820fb73"/>
+         <source file="..\obj\system_M051Series.o" lastModified="14c3820fc13"/>
+         <source file="..\obj\pid.o" lastModified="14c3820fc5e"/>
+      </target>
+   </processor>
+</history>

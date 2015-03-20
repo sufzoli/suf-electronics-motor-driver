@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot -I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc">
+      <target file="pwm_freq.o" lastModified="14c3820f8dd">
+         <source file="..\..\..\pwm_freq.c" lastModified="14c278d020d"/>
+      </target>
+      <target file="hd44780.o" lastModified="14c3820fb73">
+         <source file="..\..\..\hd44780.c" lastModified="14c279b78fa"/>
+      </target>
+      <target file="pid.o" lastModified="14c3820fc5e">
+         <source file="..\..\..\pid.c" lastModified="14c3818a76a"/>
+      </target>
+      <target file="expwm.o" lastModified="14c3825fd93">
+         <source file="..\..\..\expwm.c" lastModified="14c3818a863"/>
+      </target>
+      <target file="display.o" lastModified="14c3820fb04">
+         <source file="..\..\..\display.c" lastModified="14c278d01ef"/>
+      </target>
+      <target file="startup_M051Series.o" lastModified="14c3820f7e1">
+         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14be91e0b1b"/>
+      </target>
+      <target file="main.o" lastModified="14c3825ffcc">
+         <source file="..\..\..\main.c" lastModified="14c278d01ff"/>
+      </target>
+      <target file="system_M051Series.o" lastModified="14c3820fc13">
+         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14be91e0b1e"/>
+      </target>
+   </processor>
+</history>

@@ -1,6 +1,6 @@
-#include "M051Series.h"
-#include "sys.h"
-// #include "pwm.h"
+#include <M051Series.h>
+#include <sys.h>
+#include <pwm.h>
 #include "expwm.h"
 // Object like pwm handling
 
@@ -15,9 +15,9 @@ unsigned char _expwm_pwm67_isinit = 0;
 EXPWM_InterruptCallback_Type _expwm_callback_arr[8];
 
 
-void EXPWM_Init(expwmtype data)
+void EXPWM_Init(expwmtype *data)
 {
-	uint32_t PWM_MODULE = data->Chanell < 4 ? PWMA : PWMB;
+	PWM_T *PWM_MODULE = data->Chanell < 4 ? PWMA : PWMB;
 	unsigned char Chanell = data->Chanell;
 	if(Chanell > 4)
 	{
@@ -91,6 +91,17 @@ void EXPWM_Init(expwmtype data)
 }
 
 
+void EXPWM_SetDuty(expwmtype *data, unsigned int duty)
+{
+	unsigned char Chanell = data->Chanell;
+	PWM_T *PWM_MODULE = data->Chanell < 4 ? PWMA : PWMB;
+	if(Chanell > 4)
+	{
+		Chanell -= 4;
+	}
+	data->Duty = duty;
+	_PWM_SET_PWM_COMP_VALUE(PWM_MODULE,Chanell,data->Duty);
+}
 
 /*
 // Reset PWMA channel0~channel3
