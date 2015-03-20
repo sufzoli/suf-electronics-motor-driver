@@ -123,6 +123,32 @@ void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, uns
     }
 }
 */
+
+void HD44780_DisplayN(unsigned long n)
+{
+    char pcBuf[16], *p;
+
+    if (n == 0)
+    {
+    	HD44780_Write(HD44780_RS_DATA, '0');
+    }
+    else
+    {
+        p = pcBuf;
+        while (n != 0)
+        {
+            *p++ = (n % 10) + '0';
+            n /= 10;
+        }
+
+        while (p > pcBuf)
+        {
+        	HD44780_Write(HD44780_RS_DATA, *--p);
+        }
+    }
+}
+
+
 void HD44780_DisplayN_POS(unsigned long n, unsigned char x, unsigned char y, unsigned char len, unsigned char dp)
 {
     unsigned char xpos;
