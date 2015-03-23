@@ -1,3 +1,4 @@
+#include "ili9341_fonts.h"
 
 #define ILI9341_RESET_PORT	P11
 #define ILI9341_DC_PORT	P10
@@ -58,4 +59,8 @@ extern void ILI9341_SendCommand(unsigned char data);
 // extern void ILI9341_FillScreen();
 extern void ILI9341_DrawPixel(unsigned int x, unsigned int  y, uint32_t color);
 extern void ILI9341_SetCursorPosition(unsigned int  x1, unsigned int  y1, unsigned int  x2, unsigned int y2);
+// extern void ILI9341_PrintChar(unsigned long fontarr[], unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+// extern void ILI9341_PrintChar(void * fontptr, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+
 

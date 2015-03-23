@@ -50,6 +50,7 @@
 
 // #include "hd44780.h"
 #include "ili9341.h"
+#include "ili9341_fonts.h"
 #include "encoder.h"
 #include "pwm_freq.h"
 #include "expwm.h"
@@ -425,6 +426,8 @@ int main(void)
     int j;
     for(j=100; j<200;j++)
     	ILI9341_DrawPixel(100, j, ILI9341_COLOR_MAGENTA);
+
+    ILI9341_PrintChar(&Font7x10, 'c', 0, 0, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
 
     while(1)
     {

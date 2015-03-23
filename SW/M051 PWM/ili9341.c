@@ -55,8 +55,8 @@ void ILI9341_HardReset()
 
 void ILI9341_Init()
 {
-	unsigned short x;
-	x = Font7x10[20];
+//	unsigned short x;
+//	x = Font7x10[20];
     /* Configure SPI0 as a master, clock idle low, falling clock edge Tx, rising edge Rx and 32-bit transaction */
     SPI0->CNTRL = SPI_CNTRL_MASTER_MODE | SPI_CNTRL_CLK_IDLE_LOW | SPI_CNTRL_TX_FALLING |
                      SPI_CNTRL_RX_RISING | SPI_CNTRL_TX_BIT_LEN(8);
@@ -310,10 +310,68 @@ void ILI9341_SetCursorPosition(unsigned int  x1, unsigned int  y1, unsigned int 
 	ILI9341_SendData(y2 >> 8);
 	ILI9341_SendData(y2 & 0xFF);
 }
-
-void ILI9341_PrintChar()
+/*
+void ILI9341_PrintChar(unsigned long fontarr[], unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
 {
+	unsigned long xsize=7;
+	unsigned long ysize=10;
+	unsigned char bitlen = 8;
 
+	unsigned long line;
+	unsigned long i,j;
+
+	for(i = 0; i< ysize; i++)
+	{
+		line = fontarr[((unsigned long)(code - 32)) * ysize + i];
+		for(j=0; j < xsize; j++)
+		{
+			ILI9341_DrawPixel(x+j,y+(i*xsize),((line & (0x01uL << (bitlen - j))) > 0) ? frontcolor : backcolor);
+		}
+	}
+}
+*/
+/*
+void ILI9341_PrintChar(void * fontptr, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
+{
+	unsigned long xsize=7;
+	unsigned long ysize=10;
+	// unsigned char bitlen = 8;
+	unsigned char bytelen = 1;
+
+	unsigned long *line;
+	unsigned long i,j;
+
+	for(i = 0; i< ysize; i++)
+	{
+		line = (fontptr + ((((unsigned long)(code - 32)) * ysize + i)*bytelen));
+
+		for(j=0; j < xsize; j++)
+		{
+			ILI9341_DrawPixel(x+j,y+(i*xsize),((*line & (0x01uL << ((bytelen << 3) - j))) > 0) ? frontcolor : backcolor);
+		}
+	}
+}
+*/
+void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
+{
+/*
+	unsigned long xsize=7;
+	unsigned long ysize=10;
+	// unsigned char bitlen = 8;
+	unsigned char bytelen = 1;
+*/
+	unsigned long *line;
+	unsigned long i,j;
+
+	for(i = 0; i< font->ysize; i++)
+	{
+		line = (font->fontptr + ((((unsigned long)(code - 32)) * font->ysize + i)*font->bytelen));
+
+		for(j=0; j < font->xsize; j++)
+		{
+			ILI9341_DrawPixel(x+j,y+(i*font->xsize),((*line & (0x01uL << ((font->bytelen << 3) - j))) > 0) ? frontcolor : backcolor);
+		}
+	}
 }
 
 /*
