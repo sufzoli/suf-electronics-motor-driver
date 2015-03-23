@@ -22,6 +22,7 @@
         <Option name="nostartfiles" value="1"/>
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
           <Memory name="IROM1" type="ReadOnly" size="0x00010000" startValue="0x00000000"/>
@@ -71,41 +72,47 @@
     <Component id="1877" name="GPIO" path="" type="2"/>
     <Component id="1878" name="ADC" path="" type="2"/>
     <Component id="1880" name="SYS" path="" type="2"/>
+    <Component id="1883" name="SPI" path="" type="2"/>
     <Component id="1884" name="PWM" path="" type="2"/>
     <Component id="1885" name="TIMER" path="" type="2"/>
     <Component id="1890" name="FMC" path="" type="2"/>
   </Components>
   <Files>
     <File name="cmsis_core/core_cmInstr.h" path="cmsis_core/core_cmInstr.h" type="1"/>
-    <File name="cmsis_boot" path="" type="2"/>
+    <File name="ili9341_fonts.c" path="ili9341_fonts.c" type="1"/>
     <File name="encoder.h" path="encoder.h" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
     <File name="cmsis_core/core_cmFunc.h" path="cmsis_core/core_cmFunc.h" type="1"/>
-    <File name="rpm_count.h" path="rpm_count.h" type="1"/>
+    <File name="cmsis_lib/inc/SPI.h" path="cmsis_lib/inc/SPI.h" type="1"/>
     <File name="cmsis_lib/inc/ADC.h" path="cmsis_lib/inc/ADC.h" type="1"/>
-    <File name="hd44780.h" path="hd44780.h" type="1"/>
+    <File name="rpm_count.h" path="rpm_count.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="hd44780.h" path="hd44780.h" type="1"/>
     <File name="cmsis_boot/M051Series.h" path="cmsis_boot/M051Series.h" type="1"/>
-    <File name="cmsis_core" path="" type="2"/>
     <File name="display.c" path="display.c" type="1"/>
+    <File name="cmsis_core" path="" type="2"/>
     <File name="cmsis_boot/system_M051Series.h" path="cmsis_boot/system_M051Series.h" type="1"/>
-    <File name="pid.c" path="pid.c" type="1"/>
     <File name="expwm.c" path="expwm.c" type="1"/>
-    <File name="cmsis_lib/inc/PWM.h" path="cmsis_lib/inc/PWM.h" type="1"/>
+    <File name="pid.c" path="pid.c" type="1"/>
+    <File name="ili9341_fonts.h" path="ili9341_fonts.h" type="1"/>
     <File name="pid.h" path="pid.h" type="1"/>
+    <File name="cmsis_lib/inc/PWM.h" path="cmsis_lib/inc/PWM.h" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
-    <File name="cmsis_lib/inc/FMC.h" path="cmsis_lib/inc/FMC.h" type="1"/>
     <File name="cmsis_core/core_cm0.h" path="cmsis_core/core_cm0.h" type="1"/>
+    <File name="cmsis_lib/inc/FMC.h" path="cmsis_lib/inc/FMC.h" type="1"/>
     <File name="cmsis_lib/inc" path="" type="2"/>
     <File name="cmsis_lib/inc/SYS.h" path="cmsis_lib/inc/SYS.h" type="1"/>
+    <File name="ili9341.h" path="ili9341.h" type="1"/>
     <File name="pwm_freq.c" path="pwm_freq.c" type="1"/>
     <File name="hd44780.c" path="hd44780.c" type="1"/>
     <File name="display.h" path="display.h" type="1"/>
     <File name="cmsis_lib/inc/TIMER.h" path="cmsis_lib/inc/TIMER.h" type="1"/>
     <File name="cmsis_lib/inc/GPIO.h" path="cmsis_lib/inc/GPIO.h" type="1"/>
+    <File name="ili9341.c" path="ili9341.c" type="1"/>
     <File name="pwm_freq.h" path="pwm_freq.h" type="1"/>
-    <File name="expwm.h" path="expwm.h" type="1"/>
     <File name="cmsis_boot/startup/startup_M051Series.c" path="cmsis_boot/startup/startup_M051Series.c" type="1"/>
-    <File name="main.c" path="main.c" type="1"/>
+    <File name="expwm.h" path="expwm.h" type="1"/>
     <File name="cmsis_boot/system_M051Series.c" path="cmsis_boot/system_M051Series.c" type="1"/>
+    <File name="main.c" path="main.c" type="1"/>
   </Files>
 </Project>

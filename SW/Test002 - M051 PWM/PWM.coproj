@@ -87,16 +87,16 @@
     <File name="hd44780.c" path="hd44780.c" type="1"/>
     <File name="display.h" path="display.h" type="1"/>
     <File name="cmsis_lib/inc/GPIO.h" path="cmsis_lib/inc/GPIO.h" type="1"/>
-    <File name="hd44780.h" path="hd44780.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="hd44780.h" path="hd44780.h" type="1"/>
     <File name="cmsis_boot/M051Series.h" path="cmsis_boot/M051Series.h" type="1"/>
     <File name="cmsis_core" path="" type="2"/>
     <File name="display.c" path="display.c" type="1"/>
     <File name="cmsis_boot/system_M051Series.h" path="cmsis_boot/system_M051Series.h" type="1"/>
-    <File name="cmsis_boot/startup/startup_M051Series.c" path="cmsis_boot/startup/startup_M051Series.c" type="1"/>
     <File name="expwm.h" path="expwm.h" type="1"/>
-    <File name="cmsis_boot/system_M051Series.c" path="cmsis_boot/system_M051Series.c" type="1"/>
+    <File name="cmsis_boot/startup/startup_M051Series.c" path="cmsis_boot/startup/startup_M051Series.c" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
+    <File name="cmsis_boot/system_M051Series.c" path="cmsis_boot/system_M051Series.c" type="1"/>
     <File name="expwm.c" path="expwm.c" type="1"/>
   </Files>
 </Project>

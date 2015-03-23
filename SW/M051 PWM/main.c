@@ -7,6 +7,16 @@
  * P0.2 - Rotary Encoder A (38)
  * P0.3 - Rotary Encoder B (37)
  *
+ * P1.0 - TFT D/C (43)
+ * P1.1 - TFT Reset (44)
+ *
+ *
+ * P1.4 - TFT CS (45)
+ * P1.5 - TFT MOSI
+ * P1.6 - TFT MISO
+ * P1.7 - TFT SCK
+ *
+ *
  * P2.0 - Motor Drive PWM (19)
  *
  * P2.2 - Software Control Signal Measure (22) - PWM Capture
@@ -35,9 +45,11 @@
 #include "gpio.h"
 #include "timer.h"
 
+
 #include "display.h"
 
 // #include "hd44780.h"
+#include "ili9341.h"
 #include "encoder.h"
 #include "pwm_freq.h"
 #include "expwm.h"
@@ -52,48 +64,50 @@ void SYS_Init(void)
 /* Init System Clock                                                                                       */
 /*---------------------------------------------------------------------------------------------------------*/
 
-    /* Unlock protected registers */
+    // Unlock protected registers
     SYS_UnlockReg();
 
-    /* Enable Internal RC clock */
-    SYSCLK->PWRCON |= SYSCLK_PWRCON_IRC22M_EN_Msk;
+    // Enable Internal RC clock
+//    SYSCLK->PWRCON |= SYSCLK_PWRCON_IRC22M_EN_Msk;
 
-    /* Waiting for IRC22M clock ready */
-    SYS_WaitingForClockReady(SYSCLK_CLKSTATUS_IRC22M_STB_Msk);
+    // Waiting for IRC22M clock ready
+//    SYS_WaitingForClockReady(SYSCLK_CLKSTATUS_IRC22M_STB_Msk);
 
-    /* Switch HCLK clock source to Internal RC */
-    SYSCLK->CLKSEL0 = SYSCLK_CLKSEL0_HCLK_IRC22M;
+    // Switch HCLK clock source to Internal RC
+//    SYSCLK->CLKSEL0 = SYSCLK_CLKSEL0_HCLK_IRC22M;
 
-    /* Set PLL to power down mode and PLL_STB bit in CLKSTATUS register will be cleared by hardware.*/
-    SYSCLK->PLLCON |= SYSCLK_PLLCON_PD_Msk;
+    // Set PLL to power down mode and PLL_STB bit in CLKSTATUS register will be cleared by hardware.
+//    SYSCLK->PLLCON |= SYSCLK_PLLCON_PD_Msk;
 
-    /* Enable external 12MHz XTAL, internal 22.1184MHz */
-    SYSCLK->PWRCON |= SYSCLK_PWRCON_XTL12M_EN_Msk | SYSCLK_PWRCON_IRC22M_EN_Msk;
+    // Enable external 12MHz XTAL, internal 22.1184MHz
+//    SYSCLK->PWRCON |= SYSCLK_PWRCON_XTL12M_EN_Msk | SYSCLK_PWRCON_IRC22M_EN_Msk;
+    SYSCLK->PWRCON |= SYSCLK_PWRCON_XTL12M_EN_Msk;
 
-    /* Enable PLL and Set PLL frequency */
+    // Enable PLL and Set PLL frequency
     SYSCLK->PLLCON = PLLCON_SETTING;
 
-    /* Waiting for clock ready */
-    SYS_WaitingForClockReady(SYSCLK_CLKSTATUS_PLL_STB_Msk | SYSCLK_CLKSTATUS_XTL12M_STB_Msk | SYSCLK_CLKSTATUS_IRC22M_STB_Msk);
+    // Waiting for clock ready
+//    SYS_WaitingForClockReady(SYSCLK_CLKSTATUS_PLL_STB_Msk | SYSCLK_CLKSTATUS_XTL12M_STB_Msk | SYSCLK_CLKSTATUS_IRC22M_STB_Msk);
+    SYS_WaitingForClockReady(SYSCLK_CLKSTATUS_PLL_STB_Msk | SYSCLK_CLKSTATUS_XTL12M_STB_Msk);
 
-    /* Switch HCLK clock source to PLL, STCLK to HCLK/2 */
+    // Switch HCLK clock source to PLL, STCLK to HCLK/2
     SYSCLK->CLKSEL0 = SYSCLK_CLKSEL0_STCLK_HCLK_DIV2 | SYSCLK_CLKSEL0_HCLK_PLL;
 
-    /* Enable IP clock */
+    // Enable IP clock
 //    SYSCLK->APBCLK = SYSCLK_APBCLK_PWM01_EN_Msk | SYSCLK_APBCLK_PWM23_EN_Msk | SYSCLK_APBCLK_TMR2_EN_Msk;
-    SYSCLK->APBCLK = SYSCLK_APBCLK_TMR2_EN_Msk;
-    /* IP clock source */
+    SYSCLK->APBCLK = SYSCLK_APBCLK_TMR2_EN_Msk | SYSCLK_APBCLK_SPI0_EN_Msk;
+    // IP clock source
 //    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_PWM01_HCLK | SYSCLK_CLKSEL1_PWM23_HCLK | SYSCLK_CLKSEL1_TMR2_HCLK;
-    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_TMR2_HCLK;
-    /* IP clock source */
+    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_TMR2_HCLK | SYSCLK_CLKSEL1_SPI0_HCLK;
+    // IP clock source
     // SYSCLK->CLKSEL2 = SYSCLK_CLKSEL2_PWM01_XTAL|SYSCLK_CLKSEL2_PWM23_XTAL;
 
-    /* Reset PWMA channel0~channel3 */
+    // Reset PWMA channel0~channel3
 //    SYS->IPRSTC2 = SYS_IPRSTC2_PWM03_RST_Msk;
 //    SYS->IPRSTC2 = 0;
 
-    /* Update System Core Clock */
-    /* User can use SystemCoreClockUpdate() to calculate PllClock, SystemCoreClock and CycylesPerUs automatically. */
+    // Update System Core Clock
+    // User can use SystemCoreClockUpdate() to calculate PllClock, SystemCoreClock and CycylesPerUs automatically.
     //SystemCoreClockUpdate();
     PllClock        = PLL_CLOCK;            // PLL
     SystemCoreClock = PLL_CLOCK / 1;        // HCLK
@@ -106,6 +120,10 @@ void SYS_Init(void)
     _GPIO_SET_PIN_MODE(P3, 3, GPIO_PMD_OUTPUT);
     _GPIO_SET_PIN_MODE(P3, 4, GPIO_PMD_OUTPUT);
     _GPIO_SET_PIN_MODE(P3, 5, GPIO_PMD_OUTPUT);
+
+    // TFT GPIO
+    _GPIO_SET_PIN_MODE(P1, 0, GPIO_PMD_OUTPUT);
+    _GPIO_SET_PIN_MODE(P1, 1, GPIO_PMD_OUTPUT);
 
     // Init Encoder GPIO
     _GPIO_SET_PIN_MODE(P0, 2, GPIO_PMD_INPUT);
@@ -120,19 +138,23 @@ void SYS_Init(void)
     NVIC_SetPriority(PWMA_IRQn,3);
 
     NVIC_EnableIRQ(GPIO_P0P1_IRQn);
+    NVIC_EnableIRQ(TMR2_IRQn);
 
 
 /*---------------------------------------------------------------------------------------------------------*/
 /* Init I/O Multi-function                                                                                 */
 /*---------------------------------------------------------------------------------------------------------*/
-    /* Set P3 multi-function pins for UART0 RXD and TXD  */
+    // Set P3 multi-function pins for UART0 RXD and TXD
     // SYS->P3_MFP = SYS_MFP_P30_RXD0 | SYS_MFP_P31_TXD0;
-    /* Set P2 multi-function pins for PWMB Channel0~3  */
+    // Set P2 multi-function pins for PWMB Channel0~3
 //    SYS->P2_MFP = SYS_MFP_P20_PWM0 | SYS_MFP_P22_PWM2; // P2.2 teszt jel, késõbb leszedendõ
     SYS->P4_MFP = SYS_MFP_P40_T2EX;
 
+    // Set P1.4, P1.5, P1.6, P1.7 for SPI0
+    SYS->P1_MFP = SYS_MFP_P14_SPISS0 | SYS_MFP_P15_MOSI_0 | SYS_MFP_P16_MISO_0 | SYS_MFP_P17_SPICLK0;
 
-    /* Lock protected registers */
+
+    // Lock protected registers
     SYS_LockReg();
 }
 
@@ -372,7 +394,8 @@ int main(void)
 {
 	SYS_Init();
 	DISPLAY_Init();
-	DISPLAY_Mode(DISPLAY_MODE_CAL);
+	// DISPLAY_Mode(DISPLAY_MODE_CAL);
+	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
 
 	counter = 0;
 	RPM_Clear();
@@ -395,5 +418,16 @@ int main(void)
 
     // PWM_RPM_Collect();
 
-    while(1) {}
+    // TFT Test
+
+    ILI9341_Init();
+
+    int j;
+    for(j=100; j<200;j++)
+    	ILI9341_DrawPixel(100, j, ILI9341_COLOR_MAGENTA);
+
+    while(1)
+    {
+//    	ILI9341_SendDataWord(0x5555);
+    }
 }

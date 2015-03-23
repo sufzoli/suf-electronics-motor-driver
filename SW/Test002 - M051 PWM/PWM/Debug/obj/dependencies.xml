@@ -16,19 +16,13 @@
       </source>
       <source file="..\..\..\display.h" lastModified="14c2616c319">
       </source>
-      <source file="..\..\..\main.c" lastModified="14c3664d7d2">
+      <source file="..\..\..\main.c" lastModified="14c3abc4a5f">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
          <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
          <include file="..\..\..\expwm.h"/>
          <include file="..\..\..\display.h"/>
-      </source>
-      <source file="..\..\..\expwm.c" lastModified="14c36641040">
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
-         <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
-         <include file="..\..\..\expwm.h"/>
       </source>
       <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14bea51ac37">
       </source>

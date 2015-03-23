@@ -119,7 +119,7 @@ Linker script and memory map
 
                 0x20001000                _eram = 0x20001000
 
-.text           0x00000000      0x894
+.text           0x00000000      0x8dc
  *(.isr_vector)
  .isr_vector    0x00000000       0xc0 ..\obj\startup_M051Series.o
                 0x00000000                g_pfnVectors
@@ -161,37 +161,37 @@ Linker script and memory map
  .text.NVIC_EnableIRQ
                 0x0000012c       0x2c ..\obj\expwm.o
  .text.EXPWM_Init
-                0x00000158      0x2c4 ..\obj\expwm.o
+                0x00000158      0x30c ..\obj\expwm.o
                 0x00000158                EXPWM_Init
  .text.PWMA_IRQHandler
-                0x0000041c       0x48 ..\obj\expwm.o
-                0x0000041c                PWMA_IRQHandler
+                0x00000464       0x48 ..\obj\expwm.o
+                0x00000464                PWMA_IRQHandler
  .text.PWMB_IRQHandler
-                0x00000464       0x4c ..\obj\expwm.o
-                0x00000464                PWMB_IRQHandler
+                0x000004ac       0x4c ..\obj\expwm.o
+                0x000004ac                PWMB_IRQHandler
  .text.NVIC_SetPriority
-                0x000004b0       0xd4 ..\obj\main.o
+                0x000004f8       0xd4 ..\obj\main.o
  .text.SYS_WaitingForClockReady
-                0x00000584       0x38 ..\obj\main.o
+                0x000005cc       0x38 ..\obj\main.o
  .text.SYS_UnlockReg
-                0x000005bc       0x3c ..\obj\main.o
+                0x00000604       0x3c ..\obj\main.o
  .text.SYS_LockReg
-                0x000005f8       0x14 ..\obj\main.o
+                0x00000640       0x14 ..\obj\main.o
  .text.SYS_Init
-                0x0000060c      0x130 ..\obj\main.o
-                0x0000060c                SYS_Init
+                0x00000654      0x130 ..\obj\main.o
+                0x00000654                SYS_Init
  .text.TEST_Init
-                0x0000073c       0x40 ..\obj\main.o
-                0x0000073c                TEST_Init
- .text.main     0x0000077c       0x10 ..\obj\main.o
-                0x0000077c                main
+                0x00000784       0x40 ..\obj\main.o
+                0x00000784                TEST_Init
+ .text.main     0x000007c4       0x10 ..\obj\main.o
+                0x000007c4                main
  .text.SYS_UnlockReg
-                0x0000078c       0x3c ..\obj\system_M051Series.o
+                0x000007d4       0x3c ..\obj\system_M051Series.o
  .text.SYS_LockReg
-                0x000007c8       0x14 ..\obj\system_M051Series.o
+                0x00000810       0x14 ..\obj\system_M051Series.o
  .text.SystemInit
-                0x000007dc       0xb8 ..\obj\system_M051Series.o
-                0x000007dc                SystemInit
+                0x00000824       0xb8 ..\obj\system_M051Series.o
+                0x00000824                SystemInit
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -207,35 +207,35 @@ Linker script and memory map
  *(.rodata*)
  *(.eh_fram e*)
 
-.glue_7         0x00000894        0x0
+.glue_7         0x000008dc        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00000894        0x0
+.glue_7t        0x000008dc        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000894        0x0
+.vfp11_veneer   0x000008dc        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00000894        0x0
+.v4_bx          0x000008dc        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00000894        0x0
+.iplt           0x000008dc        0x0
  .iplt          0x00000000        0x0 ..\obj\startup_M051Series.o
 
-.rel.dyn        0x00000894        0x0
+.rel.dyn        0x000008dc        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\startup_M051Series.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000894                __exidx_start = .
+                0x000008dc                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00000894                __exidx_end = .
-                0x00000894                __etext = .
-                0x00000894                _sidata = __etext
+                0x000008dc                __exidx_end = .
+                0x000008dc                __etext = .
+                0x000008dc                _sidata = __etext
 
-.data           0x20000000        0xc load address 0x00000894
+.data           0x20000000        0xc load address 0x000008dc
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -263,10 +263,10 @@ Linker script and memory map
                 0x2000000c                __data_end__ = .
                 0x2000000c                _edata = __data_end__
 
-.igot.plt       0x2000000c        0x0 load address 0x000008a0
+.igot.plt       0x2000000c        0x0 load address 0x000008e8
  .igot.plt      0x00000000        0x0 ..\obj\startup_M051Series.o
 
-.bss            0x2000000c       0x3c load address 0x000008a0
+.bss            0x2000000c       0x3c load address 0x000008e8
                 0x2000000c                . = ALIGN (0x4)
                 0x2000000c                __bss_start__ = .
                 0x2000000c                _sbss = __bss_start__
@@ -295,7 +295,7 @@ Linker script and memory map
  *(.heap*)
                 0x20000048                __HeapLimit = .
 
-.co_stack       0x20000048      0x400 load address 0x000008dc
+.co_stack       0x20000048      0x400 load address 0x00000924
                 0x20000048                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
  .co_stack      0x20000048      0x400 ..\obj\startup_M051Series.o
@@ -317,11 +317,11 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(PWM.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x126a
+.debug_info     0x00000000     0x136f
  .debug_info    0x00000000       0xff ..\obj\startup_M051Series.o
- .debug_info    0x000000ff      0x6bc ..\obj\expwm.o
- .debug_info    0x000007bb      0x695 ..\obj\main.o
- .debug_info    0x00000e50      0x41a ..\obj\system_M051Series.o
+ .debug_info    0x000000ff      0x7c1 ..\obj\expwm.o
+ .debug_info    0x000008c0      0x695 ..\obj\main.o
+ .debug_info    0x00000f55      0x41a ..\obj\system_M051Series.o
 
 .debug_abbrev   0x00000000      0x504
  .debug_abbrev  0x00000000       0xa7 ..\obj\startup_M051Series.o
@@ -345,18 +345,18 @@ OUTPUT(PWM.elf elf32-littlearm)
  .debug_ranges  0x00000040       0x40 ..\obj\main.o
  .debug_ranges  0x00000080       0x30 ..\obj\system_M051Series.o
 
-.debug_line     0x00000000      0xa77
+.debug_line     0x00000000      0xa7e
  .debug_line    0x00000000       0xe0 ..\obj\startup_M051Series.o
- .debug_line    0x000000e0      0x34a ..\obj\expwm.o
- .debug_line    0x0000042a      0x3b2 ..\obj\main.o
- .debug_line    0x000007dc      0x29b ..\obj\system_M051Series.o
+ .debug_line    0x000000e0      0x34f ..\obj\expwm.o
+ .debug_line    0x0000042f      0x3b4 ..\obj\main.o
+ .debug_line    0x000007e3      0x29b ..\obj\system_M051Series.o
 
 .debug_str      0x00000000      0x98e
  .debug_str     0x00000000      0x17b ..\obj\startup_M051Series.o
                                 0x18d (size before relaxing)
- .debug_str     0x0000017b      0x4a8 ..\obj\expwm.o
-                                0x574 (size before relaxing)
- .debug_str     0x00000623      0x1ab ..\obj\main.o
+ .debug_str     0x0000017b      0x514 ..\obj\expwm.o
+                                0x5e0 (size before relaxing)
+ .debug_str     0x0000068f      0x13f ..\obj\main.o
                                 0x530 (size before relaxing)
  .debug_str     0x000007ce      0x1c0 ..\obj\system_M051Series.o
                                 0x421 (size before relaxing)

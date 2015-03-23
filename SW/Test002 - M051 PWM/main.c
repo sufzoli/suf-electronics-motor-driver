@@ -76,18 +76,19 @@ void SYS_Init(void)
     /* Switch HCLK clock source to PLL, STCLK to HCLK/2 */
     SYSCLK->CLKSEL0 = SYSCLK_CLKSEL0_STCLK_HCLK_DIV2 | SYSCLK_CLKSEL0_HCLK_PLL;
 
-    /*
+    SYS_LockReg();
+
     // Enable IP clock
-    SYSCLK->APBCLK = SYSCLK_APBCLK_PWM01_EN_Msk | SYSCLK_APBCLK_PWM23_EN_Msk | SYSCLK_APBCLK_TMR2_EN_Msk;
+//    SYSCLK->APBCLK = SYSCLK_APBCLK_PWM01_EN_Msk | SYSCLK_APBCLK_PWM23_EN_Msk | SYSCLK_APBCLK_TMR2_EN_Msk;
     // IP clock source
-    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_PWM01_HCLK | SYSCLK_CLKSEL1_PWM23_HCLK | SYSCLK_CLKSEL1_TMR2_HCLK;
+//    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_PWM01_HCLK | SYSCLK_CLKSEL1_PWM23_HCLK | SYSCLK_CLKSEL1_TMR2_HCLK;
     // IP clock source
     // SYSCLK->CLKSEL2 = SYSCLK_CLKSEL2_PWM01_XTAL|SYSCLK_CLKSEL2_PWM23_XTAL;
 
     // Reset PWMA channel0~channel3
-    SYS->IPRSTC2 = SYS_IPRSTC2_PWM03_RST_Msk;
-    SYS->IPRSTC2 = 0;
-	*/
+//    SYS->IPRSTC2 = SYS_IPRSTC2_PWM03_RST_Msk;
+//    SYS->IPRSTC2 = 0;
+
     // Update System Core Clock
     // User can use SystemCoreClockUpdate() to calculate PllClock, SystemCoreClock and CycylesPerUs automatically.
     //SystemCoreClockUpdate();
@@ -131,13 +132,13 @@ void SYS_Init(void)
     // Set P3 multi-function pins for UART0 RXD and TXD
     // SYS->P3_MFP = SYS_MFP_P30_RXD0 | SYS_MFP_P31_TXD0;
     // Set P2 multi-function pins for PWMB Channel0~3
-    /*
-    SYS->P2_MFP = SYS_MFP_P20_PWM0 | SYS_MFP_P22_PWM2; // P2.2 teszt jel, késõbb leszedendõ
-    SYS->P4_MFP = SYS_MFP_P40_T2EX;
-	*/
+
+//    SYS->P2_MFP = SYS_MFP_P20_PWM0 | SYS_MFP_P22_PWM2; // P2.2 teszt jel, késõbb leszedendõ
+//    SYS->P4_MFP = SYS_MFP_P40_T2EX;
+
 
     /* Lock protected registers */
-    SYS_LockReg();
+    // SYS_LockReg();
 }
 
 
@@ -177,6 +178,22 @@ void MOTOR_PWM_SetDuty(unsigned long value)
 
 void TEST_Init()
 {
+/*
+    //	Set Pwm mode
+    _PWM_SET_TIMER_AUTO_RELOAD_MODE(PWMA,PWM_CH2);
+    // Set PWM Timer clock prescaler
+    _PWM_SET_TIMER_PRESCALE(PWMA,PWM_CH2, 9); // Divided by 10
+    // Set PWM Timer clock divider select
+    _PWM_SET_TIMER_CLOCK_DIV(PWMA,PWM_CH2,PWM_CSR_DIV1);
+    // Set PWM Timer duty
+    PWMA->CMR2 = 499;
+    // Set PWM Timer period
+    PWMA->CNR2 = 999;
+    // Enable PWM Output pin
+    _PWM_ENABLE_PWM_OUT(PWMA, PWM_CH2);
+    // Enable PWM Timer
+    _PWM_ENABLE_TIMER(PWMA, PWM_CH2);
+*/
 	TestPWM.Chanell = 2;
 	TestPWM.Prescaler = 9;
 	TestPWM.Divider = PWM_CSR_DIV1;
@@ -184,6 +201,7 @@ void TEST_Init()
 	TestPWM.Period = 999;
 	TestPWM.Port = EXPWM_PORT2;
 	EXPWM_Init(&TestPWM);
+
 }
 
 int main(void)
