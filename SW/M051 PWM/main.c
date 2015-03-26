@@ -424,11 +424,14 @@ int main(void)
     ILI9341_Init();
 
     int j;
+
+//    ILI9341_PrintStr(&Font16x26, "Hello World!", 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+    ILI9341_PrintStr(&Font16x26, "Hello", 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+    // ILI9341_PrintChar(&Font16x26, 'c', 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+/*
     for(j=100; j<200;j++)
     	ILI9341_DrawPixel(100, j, ILI9341_COLOR_MAGENTA);
-
-    ILI9341_PrintChar(&Font7x10, 'c', 0, 0, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
-
+*/
     while(1)
     {
 //    	ILI9341_SendDataWord(0x5555);

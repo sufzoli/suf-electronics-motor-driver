@@ -5,44 +5,47 @@
 #include "ili9341.h"
 #include "ili9341_fonts.h"
 
-void ILI9341_SendData(unsigned char data)
+void ILI9341_SPISend(unsigned long data, unsigned char len, unsigned char dc)
 {
-	ILI9341_DC_DATA;
-	// write the first data of source buffer to Tx register of SPI0.
+	// if we need to change the transfer width
+	if((SPI0->CNTRL & ~SPI_CNTRL_TX_BIT_LEN_Msk) != SPI_CNTRL_TX_BIT_LEN(len))
+	{
+		// wait until the FIFO and the port gets free (last transmit finished)
+		while(SPI0->CNTRL & SPI_CNTRL_GO_BUSY);
+		// check if the Data/Command bit need to be changed and change it
+		if(ILI9341_DC_PORT != dc)
+		{
+			ILI9341_DC_PORT = dc;
+		}
+		// Change data length
+		SPI0->CNTRL = (SPI0->CNTRL & ~SPI_CNTRL_TX_BIT_LEN_Msk) | SPI_CNTRL_TX_BIT_LEN(len);
+	}
+	else
+	{
+		// check if the Data/Command bit need to be changed
+		if(ILI9341_DC_PORT != dc)
+		{
+			// wait until the FIFO and the port gets free (last transmit finished)
+			while(SPI0->CNTRL & SPI_CNTRL_GO_BUSY);
+			// change the Data/Command bit
+			ILI9341_DC_PORT = dc;
+		}
+	}
+	while(SPI0->CNTRL & SPI_CNTRL_TX_FULL_Msk);
+	// transmit the data
 	_SPI_WRITE_TX_BUFFER0(SPI0, data);
-	// set the GO_BUSY bit of SPI0
-	_SPI_SET_GO(SPI0);
-	// Check the GO_BUSY bit
-//	while(SPI0->CNTRL & SPI_CNTRL_GO_BUSY);
-	SYS_SysTickDelay(30);
 }
 
-void ILI9341_SendDataWord(unsigned int data)
+void ILI9341_SPISendRaw(unsigned long data)
 {
-	SPI0->CNTRL &= ~SPI_CNTRL_TX_BIT_LEN_Msk;
-	SPI0->CNTRL |= SPI_CNTRL_TX_BIT_LEN(16);
-	ILI9341_DC_DATA;
-	// write the first data of source buffer to Tx register of SPI0.
+	while(SPI0->CNTRL & SPI_CNTRL_TX_FULL_Msk);
 	_SPI_WRITE_TX_BUFFER0(SPI0, data);
-	// set the GO_BUSY bit of SPI0
-	_SPI_SET_GO(SPI0);
-	SYS_SysTickDelay(20);
-	// Check the GO_BUSY bit
-//	while(SPI0->CNTRL & SPI_CNTRL_GO_BUSY);
-	SPI0->CNTRL &= ~SPI_CNTRL_TX_BIT_LEN_Msk;
-	SPI0->CNTRL |= SPI_CNTRL_TX_BIT_LEN(8);
 }
 
-void ILI9341_SendCommand(unsigned char data)
+void ILI9341_SPIDataLen(unsigned char len)
 {
-	ILI9341_DC_COMMAND;
-	// write the first data of source buffer to Tx register of SPI0.
-	_SPI_WRITE_TX_BUFFER0(SPI0, data);
-	// set the GO_BUSY bit of SPI0
-	_SPI_SET_GO(SPI0);
-	// Check the GO_BUSY bit
-//	while(SPI0->CNTRL & SPI_CNTRL_GO_BUSY);
-	SYS_SysTickDelay(30);
+	while(SPI0->CNTRL & SPI_CNTRL_GO_BUSY);
+	SPI0->CNTRL = (SPI0->CNTRL & ~SPI_CNTRL_TX_BIT_LEN_Msk) | SPI_CNTRL_TX_BIT_LEN(len);
 }
 
 void ILI9341_HardReset()
@@ -55,29 +58,29 @@ void ILI9341_HardReset()
 
 void ILI9341_Init()
 {
-//	unsigned short x;
-//	x = Font7x10[20];
-    /* Configure SPI0 as a master, clock idle low, falling clock edge Tx, rising edge Rx and 32-bit transaction */
+    // Configure SPI0 as a master, clock idle low, falling clock edge Tx, rising edge Rx and 32-bit transaction
+//    SPI0->CNTRL = SPI_CNTRL_MASTER_MODE | SPI_CNTRL_CLK_IDLE_LOW | SPI_CNTRL_TX_FALLING |
+//                     SPI_CNTRL_RX_RISING | SPI_CNTRL_TX_BIT_LEN(8);
     SPI0->CNTRL = SPI_CNTRL_MASTER_MODE | SPI_CNTRL_CLK_IDLE_LOW | SPI_CNTRL_TX_FALLING |
-                     SPI_CNTRL_RX_RISING | SPI_CNTRL_TX_BIT_LEN(8);
-    /* Enable the automatic hardware slave select function. Select the SS pin and configure as low-active. */
+                     SPI_CNTRL_RX_RISING | SPI_CNTRL_TX_BIT_LEN(8) | SPI_CNTRL_FIFO_MODE_EN;
+    // Enable the automatic hardware slave select function. Select the SS pin and configure as low-active.
     SPI0->SSR = SPI_SSR_HW_AUTO_ACTIVE_LOW;
-    /* Set BCn bit to 1 for more flexible clock configuration. */
+    // Set BCn bit to 1 for more flexible clock configuration.
 	_SPI_SET_CLOCK_SETTING_NOT_BACKWARD_COMPATIBLE(SPI0);
-	/* Set IP clock divider. SPI clock rate = HCLK / (9+1) */
-    SPI0->DIVIDER = (SPI0->DIVIDER & (~SPI_DIVIDER_DIVIDER_Msk)) | SPI_DIVIDER_DIV(99);
+	// Set IP clock divider. SPI clock rate = HCLK / (9+1)
+    SPI0->DIVIDER = (SPI0->DIVIDER & (~SPI_DIVIDER_DIVIDER_Msk)) | SPI_DIVIDER_DIV(1);
 
     ILI9341_DC_DATA; // D/C
     ILI9341_HardReset(); // Reset
 
 	ILI9341_SendCommand(ILI9341_RESET);
-	SYS_SysTickDelay(2000);
+	SYS_SysTickDelay(5000);	// 5ms wait (described in the datasheet)
 
 	ILI9341_SendCommand(ILI9341_POWERA);
 	ILI9341_SendData(0x39);
 	ILI9341_SendData(0x2C);
 	ILI9341_SendData(0x00);
-	ILI9341_SendData(0x34);
+	ILI9341_SendData(ILI9341_POWERA_REG_VD_16);
 	ILI9341_SendData(0x02);
 	ILI9341_SendCommand(ILI9341_POWERB);
 	ILI9341_SendData(0x00);
@@ -106,8 +109,8 @@ void ILI9341_Init()
 	ILI9341_SendData(0x28);
 	ILI9341_SendCommand(ILI9341_VCOM2);
 	ILI9341_SendData(0x86);
-	ILI9341_SendCommand(ILI9341_MAC);
-	ILI9341_SendData(0x48);
+	ILI9341_SendCommand(ILI9341_MADCTL);	// Orientation control
+	ILI9341_SendData(ILI9341_MADCTL_MY | ILI9341_MADCTL_MX | ILI9341_MADCTL_MV  | ILI9341_MADCTL_BGR);
 	ILI9341_SendCommand(ILI9341_PIXEL_FORMAT);
 	ILI9341_SendData(0x55);
 	ILI9341_SendCommand(ILI9341_FRC);
@@ -165,14 +168,14 @@ void ILI9341_Init()
 	ILI9341_SendData(0x0F);
 	ILI9341_SendCommand(ILI9341_SLEEP_OUT);
 
-	SYS_SysTickDelay(1000);
+	SYS_SysTickDelay(5000);
 
 	ILI9341_SendCommand(ILI9341_DISPLAY_ON);
-	ILI9341_SendCommand(ILI9341_GRAM);
+//	ILI9341_SendCommand(ILI9341_GRAM);
 
-	SYS_SysTickDelay(1000);
+//	SYS_SysTickDelay(3000);
 
-	// ILI9341_FillScreen();
+	ILI9341_FillScreen();
 
 
     /*
@@ -289,7 +292,6 @@ void ILI9341_Init()
 void ILI9341_DrawPixel(unsigned int x, unsigned int  y, uint32_t color)
 {
 	ILI9341_SetCursorPosition(x, y, x, y);
-
 	ILI9341_SendCommand(ILI9341_GRAM);
 	ILI9341_SendData(color >> 8);
 	ILI9341_SendData(color & 0xFF);
@@ -299,158 +301,71 @@ void ILI9341_DrawPixel(unsigned int x, unsigned int  y, uint32_t color)
 void ILI9341_SetCursorPosition(unsigned int  x1, unsigned int  y1, unsigned int  x2, unsigned int y2)
 {
 	ILI9341_SendCommand(ILI9341_COLUMN_ADDR);
-	ILI9341_SendData(x1 >> 8);
-	ILI9341_SendData(x1 & 0xFF);
-	ILI9341_SendData(x2 >> 8);
-	ILI9341_SendData(x2 & 0xFF);
-
+	ILI9341_SendDataWord(x1);
+	ILI9341_SendDataWord(x2);
 	ILI9341_SendCommand(ILI9341_PAGE_ADDR);
-	ILI9341_SendData(y1 >> 8);
-	ILI9341_SendData(y1 & 0xFF);
-	ILI9341_SendData(y2 >> 8);
-	ILI9341_SendData(y2 & 0xFF);
-}
-/*
-void ILI9341_PrintChar(unsigned long fontarr[], unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
-{
-	unsigned long xsize=7;
-	unsigned long ysize=10;
-	unsigned char bitlen = 8;
-
-	unsigned long line;
-	unsigned long i,j;
-
-	for(i = 0; i< ysize; i++)
-	{
-		line = fontarr[((unsigned long)(code - 32)) * ysize + i];
-		for(j=0; j < xsize; j++)
-		{
-			ILI9341_DrawPixel(x+j,y+(i*xsize),((line & (0x01uL << (bitlen - j))) > 0) ? frontcolor : backcolor);
-		}
-	}
-}
-*/
-/*
-void ILI9341_PrintChar(void * fontptr, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
-{
-	unsigned long xsize=7;
-	unsigned long ysize=10;
-	// unsigned char bitlen = 8;
-	unsigned char bytelen = 1;
-
-	unsigned long *line;
-	unsigned long i,j;
-
-	for(i = 0; i< ysize; i++)
-	{
-		line = (fontptr + ((((unsigned long)(code - 32)) * ysize + i)*bytelen));
-
-		for(j=0; j < xsize; j++)
-		{
-			ILI9341_DrawPixel(x+j,y+(i*xsize),((*line & (0x01uL << ((bytelen << 3) - j))) > 0) ? frontcolor : backcolor);
-		}
-	}
-}
-*/
-void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
-{
-/*
-	unsigned long xsize=7;
-	unsigned long ysize=10;
-	// unsigned char bitlen = 8;
-	unsigned char bytelen = 1;
-*/
-	unsigned long *line;
-	unsigned long i,j;
-
-	for(i = 0; i< font->ysize; i++)
-	{
-		line = (font->fontptr + ((((unsigned long)(code - 32)) * font->ysize + i)*font->bytelen));
-
-		for(j=0; j < font->xsize; j++)
-		{
-			ILI9341_DrawPixel(x+j,y+(i*font->xsize),((*line & (0x01uL << ((font->bytelen << 3) - j))) > 0) ? frontcolor : backcolor);
-		}
-	}
-}
-
-/*
-void ILI9341_SetCol(unsigned int StartCol,unsigned int EndCol)
-{
-	ILI9341_SendCommand(0x2A);                                                      // Column Command address
-	ILI9341_SendDataWord(StartCol);
-	ILI9341_SendDataWord(EndCol);
-}
-
-void ILI9341_SetPage(unsigned int StartPage,unsigned int EndPage)
-{
-	ILI9341_SendCommand(0x2B);                                                      // Column Command address
-	ILI9341_SendDataWord(StartPage);
-	ILI9341_SendDataWord(EndPage);
+	ILI9341_SendDataWord(y1);
+	ILI9341_SendDataWord(y2);
 }
 
 void ILI9341_FillScreen(void)
 {
-	unsigned int i;
-	ILI9341_SetCol(0, 239);
-	ILI9341_SetPage(0, 319);
-	ILI9341_SendCommand(0x2c);                                                  // start to write to display ram
+	unsigned long i;
+	ILI9341_SetCursorPosition(0, 0, ILI9341_WIDTH - 1, ILI9341_HEIGHT - 1);
+	ILI9341_SendCommand(ILI9341_GRAM);
 
-//    TFT_DC_HIGH;
-//    TFT_CS_LOW;
-
-    for(i=0; i<38400; i++)
-    {
-    	ILI9341_SendData(0xFF);
-    	ILI9341_SendData(0xFF);
-    	ILI9341_SendData(0xFF);
-    	ILI9341_SendData(0xFF);
-    }
-//    TFT_CS_HIGH;
+	ILI9341_SPIDataLen(32);
+	ILI9341_DC_DATA;
+	for(i=0; i < ((ILI9341_WIDTH * ILI9341_HEIGHT) >> 1);i++)
+	{
+		ILI9341_SPISendRaw(0); // Black
+	}
 }
-*/
 
-/*
-void TFT::setPixel(INT16U poX, INT16U poY,INT16U color)
+void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
 {
-    sendCMD(0x2A);                                                      // Column Command address
-    sendData(poX);
-    sendData(poX);
+	void *lineptr;
+	unsigned long line;
+	unsigned long i,j;
 
-    sendCMD(0x2B);                                                      // Column Command address
-    sendData(poY);
-    sendData(poY);
+	ILI9341_SetCursorPosition(x,y,x+font->xsize,y+font->ysize);
+	ILI9341_SendCommand(ILI9341_GRAM);
 
-    sendCMD(0x2c);
-    sendData(color);
+	ILI9341_SPIDataLen(16);
+	ILI9341_DC_DATA;
+
+	for(i = 0; i < font->ysize; i++)
+	{
+		lineptr = font->fontptr + ((i  + (((unsigned long)(code - 32)) * (font->ysize))) << (font->bytelen - 1));
+		switch(font->bytelen)
+		{
+			case 1:
+				line = *((unsigned char*)lineptr);
+				break;
+			case 2:
+				line = *((unsigned short*)lineptr);
+				break;
+			case 4:
+				line = *((unsigned long*)lineptr);
+			default:
+				break;
+		}
+
+		for(j=0; j < font->xsize +1; j++)
+		{
+			ILI9341_SPISendRaw((((line) & (0x01uL << ((font->bytelen << 3) - j))) > 0) ? frontcolor : backcolor);
+		}
+	}
 }
-*/
 
-/*
-inline void ILI9341_SendCommand(INT8U index)
+
+
+void ILI9341_PrintStr(fonttype *font, char* str, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
 {
-    TFT_DC_LOW;
-    TFT_CS_LOW;
-    SPI.transfer(index);
-    TFT_CS_HIGH;
+	int i = 0;
+	while(str[i] != 0)
+	{
+		ILI9341_PrintChar(font, str[i], x + (i * (font->xsize+1)), y , frontcolor, backcolor);
+		i++;
+	}
 }
-
-inline void ILI9341_SendData(INT8U data)
-{
-    TFT_DC_HIGH;
-    TFT_CS_LOW;
-    SPI.transfer(data);
-    TFT_CS_HIGH;
-}
-
-inline void sendData(INT16U data)
-{
-    INT8U data1 = data>>8;
-    INT8U data2 = data&0xff;
-    TFT_DC_HIGH;
-    TFT_CS_LOW;
-    SPI.transfer(data1);
-    SPI.transfer(data2);
-    TFT_CS_HIGH;
-}
-*/

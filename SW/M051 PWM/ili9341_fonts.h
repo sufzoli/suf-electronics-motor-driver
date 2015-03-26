@@ -11,6 +11,7 @@ typedef struct
 } fonttype;
 
 extern const fonttype Font7x10;
+extern const fonttype Font16x26;
 // extern const unsigned char Font7x10[];
 
 #endif

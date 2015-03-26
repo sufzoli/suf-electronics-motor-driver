@@ -3,6 +3,9 @@
 #define ILI9341_RESET_PORT	P11
 #define ILI9341_DC_PORT	P10
 
+#define ILI9341_WIDTH 320
+#define ILI9341_HEIGHT 240
+
 #define ILI9341_DC_COMMAND (ILI9341_DC_PORT = 0)
 #define ILI9341_DC_DATA (ILI9341_DC_PORT = 1)
 
@@ -15,7 +18,7 @@
 #define ILI9341_COLUMN_ADDR			0x2A
 #define ILI9341_PAGE_ADDR			0x2B
 #define ILI9341_GRAM				0x2C
-#define ILI9341_MAC					0x36
+#define ILI9341_MADCTL				0x36
 #define ILI9341_PIXEL_FORMAT		0x3A
 #define ILI9341_WDB					0x51
 #define ILI9341_WCD					0x53
@@ -38,6 +41,23 @@
 #define ILI9341_INTERFACE			0xF6
 #define ILI9341_PRC					0xF7
 
+// Command parameters
+// MADCTL
+#define ILI9341_MADCTL_MY			0x80
+#define ILI9341_MADCTL_MX			0x40
+#define ILI9341_MADCTL_MV			0x20
+#define ILI9341_MADCTL_ML			0x10
+#define ILI9341_MADCTL_BGR			0x08
+#define ILI9341_MADCTL_MH			0x04
+
+// POWERA
+#define ILI9341_POWERA_REG_VD_155	0x30
+#define ILI9341_POWERA_REG_VD_14	0x31
+#define ILI9341_POWERA_REG_VD_15	0x32
+#define ILI9341_POWERA_REG_VD_165	0x33
+#define ILI9341_POWERA_REG_VD_16	0x34
+#define ILI9341_POWERA_REG_VD_17	0x35
+
 // Colors
 #define ILI9341_COLOR_WHITE			0xFFFF
 #define ILI9341_COLOR_BLACK			0x0000
@@ -53,14 +73,17 @@
 #define ILI9341_COLOR_GRAY			0x7BEF //1111 0111 1101 1110
 #define ILI9341_COLOR_BROWN			0xBBCA
 
+extern void ILI9341_SPISend(unsigned long data, unsigned char len, unsigned char dc);
+//extern void ILI9341_SPISendRaw(unsigned long data);
+#define ILI9341_SendCommand(x)	ILI9341_SPISend(x, 8, 0)
+#define ILI9341_SendData(x)	ILI9341_SPISend(x, 8, 1)
+#define ILI9341_SendDataWord(x)	ILI9341_SPISend(x, 16, 1)
 
 extern void ILI9341_Init();
-extern void ILI9341_SendCommand(unsigned char data);
-// extern void ILI9341_FillScreen();
+extern void ILI9341_FillScreen();
 extern void ILI9341_DrawPixel(unsigned int x, unsigned int  y, uint32_t color);
 extern void ILI9341_SetCursorPosition(unsigned int  x1, unsigned int  y1, unsigned int  x2, unsigned int y2);
-// extern void ILI9341_PrintChar(unsigned long fontarr[], unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
-// extern void ILI9341_PrintChar(void * fontptr, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
 void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+void ILI9341_PrintStr(fonttype *font, char* str, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
 
 
