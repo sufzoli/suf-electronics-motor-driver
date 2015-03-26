@@ -1,4 +1,6 @@
 #include "hd44780.h"
+#include "ili9341.h"
+#include "ili9341_fonts.h"
 #include "display.h"
 
 unsigned char display_busy;
@@ -51,7 +53,8 @@ void DISPLAY_RPM(unsigned long rpm)
 	if(!display_busy && display_mode == DISPLAY_MODE_NORMAL)
 	{
 		display_busy = 1;
-		HD44780_DisplayN_POS(rpm, DISPLAY_POS_RPM_X + 4, DISPLAY_POS_RPM_Y,8,0);
+		ILI9341_DisplayN_POS(&Font16x26, rpm, 120, 5, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK, 8, 0);
+//		HD44780_DisplayN_POS(rpm, DISPLAY_POS_RPM_X + 4, DISPLAY_POS_RPM_Y,8,0);
 		display_busy = 0;
 	}
 }

@@ -58,6 +58,21 @@
 #define ILI9341_POWERA_REG_VD_16	0x34
 #define ILI9341_POWERA_REG_VD_17	0x35
 
+#define ILI9341_POWERA_VCB_58		0x00
+#define ILI9341_POWERA_VCB_57		0x01
+#define ILI9341_POWERA_VCB_56		0x02
+#define ILI9341_POWERA_VCB_55		0x03
+#define ILI9341_POWERA_VCB_54		0x04
+#define ILI9341_POWERA_VCB_53		0x05
+#define ILI9341_POWERA_VCB_52		0x06
+
+#define ILI9341_POWERB_VGH_VCIx7	0x00
+#define ILI9341_POWERB_VGH_VCIx6	0x08
+#define ILI9341_POWERB_VGL_VCIx4	0x00
+#define ILI9341_POWERB_VGL_VCIx3	0x10
+
+#define ILI9341_POWERB_DC_ENABLE	0x10
+
 // Colors
 #define ILI9341_COLOR_WHITE			0xFFFF
 #define ILI9341_COLOR_BLACK			0x0000
@@ -81,9 +96,10 @@ extern void ILI9341_SPISend(unsigned long data, unsigned char len, unsigned char
 
 extern void ILI9341_Init();
 extern void ILI9341_FillScreen();
-extern void ILI9341_DrawPixel(unsigned int x, unsigned int  y, uint32_t color);
+extern void ILI9341_DrawPixel(unsigned int x, unsigned int  y, unsigned long color);
 extern void ILI9341_SetCursorPosition(unsigned int  x1, unsigned int  y1, unsigned int  x2, unsigned int y2);
 void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
 void ILI9341_PrintStr(fonttype *font, char* str, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+void ILI9341_DisplayN_POS(fonttype *font, unsigned long n, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor, unsigned char len, unsigned char dp);
 
 
