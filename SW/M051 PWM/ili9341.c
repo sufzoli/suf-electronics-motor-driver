@@ -51,13 +51,26 @@ void ILI9341_SPIDataLen(unsigned char len)
 void ILI9341_HardReset()
 {
     ILI9341_RESET_PORT = 0; // Reset
-    SYS_SysTickDelay(1000);
+    SYS_SysTickDelay(10000);
     ILI9341_RESET_PORT = 1;
-    SYS_SysTickDelay(1000);
+    SYS_SysTickDelay(10000);
 }
 
 void ILI9341_Init()
 {
+	// Setup GPIO
+    _GPIO_SET_PIN_MODE(P1, 0, GPIO_PMD_OUTPUT);
+    _GPIO_SET_PIN_MODE(P1, 1, GPIO_PMD_OUTPUT);
+    // Set P1.4, P1.5, P1.6, P1.7 for SPI0
+    SYS->P1_MFP = (SYS->P1_MFP & ~(SYS_MFP_P14_Msk | SYS_MFP_P15_Msk | SYS_MFP_P16_Msk | SYS_MFP_P17_Msk)) |
+    		SYS_MFP_P14_SPISS0 | SYS_MFP_P15_MOSI_0 | SYS_MFP_P16_MISO_0 | SYS_MFP_P17_SPICLK0;
+
+	// Configure SPI clock
+    // Enable IP clock
+    SYSCLK->APBCLK |= SYSCLK_APBCLK_SPI0_EN_Msk;
+    // IP clock source
+    SYSCLK->CLKSEL1 |= SYSCLK_CLKSEL1_SPI0_HCLK;
+
     // Configure SPI0 as a master, clock idle low, falling clock edge Tx, rising edge Rx and 32-bit transaction
 //    SPI0->CNTRL = SPI_CNTRL_MASTER_MODE | SPI_CNTRL_CLK_IDLE_LOW | SPI_CNTRL_TX_FALLING |
 //                     SPI_CNTRL_RX_RISING | SPI_CNTRL_TX_BIT_LEN(8);
@@ -76,83 +89,64 @@ void ILI9341_Init()
 	ILI9341_SendCommand(ILI9341_RESET);
 	SYS_SysTickDelay(5000);	// 5ms wait (described in the datasheet)
 
-	// Hard/Soft reset give the same value - may ommited
 	ILI9341_SendCommand(ILI9341_POWERA);
 	ILI9341_SendData(0x39);
 	ILI9341_SendData(0x2C);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(ILI9341_POWERA_REG_VD_16);
-	ILI9341_SendData(ILI9341_POWERA_VCB_56);
-
+	ILI9341_SendData(0x02);
 	ILI9341_SendCommand(ILI9341_POWERB);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0xC1);
-	ILI9341_SendData(0x20 | ILI9341_POWERB_DC_ENABLE);	// Discharge protection enable (ESD)
-
+	ILI9341_SendData(0x30);
 	ILI9341_SendCommand(ILI9341_DTCA);
 	ILI9341_SendData(0x85);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x78);
-
 	ILI9341_SendCommand(ILI9341_DTCB);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x00);
-
 	ILI9341_SendCommand(ILI9341_POWER_SEQ);
 	ILI9341_SendData(0x64);
 	ILI9341_SendData(0x03);
 	ILI9341_SendData(0x12);
 	ILI9341_SendData(0x81);
-
 	ILI9341_SendCommand(ILI9341_PRC);
 	ILI9341_SendData(0x20);
-
 	ILI9341_SendCommand(ILI9341_POWER1);
 	ILI9341_SendData(0x23);
-
 	ILI9341_SendCommand(ILI9341_POWER2);
 	ILI9341_SendData(0x10);
-
 	ILI9341_SendCommand(ILI9341_VCOM1);
 	ILI9341_SendData(0x3E);
 	ILI9341_SendData(0x28);
-
 	ILI9341_SendCommand(ILI9341_VCOM2);
 	ILI9341_SendData(0x86);
-
 	ILI9341_SendCommand(ILI9341_MADCTL);	// Orientation control
 	ILI9341_SendData(ILI9341_MADCTL_MY | ILI9341_MADCTL_MX | ILI9341_MADCTL_MV  | ILI9341_MADCTL_BGR);
-
 	ILI9341_SendCommand(ILI9341_PIXEL_FORMAT);
 	ILI9341_SendData(0x55);
-
 	ILI9341_SendCommand(ILI9341_FRC);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x18);
-
 	ILI9341_SendCommand(ILI9341_DFC);
 	ILI9341_SendData(0x08);
 	ILI9341_SendData(0x82);
 	ILI9341_SendData(0x27);
-
 	ILI9341_SendCommand(ILI9341_3GAMMA_EN);
 	ILI9341_SendData(0x00);
-
 	ILI9341_SendCommand(ILI9341_COLUMN_ADDR);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0xEF);
-
 	ILI9341_SendCommand(ILI9341_PAGE_ADDR);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x01);
 	ILI9341_SendData(0x3F);
-
 	ILI9341_SendCommand(ILI9341_GAMMA);
 	ILI9341_SendData(0x01);
-
 	ILI9341_SendCommand(ILI9341_PGAMMA);
 	ILI9341_SendData(0x0F);
 	ILI9341_SendData(0x31);
@@ -169,7 +163,6 @@ void ILI9341_Init()
 	ILI9341_SendData(0x0E);
 	ILI9341_SendData(0x09);
 	ILI9341_SendData(0x00);
-
 	ILI9341_SendCommand(ILI9341_NGAMMA);
 	ILI9341_SendData(0x00);
 	ILI9341_SendData(0x0E);
@@ -186,11 +179,14 @@ void ILI9341_Init()
 	ILI9341_SendData(0x31);
 	ILI9341_SendData(0x36);
 	ILI9341_SendData(0x0F);
-
 	ILI9341_SendCommand(ILI9341_SLEEP_OUT);
-	SYS_SysTickDelay(5000);
+
+	SYS_SysTickDelay(10000);
 
 	ILI9341_SendCommand(ILI9341_DISPLAY_ON);
+//	ILI9341_SendCommand(ILI9341_GRAM);
+
+//	SYS_SysTickDelay(3000);
 
 	ILI9341_FillScreen();
 
@@ -339,20 +335,6 @@ void ILI9341_FillScreen(void)
 	}
 }
 
-void ILI9341_FilledReactangle(unsigned long x1, unsigned long y1, unsigned long x2, unsigned long y2, unsigned long color)
-{
-	unsigned long i;
-	ILI9341_SetCursorPosition(x1, y1, x2, y2);
-	ILI9341_SendCommand(ILI9341_GRAM);
-
-	ILI9341_SPIDataLen(16);
-	ILI9341_DC_DATA;
-	for(i=0; i < ((x2-x1) * (y2-y1)) ;i++)
-	{
-		ILI9341_SPISendRaw(color); // Black
-	}
-}
-
 void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor)
 {
 	void *lineptr;
@@ -403,7 +385,7 @@ void ILI9341_PrintStr(fonttype *font, char* str, unsigned long x, unsigned long 
 
 void ILI9341_DisplayN_POS(fonttype *font, unsigned long n, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor, unsigned char len, unsigned char dp)
 {
-	unsigned char i;
+	signed char i;
     unsigned char dppos;
     char dispstr[len+1];
 
@@ -422,7 +404,7 @@ void ILI9341_DisplayN_POS(fonttype *font, unsigned long n, unsigned long x, unsi
     		dispstr[i] = i == dppos ? '.' : '0';
     	}
     }
-    for(i = len - 1; i <= 0 && n != 0; i--)
+    for(i = len-1; (i >= 0) && (n != 0); i--)
     {
     	if(i == dppos)
     		i--;
@@ -441,4 +423,6 @@ void ILI9341_DisplayN_POS(fonttype *font, unsigned long n, unsigned long x, unsi
     }
     ILI9341_PrintStr(font, dispstr, x, y, frontcolor, backcolor);
 }
+
+
 

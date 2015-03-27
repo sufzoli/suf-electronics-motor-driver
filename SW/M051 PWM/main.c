@@ -96,10 +96,10 @@ void SYS_Init(void)
 
     // Enable IP clock
 //    SYSCLK->APBCLK = SYSCLK_APBCLK_PWM01_EN_Msk | SYSCLK_APBCLK_PWM23_EN_Msk | SYSCLK_APBCLK_TMR2_EN_Msk;
-    SYSCLK->APBCLK = SYSCLK_APBCLK_TMR2_EN_Msk | SYSCLK_APBCLK_SPI0_EN_Msk;
+    SYSCLK->APBCLK = SYSCLK_APBCLK_TMR2_EN_Msk;
     // IP clock source
 //    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_PWM01_HCLK | SYSCLK_CLKSEL1_PWM23_HCLK | SYSCLK_CLKSEL1_TMR2_HCLK;
-    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_TMR2_HCLK | SYSCLK_CLKSEL1_SPI0_HCLK;
+    SYSCLK->CLKSEL1 = SYSCLK_CLKSEL1_TMR2_HCLK;
     // IP clock source
     // SYSCLK->CLKSEL2 = SYSCLK_CLKSEL2_PWM01_XTAL|SYSCLK_CLKSEL2_PWM23_XTAL;
 
@@ -114,46 +114,10 @@ void SYS_Init(void)
     SystemCoreClock = PLL_CLOCK / 1;        // HCLK
     CyclesPerUs     = PLL_CLOCK / 1000000;  // For SYS_SysTickDelay()
 
-    // Init LCD GPIO
-    _GPIO_SET_PIN_MODE(P3, 0, GPIO_PMD_OUTPUT);
-    _GPIO_SET_PIN_MODE(P3, 1, GPIO_PMD_OUTPUT);
-    _GPIO_SET_PIN_MODE(P3, 2, GPIO_PMD_OUTPUT);
-    _GPIO_SET_PIN_MODE(P3, 3, GPIO_PMD_OUTPUT);
-    _GPIO_SET_PIN_MODE(P3, 4, GPIO_PMD_OUTPUT);
-    _GPIO_SET_PIN_MODE(P3, 5, GPIO_PMD_OUTPUT);
-
-    // TFT GPIO
-    _GPIO_SET_PIN_MODE(P1, 0, GPIO_PMD_OUTPUT);
-    _GPIO_SET_PIN_MODE(P1, 1, GPIO_PMD_OUTPUT);
-
-    // Init Encoder GPIO
-    _GPIO_SET_PIN_MODE(P0, 2, GPIO_PMD_INPUT);
-    _GPIO_SET_PIN_MODE(P0, 3, GPIO_PMD_INPUT);
-
-    GPIO_EnableInt(P0, 2, GPIO_INT_RISING);
-    GPIO_EnableInt(P0, 3, GPIO_INT_RISING);
-
     NVIC_SetPriority(TMR2_IRQn,0);
     NVIC_SetPriority(SysTick_IRQn,1);
     NVIC_SetPriority(GPIO_P0P1_IRQn,2);
     NVIC_SetPriority(PWMA_IRQn,3);
-
-    NVIC_EnableIRQ(GPIO_P0P1_IRQn);
-    NVIC_EnableIRQ(TMR2_IRQn);
-
-
-/*---------------------------------------------------------------------------------------------------------*/
-/* Init I/O Multi-function                                                                                 */
-/*---------------------------------------------------------------------------------------------------------*/
-    // Set P3 multi-function pins for UART0 RXD and TXD
-    // SYS->P3_MFP = SYS_MFP_P30_RXD0 | SYS_MFP_P31_TXD0;
-    // Set P2 multi-function pins for PWMB Channel0~3
-//    SYS->P2_MFP = SYS_MFP_P20_PWM0 | SYS_MFP_P22_PWM2; // P2.2 teszt jel, késõbb leszedendõ
-    SYS->P4_MFP = SYS_MFP_P40_T2EX;
-
-    // Set P1.4, P1.5, P1.6, P1.7 for SPI0
-    SYS->P1_MFP = SYS_MFP_P14_SPISS0 | SYS_MFP_P15_MOSI_0 | SYS_MFP_P16_MISO_0 | SYS_MFP_P17_SPICLK0;
-
 
     // Lock protected registers
     SYS_LockReg();
@@ -325,8 +289,18 @@ void GPIOP0P1_IRQHandler(void)
 
 void ENCODER_Init(ENCODER_Callback_Type CallBackFunc)
 {
+    // Init Encoder GPIO
+    _GPIO_SET_PIN_MODE(P0, 2, GPIO_PMD_INPUT);
+    _GPIO_SET_PIN_MODE(P0, 3, GPIO_PMD_INPUT);
+
 	ENCODER_USER_Callback = CallBackFunc;
 	ENCODER_PREV_STATE = (ENCODER_PIN_B << 1) | ENCODER_PIN_A | (ENCODER_PREV_STATE << 2);
+
+	// Init Encoder Interrupt
+    GPIO_EnableInt(P0, 2, GPIO_INT_RISING);
+    GPIO_EnableInt(P0, 3, GPIO_INT_RISING);
+
+    NVIC_EnableIRQ(GPIO_P0P1_IRQn);
 }
 
 void ENCODER_Callback(signed char cDirection)
@@ -346,7 +320,9 @@ void ENCODER_Callback(signed char cDirection)
 
 void RPM_Init()
 {
-    _TIMER_RESET(TIMER2);
+    SYS->P4_MFP = (SYS->P4_MFP & ~SYS_MFP_P40_Msk) | SYS_MFP_P40_T2EX;
+    NVIC_EnableIRQ(TMR2_IRQn);
+	_TIMER_RESET(TIMER2);
 
     // Enable TIMER1 counter input and capture function
     TIMER2->TCMPR = 0;
@@ -414,6 +390,8 @@ int main(void)
 
     // PWM timer used for test signal
     TEST_INIT();
+
+
     // Timer Rotational Speed Measurement
     RPM_Init();
 
@@ -421,11 +399,10 @@ int main(void)
 
     // TFT Test
 
-    ILI9341_Init();
 
-//    int j;
 
 //    ILI9341_PrintStr(&Font16x26, "Hello World!", 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
+//    ILI9341_DisplayN_POS(&Font16x26, 1234, 120, 5, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK, 5, 1);
 //    ILI9341_PrintStr(&Font16x26, "Hello", 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
     // ILI9341_PrintChar(&Font16x26, 'c', 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
 /*

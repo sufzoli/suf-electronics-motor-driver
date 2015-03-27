@@ -6,8 +6,8 @@ typedef struct
 	unsigned char Chanell;
 	unsigned char Prescaler;
 	unsigned char Divider;
-	unsigned int Duty;
-	unsigned int Period;
+	unsigned long Duty;
+	unsigned long Period;
 	unsigned char Port;
 	EXPWM_InterruptCallback_Type Callback;
 } expwmtype;
