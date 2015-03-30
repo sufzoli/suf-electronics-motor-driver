@@ -81,10 +81,11 @@ extern void ILI9341_SPISend(unsigned long data, unsigned char len, unsigned char
 
 extern void ILI9341_Init();
 extern void ILI9341_FillScreen();
+extern void ILI9341_FilledReactangle(unsigned long x1, unsigned long y1, unsigned long x2, unsigned long y2, unsigned long color);
 extern void ILI9341_DrawPixel(unsigned int x, unsigned int  y, unsigned long color);
 extern void ILI9341_SetCursorPosition(unsigned int  x1, unsigned int  y1, unsigned int  x2, unsigned int y2);
-void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
-void ILI9341_PrintStr(fonttype *font, char* str, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
-void ILI9341_DisplayN_POS(fonttype *font, unsigned long n, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor, unsigned char len, unsigned char dp);
+extern void ILI9341_PrintChar(fonttype *font, unsigned char code, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+extern void ILI9341_PrintStr(fonttype *font, char* str, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor);
+extern void ILI9341_DisplayN_POS(fonttype *font, unsigned long n, unsigned long x, unsigned long y, unsigned long frontcolor, unsigned long backcolor, unsigned char len, unsigned char dp);
 
 

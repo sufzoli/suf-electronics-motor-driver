@@ -1,35 +1,47 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib">
-      <target file="display.o" lastModified="14c5983889e">
-         <source file="..\..\..\display.c" lastModified="14c598386bb"/>
+      <target file="display.o" lastModified="14c65556953">
+         <source file="..\..\..\display.c" lastModified="14c64032e3f"/>
       </target>
-      <target file="pwm_freq.o" lastModified="14c56c57510">
-         <source file="..\..\..\pwm_freq.c" lastModified="14c26037857"/>
+      <target file="motor.o" lastModified="14c63e33bfe">
+         <source file="..\..\..\motor.c" lastModified="14c63e33a63"/>
       </target>
-      <target file="ili9341_fonts.o" lastModified="14c56c573fb">
-         <source file="..\..\..\ili9341_fonts.c" lastModified="14c4ae7a376"/>
+      <target file="pwm_freq.o" lastModified="14c641a52de">
+         <source file="..\..\..\pwm_freq.c" lastModified="14c641a2c88"/>
       </target>
-      <target file="ili9341.o" lastModified="14c5977883f">
-         <source file="..\..\..\ili9341.c" lastModified="14c597785c9"/>
+      <target file="ili9341_fonts.o" lastModified="14c5d24b3c4">
+         <source file="..\..\..\ili9341_fonts.c" lastModified="14c5a3decb0"/>
       </target>
-      <target file="hd44780.o" lastModified="14c596e9047">
-         <source file="..\..\..\hd44780.c" lastModified="14c596e8ddf"/>
+      <target file="ili9341.o" lastModified="14c625a6cad">
+         <source file="..\..\..\ili9341.c" lastModified="14c625a6b0a"/>
       </target>
-      <target file="system_M051Series.o" lastModified="14c56c57666">
-         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14bea51a45f"/>
+      <target file="hd44780.o" lastModified="14c61a30a70">
+         <source file="..\..\..\hd44780.c" lastModified="14c61a30721"/>
       </target>
-      <target file="main.o" lastModified="14c5983b88d">
-         <source file="..\..\..\main.c" lastModified="14c5983b6c7"/>
+      <target file="serial.o" lastModified="14c676c0e8a">
+         <source file="..\..\..\serial.c" lastModified="14c676c0c65"/>
       </target>
-      <target file="expwm.o" lastModified="14c579b760d">
-         <source file="..\..\..\expwm.c" lastModified="14c3ae5a60e"/>
+      <target file="system_M051Series.o" lastModified="14c5d24b679">
+         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14c5a3decb0"/>
       </target>
-      <target file="startup_M051Series.o" lastModified="14c56c573c5">
-         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14bea51a45d"/>
+      <target file="main.o" lastModified="14c676a37c0">
+         <source file="..\..\..\main.c" lastModified="14c676a34db"/>
       </target>
-      <target file="pid.o" lastModified="14c56c576e0">
-         <source file="..\..\..\pid.c" lastModified="14c2c3d0a7d"/>
+      <target file="expwm.o" lastModified="14c62b47243">
+         <source file="..\..\..\expwm.c" lastModified="14c5a3decb0"/>
+      </target>
+      <target file="startup_M051Series.o" lastModified="14c5d24b371">
+         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14c5a3decb0"/>
+      </target>
+      <target file="pid.o" lastModified="14c5d24b702">
+         <source file="..\..\..\pid.c" lastModified="14c5a3decb0"/>
+      </target>
+      <target file="calibration.o" lastModified="14c676a36e8">
+         <source file="..\..\..\calibration.c" lastModified="14c676a3508"/>
+      </target>
+      <target file="control.o" lastModified="14c655565ef">
+         <source file="..\..\..\control.c" lastModified="14c65106b82"/>
       </target>
    </processor>
 </history>

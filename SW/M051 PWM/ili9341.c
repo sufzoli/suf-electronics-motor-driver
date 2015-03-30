@@ -184,11 +184,15 @@ void ILI9341_Init()
 	SYS_SysTickDelay(10000);
 
 	ILI9341_SendCommand(ILI9341_DISPLAY_ON);
+
+	//	ILI9341_FillScreen();
+
+
+
 //	ILI9341_SendCommand(ILI9341_GRAM);
 
 //	SYS_SysTickDelay(3000);
 
-	ILI9341_FillScreen();
 
 
     /*
@@ -332,6 +336,20 @@ void ILI9341_FillScreen(void)
 	for(i=0; i < ((ILI9341_WIDTH * ILI9341_HEIGHT) >> 1);i++)
 	{
 		ILI9341_SPISendRaw(0); // Black
+	}
+}
+
+void ILI9341_FilledReactangle(unsigned long x1, unsigned long y1, unsigned long x2, unsigned long y2, unsigned long color)
+{
+	unsigned long i;
+	ILI9341_SetCursorPosition(x1, y1, x2, y2);
+	ILI9341_SendCommand(ILI9341_GRAM);
+
+	ILI9341_SPIDataLen(16);
+	ILI9341_DC_DATA;
+	for(i=0; i < ((x2-x1+1) * (y2-y1+1)) ;i++)
+	{
+		ILI9341_SPISendRaw(color);
 	}
 }
 

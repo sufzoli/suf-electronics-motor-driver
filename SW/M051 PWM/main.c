@@ -6,11 +6,14 @@
  * P0.1 - Voltage Measure ADC (41)
  * P0.2 - Rotary Encoder A (38)
  * P0.3 - Rotary Encoder B (37)
+ * P0.4 - RPM Mode Set (35)
+ * P0.5 - Auto Mode Set (34)
+ * P0.6 - Calibration start (33)
  *
  * P1.0 - TFT D/C (43)
  * P1.1 - TFT Reset (44)
- *
- *
+ * P1.2 - UART RXD (45)
+ * P1.3 - UART TXD (46)
  * P1.4 - TFT CS (45)
  * P1.5 - TFT MOSI
  * P1.6 - TFT MISO
@@ -48,12 +51,14 @@
 
 #include "display.h"
 
-// #include "hd44780.h"
 #include "ili9341.h"
 #include "ili9341_fonts.h"
 #include "encoder.h"
-#include "pwm_freq.h"
+#include "calibration.h"
 #include "expwm.h"
+#include "control.h"
+#include "motor.h"
+#include "serial.h"
 
 #define PLLCON_SETTING      SYSCLK_PLLCON_50MHz_XTAL
 #define PLL_CLOCK           50000000
@@ -132,8 +137,9 @@ volatile static unsigned long prevccr; // Previous value of the capture register
 volatile static unsigned long counter;
 volatile static unsigned long count_result;
 // unsigned char result_ready;
+unsigned char rpm_set_changed;
 unsigned char duty_changed;
-unsigned int duty_pwm;
+//unsigned int duty_pwm;
 
 // RPM Counter
 volatile static unsigned int count_pointer;
@@ -145,7 +151,7 @@ volatile static unsigned long count_result_set[13];
 volatile static unsigned char race_error;
 
 expwmtype TestPWM;
-expwmtype MotorPWM;
+// expwmtype MotorPWM;
 expwmtype DisplayPWM;
 
 void RPM_Clear()
@@ -242,7 +248,7 @@ void TMR2_IRQHandler(void)
 void DisplayPWM_Callback(void)
 {
 	unsigned long disp_count;
-	unsigned int disp_duty;
+	unsigned long disp_buff;
 	// _PWM_CLEAR_TIMER_PERIOD_INT_FLAG(PWMA,PWM_CH3);
 	if(countset_ready && (countset_result > 0))
 	{
@@ -256,11 +262,16 @@ void DisplayPWM_Callback(void)
 
 	if(duty_changed)
 	{
-		disp_duty = duty_pwm;
+		disp_buff = Motor_GetDuty();
+		DISPLAY_DUTY(disp_buff);
 		duty_changed = 0;
-		DISPLAY_DUTY(disp_duty);
 	}
-
+	if(rpm_set_changed && CONTROL_MODE != CONTROL_MODE_DUTY)
+	{
+		disp_buff = CONTROL_RPM_SET;
+		DISPLAY_RPM_SET(disp_buff);
+		rpm_set_changed = 0;
+	}
 }
 
 unsigned long RPM_COUNT_GetPeriodLength()
@@ -305,16 +316,29 @@ void ENCODER_Init(ENCODER_Callback_Type CallBackFunc)
 
 void ENCODER_Callback(signed char cDirection)
 {
-
 	signed long temp;
-	temp = duty_pwm;
-	temp += cDirection;
-	if(temp >= 0 && temp < 250)
+
+	if(CONTROL_MODE == CONTROL_MODE_DUTY)
 	{
-		EXPWM_SetDuty(&MotorPWM, temp);
-		// PWMA->CMR0 = temp;
-		duty_pwm = temp;
-		duty_changed = 1;
+		temp = Motor_GetDuty();
+		temp += cDirection;
+		if(temp >= 0 && temp < 250)
+		{
+			Motor_SetDuty(temp);
+			// PWMA->CMR0 = temp;
+			// duty_pwm = temp;
+			duty_changed = 1;
+		}
+	}
+	if(CONTROL_MODE == CONTROL_MODE_RPM)
+	{
+		temp = CONTROL_RPM_SET;
+		temp += cDirection * 100;
+		if(temp >= 0 && temp <= 25000)
+		{
+			CONTROL_RPM_SET = temp;
+			rpm_set_changed = 1;
+		}
 	}
 }
 
@@ -343,7 +367,7 @@ void TEST_INIT()
 	TestPWM.Port = EXPWM_PORT2;
 	EXPWM_Init(&TestPWM);
 }
-
+/*
 void Motor_Init()
 {
 	MotorPWM.Chanell = 0;
@@ -354,7 +378,7 @@ void Motor_Init()
 	MotorPWM.Port = EXPWM_PORT2;
 	EXPWM_Init(&MotorPWM);
 }
-
+*/
 void DisplayPWM_Init()
 {
 	DisplayPWM.Chanell = 3;
@@ -373,6 +397,8 @@ int main(void)
 	DISPLAY_Init();
 	// DISPLAY_Mode(DISPLAY_MODE_CAL);
 	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
+    CONTROL_MODE = CONTROL_MODE_RPM;
+    display_rpm_set_state = 1;
 
 	counter = 0;
 	RPM_Clear();
@@ -381,12 +407,22 @@ int main(void)
 
 	Motor_Init();
 
-    duty_pwm = 0;
+    // duty_pwm = 0;
     duty_changed = 1;
+
+    rpm_set_changed = 1;
 
     // ---- PWM Timer used as display update
 
     DisplayPWM_Init();
+
+    SERIAL_Init();
+    //SERIAL_SendULong(25000);
+    //SERIAL_SendStr("\r\n");
+
+    CONTROL_INIT();
+
+
 
     // PWM timer used for test signal
     TEST_INIT();
@@ -395,22 +431,17 @@ int main(void)
     // Timer Rotational Speed Measurement
     RPM_Init();
 
-    // PWM_RPM_Collect();
 
-    // TFT Test
-
+    DISPLAY_CTRL_MODE(CONTROL_MODE);
 
 
-//    ILI9341_PrintStr(&Font16x26, "Hello World!", 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
-//    ILI9341_DisplayN_POS(&Font16x26, 1234, 120, 5, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK, 5, 1);
-//    ILI9341_PrintStr(&Font16x26, "Hello", 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
-    // ILI9341_PrintChar(&Font16x26, 'c', 10, 10, ILI9341_COLOR_WHITE, ILI9341_COLOR_BLACK);
-/*
-    for(j=100; j<200;j++)
-    	ILI9341_DrawPixel(100, j, ILI9341_COLOR_MAGENTA);
-*/
+
+    CONTROL_WORKER();
+
+    /*
     while(1)
     {
 //    	ILI9341_SendDataWord(0x5555);
     }
+    */
 }

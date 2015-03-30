@@ -1,3 +1,7 @@
+#ifndef __EXPWM_H__
+#define __EXPWM_H__
+
+
 
 typedef void (* EXPWM_InterruptCallback_Type)();
 
@@ -35,3 +39,4 @@ typedef struct
 extern void EXPWM_Init(expwmtype *data);
 extern void EXPWM_SetDuty(expwmtype *data, unsigned int duty);
 
+#endif
