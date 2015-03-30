@@ -1,5 +1,8 @@
+#include "motor.h"
 #include "expwm.h"
 #include "pwm.h"
+#include "main.h"
+#include "sys.h"
 
 expwmtype MotorPWM;
 
@@ -17,4 +20,18 @@ void Motor_Init()
 unsigned long Motor_GetDuty()
 {
 	return MotorPWM.Duty;
+}
+
+void Motor_GracefullStop()
+{
+	unsigned long i,j;
+	for(i = MotorPWM.Period; i >0 ; i--)
+	{
+		MotorPWM.Period == i;
+		GLOBAL_MOTOR_DUTY_CHANGED = 1;
+		for(j = 0; j < MOTOR_GRACEFULL_STEPTIME; j++)
+		{
+			SYS_SysTickDelay(5000);
+		}
+	}
 }

@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=PWM.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\PWM -TC:\CooCox\CoIDE\configuration\ProgramData\PWM/arm-gcc-link.ld -g">
-      <target file="PWM.elf" lastModified="14c676c10bf">
-         <source file="..\obj\control.o" lastModified="14c655565ef"/>
-         <source file="..\obj\startup_M051Series.o" lastModified="14c5d24b371"/>
-         <source file="..\obj\ili9341_fonts.o" lastModified="14c5d24b3c4"/>
-         <source file="..\obj\expwm.o" lastModified="14c62b47243"/>
-         <source file="..\obj\calibration.o" lastModified="14c676a36e8"/>
-         <source file="..\obj\main.o" lastModified="14c676a37c0"/>
-         <source file="..\obj\display.o" lastModified="14c65556953"/>
-         <source file="..\obj\motor.o" lastModified="14c63e33bfe"/>
-         <source file="..\obj\hd44780.o" lastModified="14c61a30a70"/>
-         <source file="..\obj\system_M051Series.o" lastModified="14c5d24b679"/>
-         <source file="..\obj\serial.o" lastModified="14c676c0e8a"/>
-         <source file="..\obj\ili9341.o" lastModified="14c625a6cad"/>
-         <source file="..\obj\pid.o" lastModified="14c5d24b702"/>
+      <target file="PWM.elf" lastModified="14c69d57701">
+         <source file="..\obj\control.o" lastModified="14c69ce5553"/>
+         <source file="..\obj\startup_M051Series.o" lastModified="14c69ce55a3"/>
+         <source file="..\obj\ili9341_fonts.o" lastModified="14c69ce5660"/>
+         <source file="..\obj\expwm.o" lastModified="14c69ce578e"/>
+         <source file="..\obj\calibration.o" lastModified="14c69d519c1"/>
+         <source file="..\obj\main.o" lastModified="14c69d51b0f"/>
+         <source file="..\obj\display.o" lastModified="14c69ce5aa2"/>
+         <source file="..\obj\motor.o" lastModified="14c69d57518"/>
+         <source file="..\obj\hd44780.o" lastModified="14c69ce5b93"/>
+         <source file="..\obj\system_M051Series.o" lastModified="14c69ce5c2e"/>
+         <source file="..\obj\serial.o" lastModified="14c69ce5cf3"/>
+         <source file="..\obj\ili9341.o" lastModified="14c69ce5d95"/>
+         <source file="..\obj\pid.o" lastModified="14c69ce5de7"/>
       </target>
    </processor>
 </history>

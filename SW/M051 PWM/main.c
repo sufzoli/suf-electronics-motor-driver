@@ -64,6 +64,37 @@
 #define PLL_CLOCK           50000000
 
 
+// Global variables
+
+unsigned char GLOBAL_MOTOR_DUTY_CHANGED;	// set to true if somewhere the motor pwm duty cycle changed
+
+const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
+static unsigned char ENCODER_PREV_STATE;
+ENCODER_Callback_Type ENCODER_USER_Callback;
+//static unsigned long rpm_count;
+volatile static unsigned long prevccr; // Previous value of the capture register
+volatile static unsigned long counter;
+volatile static unsigned long count_result;
+// unsigned char result_ready;
+unsigned char rpm_set_changed;
+//unsigned int duty_pwm;
+
+// RPM Counter
+volatile static unsigned int count_pointer;
+volatile static unsigned char countset_ready;
+volatile static unsigned long countset_result;
+volatile static unsigned long count_result_set[13];
+
+// Interrupt interlock error handling
+volatile static unsigned char race_error;
+
+expwmtype TestPWM;
+// expwmtype MotorPWM;
+expwmtype DisplayPWM;
+
+
+
+
 void SYS_Init(void)
 {
 /*---------------------------------------------------------------------------------------------------------*/
@@ -128,31 +159,6 @@ void SYS_Init(void)
     SYS_LockReg();
 }
 
-
-const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
-static unsigned char ENCODER_PREV_STATE;
-ENCODER_Callback_Type ENCODER_USER_Callback;
-//static unsigned long rpm_count;
-volatile static unsigned long prevccr; // Previous value of the capture register
-volatile static unsigned long counter;
-volatile static unsigned long count_result;
-// unsigned char result_ready;
-unsigned char rpm_set_changed;
-unsigned char duty_changed;
-//unsigned int duty_pwm;
-
-// RPM Counter
-volatile static unsigned int count_pointer;
-volatile static unsigned char countset_ready;
-volatile static unsigned long countset_result;
-volatile static unsigned long count_result_set[13];
-
-// Interrupt interlock error handling
-volatile static unsigned char race_error;
-
-expwmtype TestPWM;
-// expwmtype MotorPWM;
-expwmtype DisplayPWM;
 
 void RPM_Clear()
 {
@@ -260,11 +266,11 @@ void DisplayPWM_Callback(void)
 	}
 	DISPLAY_RPM(disp_count);
 
-	if(duty_changed)
+	if(GLOBAL_MOTOR_DUTY_CHANGED)
 	{
 		disp_buff = Motor_GetDuty();
 		DISPLAY_DUTY(disp_buff);
-		duty_changed = 0;
+		GLOBAL_MOTOR_DUTY_CHANGED = 0;
 	}
 	if(rpm_set_changed && CONTROL_MODE != CONTROL_MODE_DUTY)
 	{
@@ -327,7 +333,7 @@ void ENCODER_Callback(signed char cDirection)
 			Motor_SetDuty(temp);
 			// PWMA->CMR0 = temp;
 			// duty_pwm = temp;
-			duty_changed = 1;
+			GLOBAL_MOTOR_DUTY_CHANGED = 1;
 		}
 	}
 	if(CONTROL_MODE == CONTROL_MODE_RPM)
@@ -408,7 +414,7 @@ int main(void)
 	Motor_Init();
 
     // duty_pwm = 0;
-    duty_changed = 1;
+    GLOBAL_MOTOR_DUTY_CHANGED = 1;
 
     rpm_set_changed = 1;
 

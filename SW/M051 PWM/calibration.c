@@ -19,7 +19,7 @@ void CALIBRATION_START()
 	{
 		// Set the duty cycle
 		Motor_SetDuty(duty);
-		duty_changed = 1;
+		GLOBAL_MOTOR_DUTY_CHANGED = 1;
 		// Wait until the motor speed up
 		for(i=0;i<PWM_RPM_SET_TIME;i++)
 			SYS_SysTickDelay(1000);
@@ -44,7 +44,6 @@ void CALIBRATION_START()
 		SERIAL_SendULong(period);
 		SERIAL_SendStr("\r\n");
 	}
-	// drain stop kéne ide
-	Motor_SetDuty(0);
 	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
+	Motor_GracefullStop();
 }
