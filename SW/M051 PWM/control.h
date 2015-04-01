@@ -6,6 +6,7 @@
 #define CONTROL_MODE_DUTY	0
 #define CONTROL_MODE_RPM	1
 
+extern unsigned char CONTROL_FUNCTION;
 extern unsigned char CONTROL_MODE;
 extern unsigned long CONTROL_RPM_SET;
 

@@ -59,6 +59,7 @@
 #include "control.h"
 #include "motor.h"
 #include "serial.h"
+#include "pid.h"
 
 #define PLLCON_SETTING      SYSCLK_PLLCON_50MHz_XTAL
 #define PLL_CLOCK           50000000
@@ -440,7 +441,7 @@ int main(void)
 
     DISPLAY_CTRL_MODE(CONTROL_MODE);
 
-
+    PID_Init(&MotorPWM);
 
     CONTROL_WORKER();
 

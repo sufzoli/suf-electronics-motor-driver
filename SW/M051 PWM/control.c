@@ -1,6 +1,7 @@
 #include "gpio.h"
 #include "control.h"
 #include "display.h"
+#include "motor.h"
 
 unsigned char CONTROL_FUNCTION=CONTROL_FUNCTION_NORMAL;
 unsigned char CONTROL_MODE=CONTROL_MODE_AUTO;
@@ -30,6 +31,26 @@ void CONTROL_WORKER()
 				CONTROL_FUNCTION = CONTROL_FUNCTION_CAL;
 				CALIBRATION_START();
 				CONTROL_FUNCTION = CONTROL_FUNCTION_NORMAL;
+			}
+			if((P05 <<1) | P04 != CONTROL_MODE)
+			{
+				switch((P05 <<1) | P04)
+				{
+					case 0:
+						CONTROL_MODE = CONTROL_MODE_DUTY;
+						break;
+					case 1:
+						CONTROL_MODE = CONTROL_MODE_AUTO;
+						break;
+					case 2:
+						CONTROL_MODE = CONTROL_MODE_RPM;
+						break;
+					default:
+						CONTROL_MODE = CONTROL_MODE_AUTO;
+						break;
+				}
+				DISPLAY_CTRL_MODE(CONTROL_MODE);
+				Motor_GracefullStop();
 			}
 		}
 	}
