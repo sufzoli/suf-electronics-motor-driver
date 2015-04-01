@@ -4,3 +4,6 @@ C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Se
 C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Serial Logger\Serial Logger\Test001 - Console logging\obj\Debug\Test001 - Console logging.exe
 C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Serial Logger\Serial Logger\Test001 - Console logging\obj\Debug\Test001 - Console logging.pdb
 C:\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Serial Logger\Serial Logger\Test001 - Console logging\bin\Debug\Test001 - Console logging.exe.config
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\Test001 - Console logging\bin\Debug\Test001 - Console logging.exe.config
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\Test001 - Console logging\obj\Debug\Test001 - Console logging.exe
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\Test001 - Console logging\obj\Debug\Test001 - Console logging.pdb

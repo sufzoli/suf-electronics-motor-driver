@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MotorCalLogger")]
+[assembly: AssemblyTitle("MotorCalibrationLogger")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MotorCalLogger")]
+[assembly: AssemblyProduct("MotorCalibrationLogger")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4cfea5d3-3e7d-4112-8f90-55d16130838c")]
+[assembly: Guid("3bf55e49-d9e0-48a6-a9b3-bb6f31adf0d7")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,0 +1,6 @@
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\MotorCalibrationLogger\obj\Debug\MotorCalibrationLogger.csprojResolveAssemblyReference.cache
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\MotorCalibrationLogger\bin\Debug\MotorCalibrationLogger.exe.config
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\MotorCalibrationLogger\bin\Debug\MotorCalibrationLogger.exe
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\MotorCalibrationLogger\bin\Debug\MotorCalibrationLogger.pdb
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\MotorCalibrationLogger\obj\Debug\MotorCalibrationLogger.exe
+C:\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\Serial Logger\MotorCalibrationLogger\obj\Debug\MotorCalibrationLogger.pdb

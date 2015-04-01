@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test001 - Console logging", "Test001 - Console logging\Test001 - Console logging.csproj", "{C3866607-DE30-464D-B982-8E0944531815}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorCalLogger", "MotorCalLogger\MotorCalLogger.csproj", "{5D591F2C-28EB-4517-8999-4F3EDBD37223}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorCalibrationLogger", "MotorCalibrationLogger\MotorCalibrationLogger.csproj", "{4FA05522-9FCE-4C4D-9656-36661F37E452}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C3866607-DE30-464D-B982-8E0944531815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3866607-DE30-464D-B982-8E0944531815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3866607-DE30-464D-B982-8E0944531815}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D591F2C-28EB-4517-8999-4F3EDBD37223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D591F2C-28EB-4517-8999-4F3EDBD37223}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D591F2C-28EB-4517-8999-4F3EDBD37223}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D591F2C-28EB-4517-8999-4F3EDBD37223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FA05522-9FCE-4C4D-9656-36661F37E452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA05522-9FCE-4C4D-9656-36661F37E452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA05522-9FCE-4C4D-9656-36661F37E452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA05522-9FCE-4C4D-9656-36661F37E452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
