@@ -1,34 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core /I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver /I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib /I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM /I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot /I..\..\..\..\..\DATA\Source Control\SUF-Github\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc">
-      <source file="..\..\..\display.h" lastModified="14c69b94201">
+   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_core /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051 PWM\cmsis_lib">
+      <source file="..\..\..\display.h" lastModified="14c64032e57">
       </source>
-      <source file="..\..\..\motor.h" lastModified="14c69d51688">
+      <source file="..\..\..\motor.h" lastModified="14c732ae463">
          <include file="..\..\..\expwm.h"/>
       </source>
-      <source file="..\..\..\display.c" lastModified="14c69b941fd">
+      <source file="..\..\..\display.c" lastModified="14c64032e3f">
          <include file="..\..\..\display.h"/>
          <include file="..\..\..\control.h"/>
          <include file="..\..\..\ili9341.h"/>
          <include file="..\..\..\ili9341_fonts.h"/>
          <include file="..\..\..\hd44780.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14be91e0b36">
+      <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\calibration.h" lastModified="14c69cd1def">
+      <source file="..\..\..\calibration.h" lastModified="14c732ae457">
       </source>
-      <source file="..\..\..\motor.c" lastModified="14c69d57237">
+      <source file="..\..\..\motor.c" lastModified="14c732ae461">
          <include file="..\..\..\motor.h"/>
          <include file="..\..\..\expwm.h"/>
          <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
          <include file="..\..\..\main.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
       </source>
-      <source file="..\..\..\pid.h" lastModified="14c6f2233ba">
+      <source file="..\..\..\pid.h" lastModified="14c7d7adcb8">
          <include file="..\..\..\expwm.h"/>
       </source>
-      <source file="..\..\..\calibration.c" lastModified="14c69d50bf5">
+      <source file="..\..\..\calibration.c" lastModified="14c7c399c79">
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\FMC.h"/>
          <include file="..\..\..\motor.h"/>
@@ -36,69 +36,71 @@
          <include file="..\..\..\calibration.h"/>
          <include file="..\..\..\display.h"/>
          <include file="..\..\..\serial.h"/>
+         <include file="..\..\..\main.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\SPI.h" lastModified="14c4761051f">
+      <source file="..\..\..\cmsis_lib\inc\SPI.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\pid.c" lastModified="14c7013728b">
+      <source file="..\..\..\pid.c" lastModified="14c7d7a1b2b">
          <include file="..\..\..\pid.h"/>
          <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
          <include file="..\..\..\expwm.h"/>
          <include file="..\..\..\control.h"/>
          <include file="..\..\..\rpm_count.h"/>
+         <include file="..\..\..\main.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\FMC.h" lastModified="14c278d01e8">
+      <source file="..\..\..\cmsis_lib\inc\FMC.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\hd44780.h" lastModified="14c2799c677">
+      <source file="..\..\..\hd44780.h" lastModified="14c5a3decb0">
       </source>
-      <source file="..\..\..\hd44780.c" lastModified="14c69b9420b">
+      <source file="..\..\..\hd44780.c" lastModified="14c61a30721">
          <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\hd44780.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14c3825f9a7">
+      <source file="..\..\..\cmsis_lib\inc\PWM.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\ili9341.h" lastModified="14c69b94214">
+      <source file="..\..\..\ili9341.h" lastModified="14c62534dcc">
          <include file="..\..\..\ili9341_fonts.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\inc\TIMER.h" lastModified="14c0d1c125a">
+      <source file="..\..\..\cmsis_lib\inc\TIMER.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14be91e0b22">
+      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14c5a3decb0">
       </source>
-      <source file="..\..\..\ili9341.c" lastModified="14c69b94210">
+      <source file="..\..\..\ili9341.c" lastModified="14c625a6b0a">
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\SPI.h"/>
          <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
          <include file="..\..\..\ili9341.h"/>
          <include file="..\..\..\ili9341_fonts.h"/>
       </source>
-      <source file="..\..\..\serial.h" lastModified="14c69b94227">
+      <source file="..\..\..\serial.h" lastModified="14c67664a93">
          <include file="..\..\..\cmsis_lib\inc\UART.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14be91e12ee">
+      <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14c5a3df480">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14be91e0b18">
+      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_core\core_cm0.h"/>
          <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
       </source>
-      <source file="..\..\..\main.h" lastModified="14c69d5169a">
+      <source file="..\..\..\main.h" lastModified="14c7c3944bd">
       </source>
-      <source file="..\..\..\cmsis_lib\inc\UART.h" lastModified="14c69b941f0">
+      <source file="..\..\..\cmsis_lib\inc\UART.h" lastModified="14c673f14d6">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\serial.c" lastModified="14c69b94224">
+      <source file="..\..\..\serial.c" lastModified="14c676c0c65">
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\UART.h"/>
          <include file="..\..\..\serial.h"/>
       </source>
-      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14be91e12fa">
+      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14c5a3df480">
       </source>
-      <source file="..\..\..\main.c" lastModified="14c6f2f1db6">
+      <source file="..\..\..\main.c" lastModified="14c7d6613d6">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
@@ -115,39 +117,41 @@
          <include file="..\..\..\serial.h"/>
          <include file="..\..\..\pid.h"/>
       </source>
-      <source file="..\..\..\expwm.h" lastModified="14c69b94206">
+      <source file="..\..\..\expwm.h" lastModified="14c7d79ad0e">
       </source>
-      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14be91e0b42">
+      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\expwm.c" lastModified="14c47610528">
+      <source file="..\..\..\expwm.c" lastModified="14c7d79acd0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
          <include file="..\..\..\expwm.h"/>
       </source>
-      <source file="..\..\..\control.h" lastModified="14c7015252d">
+      <source file="..\..\..\control.h" lastModified="14c732ae45b">
       </source>
-      <source file="..\..\..\control.c" lastModified="14c7013725f">
+      <source file="..\..\..\control.c" lastModified="14c7d64c459">
+         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
          <include file="..\..\..\control.h"/>
          <include file="..\..\..\display.h"/>
          <include file="..\..\..\motor.h"/>
+         <include file="..\..\..\main.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14be91e0b1b">
+      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14c5a3decb0">
       </source>
-      <source file="..\..\..\ili9341_fonts.h" lastModified="14c5ac0f43c">
+      <source file="..\..\..\ili9341_fonts.h" lastModified="14c5a3decb0">
       </source>
-      <source file="..\..\..\rpm_count.h" lastModified="14c278d0219">
+      <source file="..\..\..\rpm_count.h" lastModified="14c5a3decb0">
       </source>
-      <source file="..\..\..\ili9341_fonts.c" lastModified="14c5ac0f437">
+      <source file="..\..\..\ili9341_fonts.c" lastModified="14c5a3decb0">
          <include file="..\..\..\ili9341_fonts.h"/>
       </source>
-      <source file="..\..\..\encoder.h" lastModified="14beffa3181">
+      <source file="..\..\..\encoder.h" lastModified="14c5a3decb0">
       </source>
-      <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14be91e12fe">
+      <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14c5a3df480">
       </source>
-      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="14be91e0f0e">
+      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="14c5a3df098">
          <include file="..\..\..\cmsis_core\core_cmInstr.h"/>
          <include file="..\..\..\cmsis_core\core_cmFunc.h"/>
       </source>

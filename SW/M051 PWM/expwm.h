@@ -38,5 +38,6 @@ typedef struct
 
 extern void EXPWM_Init(expwmtype *data);
 extern void EXPWM_SetDuty(expwmtype *data, unsigned int duty);
+extern unsigned long EXPWM_GetDuty(expwmtype *data);
 
 #endif

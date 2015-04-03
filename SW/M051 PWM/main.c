@@ -68,6 +68,7 @@
 // Global variables
 
 unsigned char GLOBAL_MOTOR_DUTY_CHANGED;	// set to true if somewhere the motor pwm duty cycle changed
+unsigned char GLOBAL_MOTOR_RPMPRESET_CHANGED; // set to true if somewhere the motor rpm preset changed
 
 const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
 static unsigned char ENCODER_PREV_STATE;
@@ -77,7 +78,6 @@ volatile static unsigned long prevccr; // Previous value of the capture register
 volatile static unsigned long counter;
 volatile static unsigned long count_result;
 // unsigned char result_ready;
-unsigned char rpm_set_changed;
 //unsigned int duty_pwm;
 
 // RPM Counter
@@ -273,11 +273,11 @@ void DisplayPWM_Callback(void)
 		DISPLAY_DUTY(disp_buff);
 		GLOBAL_MOTOR_DUTY_CHANGED = 0;
 	}
-	if(rpm_set_changed && CONTROL_MODE != CONTROL_MODE_DUTY)
+	if(GLOBAL_MOTOR_RPMPRESET_CHANGED && CONTROL_MODE != CONTROL_MODE_DUTY)
 	{
 		disp_buff = CONTROL_RPM_SET;
 		DISPLAY_RPM_SET(disp_buff);
-		rpm_set_changed = 0;
+		GLOBAL_MOTOR_RPMPRESET_CHANGED = 0;
 	}
 }
 
@@ -344,7 +344,7 @@ void ENCODER_Callback(signed char cDirection)
 		if(temp >= 0 && temp <= 25000)
 		{
 			CONTROL_RPM_SET = temp;
-			rpm_set_changed = 1;
+			GLOBAL_MOTOR_RPMPRESET_CHANGED = 1;
 		}
 	}
 }
@@ -404,7 +404,7 @@ int main(void)
 	DISPLAY_Init();
 	// DISPLAY_Mode(DISPLAY_MODE_CAL);
 	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
-    CONTROL_MODE = CONTROL_MODE_RPM;
+    CONTROL_MODE = CONTROL_MODE_DUTY;
     display_rpm_set_state = 1;
 
 	counter = 0;
@@ -417,7 +417,7 @@ int main(void)
     // duty_pwm = 0;
     GLOBAL_MOTOR_DUTY_CHANGED = 1;
 
-    rpm_set_changed = 1;
+    GLOBAL_MOTOR_RPMPRESET_CHANGED = 1;
 
     // ---- PWM Timer used as display update
 

@@ -1,11 +1,11 @@
 #include "expwm.h"
 
-#define PID_KP 1
+#define PID_KP 0.1
 #define PID_KI 0
 #define PID_KD 0
 
 #define PID_OUTPUT_MIN 0
-#define PID_OUTPUT_MAX 250
+#define PID_OUTPUT_MAX 249
 
 
 

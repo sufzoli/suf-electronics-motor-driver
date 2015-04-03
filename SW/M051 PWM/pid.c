@@ -4,6 +4,7 @@
 #include "expwm.h"
 #include "control.h"
 #include "rpm_count.h"
+#include "main.h"
 
 pidtype PID_DATA;
 expwmtype PID_PWM;
@@ -40,14 +41,24 @@ void PID_Compute(pidtype *PID)
 
 void PID_Worker()
 {
+	unsigned long duty_prev;	// previous value of the duty cycle
+	unsigned long duty_current;	// current value of the duty (required to the comparison,
+								// double must be converted to unsigned long)
+	// Check the control mode. The PID works only in RPM and AUTO mode,
+	// in the normal operation (calibration not running)
 	if(CONTROL_MODE != CONTROL_MODE_DUTY && CONTROL_FUNCTION == CONTROL_FUNCTION_NORMAL)
 	{
-		// This is incomplete. Check the mode.
-		// The source values must be added.
+		// Set the control information (the desired rotational speed)
 		PID_DATA.Setpoint = CONTROL_RPM_SET;
+		// Save the current rotational speed
 		PID_DATA.Input = RPM_COUNT_GetPeriodLength();
+		// Compute the values
 		PID_Compute(&PID_DATA);
-		EXPWM_SetDuty(PID_DATA.target_pwm, PID_DATA.Output);
+		// Save the current duty cycle
+		duty_prev = EXPWM_GetDuty(PID_DATA.target_pwm);
+		duty_current = PID_DATA.Output;
+		EXPWM_SetDuty(PID_DATA.target_pwm, duty_current);
+		GLOBAL_MOTOR_DUTY_CHANGED = (duty_prev != duty_current);
 	}
 }
 

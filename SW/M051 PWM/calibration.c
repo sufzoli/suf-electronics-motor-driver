@@ -7,6 +7,7 @@
 #include "calibration.h"
 #include "display.h"
 #include "serial.h"
+#include "main.h"
 
 void CALIBRATION_START()
 {
@@ -45,5 +46,6 @@ void CALIBRATION_START()
 		SERIAL_SendStr("\r\n");
 	}
 	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
+	GLOBAL_MOTOR_RPMPRESET_CHANGED = 1;
 	Motor_GracefullStop();
 }

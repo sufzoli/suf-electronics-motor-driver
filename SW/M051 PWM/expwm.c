@@ -19,7 +19,7 @@ void EXPWM_Init(expwmtype *data)
 {
 	PWM_T *PWM_MODULE = (PWM_T *)(data->Chanell < 4 ? PWMA : PWMB);
 	unsigned char Chanell = data->Chanell;
-	if(Chanell > 4)
+	if(Chanell > 3)
 	{
 		Chanell -= 4;
 	}
@@ -101,12 +101,23 @@ void EXPWM_SetDuty(expwmtype *data, unsigned int duty)
 {
 	unsigned char Chanell = data->Chanell;
 	PWM_T *PWM_MODULE = (PWM_T *)(data->Chanell < 4 ? PWMA : PWMB);
-	if(Chanell > 4)
+	if(Chanell > 3)
 	{
 		Chanell -= 4;
 	}
 	data->Duty = duty;
 	_PWM_SET_PWM_COMP_VALUE(PWM_MODULE,Chanell,data->Duty);
+}
+
+unsigned long EXPWM_GetDuty(expwmtype *data)
+{
+	unsigned char Chanell = data->Chanell;
+	PWM_T *PWM_MODULE = (PWM_T *)(data->Chanell < 4 ? PWMA : PWMB);
+	if(Chanell > 3)
+	{
+		Chanell -= 4;
+	}
+	return data->Duty;
 }
 
 void PWMA_IRQHandler(void)
