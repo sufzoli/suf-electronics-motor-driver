@@ -18,6 +18,7 @@ namespace MotorCalibrationLogger
             string buff = null;
             Settings settings = new Settings();
             StreamWriter calibrationfile = new StreamWriter(settings.LogFile);
+            int i,j;
 
             SerialPort com = new SerialPort(
                 settings.COM_Port,
@@ -26,13 +27,32 @@ namespace MotorCalibrationLogger
                 settings.COM_Bits,
                 ToStopBits(settings.COM_StopBits));
             com.Open();
+            i = 0;
+            j = 0;
             while (buff != ".")
             {
+                i++;
                 buff = com.ReadLine();
                 if (buff != null)
                 {
-                    Console.WriteLine(buff);
+                    if(settings.Console)
+                    {
+                        Console.WriteLine(buff);
+                    }
                     calibrationfile.WriteLine(buff);
+                }
+                if(i>1000)
+                {
+                    calibrationfile.Flush();
+                    i = 0;
+                }
+                if (settings.MaxSamples != 0)
+                {
+                    if(settings.MaxSamples < j)
+                    {
+                        break;
+                    }
+                    j++;
                 }
             }
             calibrationfile.Flush();

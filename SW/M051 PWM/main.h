@@ -1,4 +1,4 @@
 
 // Global variables
-extern unsigned char GLOBAL_MOTOR_DUTY_CHANGED;
-extern unsigned char GLOBAL_MOTOR_RPMPRESET_CHANGED;
+extern volatile unsigned char GLOBAL_MOTOR_DUTY_CHANGED;
+extern volatile unsigned char GLOBAL_MOTOR_RPMPRESET_CHANGED;

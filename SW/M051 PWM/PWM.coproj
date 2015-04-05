@@ -81,28 +81,28 @@
   <Files>
     <File name="cmsis_core/core_cmInstr.h" path="cmsis_core/core_cmInstr.h" type="1"/>
     <File name="ili9341_fonts.c" path="ili9341_fonts.c" type="1"/>
-    <File name="cmsis_boot" path="" type="2"/>
     <File name="control.c" path="control.c" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
     <File name="encoder.h" path="encoder.h" type="1"/>
     <File name="cmsis_core/core_cmFunc.h" path="cmsis_core/core_cmFunc.h" type="1"/>
     <File name="cmsis_lib/inc/SPI.h" path="cmsis_lib/inc/SPI.h" type="1"/>
+    <File name="cmsis_lib/inc/ADC.h" path="cmsis_lib/inc/ADC.h" type="1"/>
     <File name="motor.h" path="motor.h" type="1"/>
     <File name="rpm_count.h" path="rpm_count.h" type="1"/>
-    <File name="cmsis_lib/inc/ADC.h" path="cmsis_lib/inc/ADC.h" type="1"/>
+    <File name="motor.c" path="motor.c" type="1"/>
     <File name="hd44780.h" path="hd44780.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="motor.c" path="motor.c" type="1"/>
     <File name="cmsis_boot/M051Series.h" path="cmsis_boot/M051Series.h" type="1"/>
-    <File name="display.c" path="display.c" type="1"/>
-    <File name="cmsis_core" path="" type="2"/>
     <File name="control.h" path="control.h" type="1"/>
+    <File name="cmsis_core" path="" type="2"/>
+    <File name="display.c" path="display.c" type="1"/>
     <File name="cmsis_boot/system_M051Series.h" path="cmsis_boot/system_M051Series.h" type="1"/>
     <File name="serial.h" path="serial.h" type="1"/>
-    <File name="expwm.c" path="expwm.c" type="1"/>
     <File name="pid.c" path="pid.c" type="1"/>
+    <File name="expwm.c" path="expwm.c" type="1"/>
     <File name="calibration.c" path="calibration.c" type="1"/>
-    <File name="main.h" path="main.h" type="1"/>
     <File name="ili9341_fonts.h" path="ili9341_fonts.h" type="1"/>
+    <File name="main.h" path="main.h" type="1"/>
     <File name="pid.h" path="pid.h" type="1"/>
     <File name="cmsis_lib/inc/PWM.h" path="cmsis_lib/inc/PWM.h" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
@@ -112,8 +112,8 @@
     <File name="cmsis_lib/inc/SYS.h" path="cmsis_lib/inc/SYS.h" type="1"/>
     <File name="serial.c" path="serial.c" type="1"/>
     <File name="ili9341.h" path="ili9341.h" type="1"/>
-    <File name="calibration.h" path="calibration.h" type="1"/>
     <File name="hd44780.c" path="hd44780.c" type="1"/>
+    <File name="calibration.h" path="calibration.h" type="1"/>
     <File name="display.h" path="display.h" type="1"/>
     <File name="cmsis_lib/inc/TIMER.h" path="cmsis_lib/inc/TIMER.h" type="1"/>
     <File name="cmsis_lib/inc/GPIO.h" path="cmsis_lib/inc/GPIO.h" type="1"/>

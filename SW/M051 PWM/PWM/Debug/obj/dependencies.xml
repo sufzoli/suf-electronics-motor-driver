@@ -16,7 +16,7 @@
       <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14c5a3decb0">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
       </source>
-      <source file="..\..\..\calibration.h" lastModified="14c732ae457">
+      <source file="..\..\..\calibration.h" lastModified="14c87c9fe5f">
       </source>
       <source file="..\..\..\motor.c" lastModified="14c732ae461">
          <include file="..\..\..\motor.h"/>
@@ -28,7 +28,7 @@
       <source file="..\..\..\pid.h" lastModified="14c7d7adcb8">
          <include file="..\..\..\expwm.h"/>
       </source>
-      <source file="..\..\..\calibration.c" lastModified="14c7c399c79">
+      <source file="..\..\..\calibration.c" lastModified="14c87c1eeb8">
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\FMC.h"/>
          <include file="..\..\..\motor.h"/>
@@ -88,7 +88,7 @@
          <include file="..\..\..\cmsis_core\core_cm0.h"/>
          <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
       </source>
-      <source file="..\..\..\main.h" lastModified="14c7c3944bd">
+      <source file="..\..\..\main.h" lastModified="14c87c9876d">
       </source>
       <source file="..\..\..\cmsis_lib\inc\UART.h" lastModified="14c673f14d6">
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
@@ -98,9 +98,8 @@
          <include file="..\..\..\cmsis_lib\inc\UART.h"/>
          <include file="..\..\..\serial.h"/>
       </source>
-      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14c5a3df480">
-      </source>
-      <source file="..\..\..\main.c" lastModified="14c7d6613d6">
+      <source file="..\..\..\main.c" lastModified="14c87c9875d">
+         <include file="..\..\..\main.h"/>
          <include file="..\..\..\cmsis_boot\M051Series.h"/>
          <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
          <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
@@ -116,6 +115,8 @@
          <include file="..\..\..\motor.h"/>
          <include file="..\..\..\serial.h"/>
          <include file="..\..\..\pid.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14c5a3df480">
       </source>
       <source file="..\..\..\expwm.h" lastModified="14c7d79ad0e">
       </source>

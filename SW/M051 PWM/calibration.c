@@ -45,6 +45,7 @@ void CALIBRATION_START()
 		SERIAL_SendULong(period);
 		SERIAL_SendStr("\r\n");
 	}
+	SERIAL_SendChar('.'); // trigger the PC app to close file and exit
 	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
 	GLOBAL_MOTOR_RPMPRESET_CHANGED = 1;
 	Motor_GracefullStop();

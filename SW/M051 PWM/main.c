@@ -41,7 +41,7 @@
 
 
 
-
+#include "main.h"
 #include "M051Series.h"
 #include "sys.h"
 #include "pwm.h"
@@ -67,8 +67,11 @@
 
 // Global variables
 
-unsigned char GLOBAL_MOTOR_DUTY_CHANGED;	// set to true if somewhere the motor pwm duty cycle changed
-unsigned char GLOBAL_MOTOR_RPMPRESET_CHANGED; // set to true if somewhere the motor rpm preset changed
+volatile unsigned char GLOBAL_MOTOR_DUTY_CHANGED;	// set to true if somewhere the motor pwm duty cycle changed
+volatile unsigned char GLOBAL_MOTOR_RPMPRESET_CHANGED; // set to true if somewhere the motor rpm preset changed
+// volatile unsigned char GLOBAL_SEMAPHORE_RPM_DISP_AVG;	// semaphore to wait for reading the values for the rpm average
+// volatile unsigned char GLOBAL_SEMAPHORE_RPM_WRITE_AVG;	// semaphore to wait for writing the values for the rpm average
+
 
 const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
 static unsigned char ENCODER_PREV_STATE;
@@ -248,8 +251,12 @@ void TMR2_IRQHandler(void)
 		RPM_Add(count_result);
 		// Clear TIMER2 Capture Interrupt Flag
 		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+		if(CONTROL_FUNCTION == CONTROL_FUNCTION_NORMAL)
+		{
+			SERIAL_SendULong(count_result);
+			SERIAL_SendStr("\r\n");
+		}
 	}
-
 }
 
 void DisplayPWM_Callback(void)

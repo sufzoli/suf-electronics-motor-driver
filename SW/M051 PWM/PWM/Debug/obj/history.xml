@@ -4,7 +4,7 @@
       <target file="display.o" lastModified="14c7d5c5c26">
          <source file="..\..\..\display.c" lastModified="14c64032e3f"/>
       </target>
-      <target file="motor.o" lastModified="14c7d79b1da">
+      <target file="motor.o" lastModified="14c87c98b08">
          <source file="..\..\..\motor.c" lastModified="14c732ae461"/>
       </target>
       <target file="ili9341_fonts.o" lastModified="14c7d5c590c">
@@ -22,8 +22,8 @@
       <target file="system_M051Series.o" lastModified="14c7d5c5ceb">
          <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14c5a3decb0"/>
       </target>
-      <target file="main.o" lastModified="14c7d7adf0c">
-         <source file="..\..\..\main.c" lastModified="14c7d6613d6"/>
+      <target file="main.o" lastModified="14c87ca0190">
+         <source file="..\..\..\main.c" lastModified="14c87c9875d"/>
       </target>
       <target file="expwm.o" lastModified="14c7d79afa4">
          <source file="..\..\..\expwm.c" lastModified="14c7d79acd0"/>
@@ -31,13 +31,13 @@
       <target file="startup_M051Series.o" lastModified="14c7d5c5889">
          <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14c5a3decb0"/>
       </target>
-      <target file="pid.o" lastModified="14c7d7adf42">
+      <target file="pid.o" lastModified="14c87c98b41">
          <source file="..\..\..\pid.c" lastModified="14c7d7a1b2b"/>
       </target>
-      <target file="calibration.o" lastModified="14c7d79b065">
-         <source file="..\..\..\calibration.c" lastModified="14c7c399c79"/>
+      <target file="calibration.o" lastModified="14c87ca002a">
+         <source file="..\..\..\calibration.c" lastModified="14c87c1eeb8"/>
       </target>
-      <target file="control.o" lastModified="14c7d79ae99">
+      <target file="control.o" lastModified="14c87c9892b">
          <source file="..\..\..\control.c" lastModified="14c7d64c459"/>
       </target>
    </processor>
