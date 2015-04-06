@@ -195,19 +195,10 @@ void RPM_Add(unsigned long value)
 void TMR2_IRQHandler(void)
 {
 	unsigned long ccrvalue;
-	_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
-	if(tmr_int_handler_running)
-	{
-		while(serial_busy);
-		serial_busy = 1;
-		SERIAL_SendStr("e\r\n");
-		serial_busy = 0;
-	}
-	else
-	{
-	tmr_int_handler_running = 1;
 	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
 	{
+		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+
 		// countset_result++;
 		// Itt kellene még kezelni az underflow-t
 		// ha bekövetkezik, meghívni az RPM_Clear-t
@@ -218,62 +209,70 @@ void TMR2_IRQHandler(void)
 		}
 		race_error = 0;
 //		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
-
-
 		if(counter > 0x2000000)
 		{
 			RPM_Clear();
 			counter = 0;
 		}
 	}
-
 	if(_TIMER_GET_CAP_INT_FLAG(TIMER2))
 	{
-		// get the capture data
-		ccrvalue = TIMER2->TCAP & 0xFFFFFF;
-
-		// if there is a race condition between the two function of the
-		// interrupt handler
-		// when a compare and the capture event happens almost the same time
-		// and the capture event wins the counter value kept at 0 (the compare event increase it)
-		// the previous value is higher because the counter reset already happened.
-		if(prevccr > ccrvalue && counter == 0)
-		{
-			counter += 0x1000000;
-			race_error = 1;
-		}
-		// store the actual value of the counter
-		count_result = counter;
-		// clear master counter
-		counter = 0;
-
-		// process data
-		//
-		//          || <--------------------------------------------------- count_result ------------------------------------------------> ||
-		//  prevccr || 0x10000 - prevccr | 0x10000 overflow | 0x10000 overflow | ..... | 0x10000 overflow | 0x10000 overflow | ccr ||
-		count_result += ccrvalue;
-		count_result -=	prevccr;
-		// store current ccr for the next count
-		prevccr = ccrvalue;
-
-		if(count_result > 0x1000000)
-		{
-			count_result -= 0x1000000;
-		}
-		// countset_result++;
-		RPM_Add(count_result);
-		// Clear TIMER2 Capture Interrupt Flag
-//		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
-		if(CONTROL_FUNCTION == CONTROL_FUNCTION_NORMAL)
+		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+		if(tmr_int_handler_running)
 		{
 			while(serial_busy);
 			serial_busy = 1;
-			SERIAL_SendULong(count_result);
-			SERIAL_SendStr("\r\n");
+			SERIAL_SendStr("e\r\n");
 			serial_busy = 0;
 		}
-	}
-	tmr_int_handler_running = 0;
+		else
+		{
+			tmr_int_handler_running = 1;
+			// get the capture data
+			ccrvalue = TIMER2->TCAP & 0xFFFFFF;
+
+			// if there is a race condition between the two function of the
+			// interrupt handler
+			// when a compare and the capture event happens almost the same time
+			// and the capture event wins the counter value kept at 0 (the compare event increase it)
+			// the previous value is higher because the counter reset already happened.
+			if(prevccr > ccrvalue && counter == 0)
+			{
+				counter += 0x1000000;
+				race_error = 1;
+			}
+			// store the actual value of the counter
+			count_result = counter;
+			// clear master counter
+			counter = 0;
+
+			// process data
+			//
+			//          || <--------------------------------------------------- count_result ------------------------------------------------> ||
+			//  prevccr || 0x10000 - prevccr | 0x10000 overflow | 0x10000 overflow | ..... | 0x10000 overflow | 0x10000 overflow | ccr ||
+			count_result += ccrvalue;
+			count_result -=	prevccr;
+			// store current ccr for the next count
+			prevccr = ccrvalue;
+
+			if(count_result > 0x1000000)
+			{
+				count_result -= 0x1000000;
+			}
+			// countset_result++;
+			RPM_Add(count_result);
+			// Clear TIMER2 Capture Interrupt Flag
+	//		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+			if(CONTROL_FUNCTION == CONTROL_FUNCTION_NORMAL)
+			{
+				while(serial_busy);
+				serial_busy = 1;
+				SERIAL_SendULong(count_result);
+				SERIAL_SendStr("\r\n");
+				serial_busy = 0;
+			}
+			tmr_int_handler_running = 0;
+		}
 	}
 }
 
