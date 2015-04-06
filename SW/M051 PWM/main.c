@@ -382,7 +382,7 @@ void RPM_Init()
     // Enable TIMER1 counter input and capture function
     TIMER2->TCMPR = 0;
     TIMER2->TCSR = TIMER_TCSR_CEN_ENABLE | TIMER_TCSR_IE_ENABLE | TIMER_TCSR_MODE_PERIODIC | TIMER_TCSR_PRESCALE(1);
-    TIMER2->TEXCON = TIMER_TEXCON_MODE_CAP | TIMER_TEXCON_TEXIEN_ENABLE | TIMER_TEXCON_TEX_EDGE_RISING | TIMER_TEXCON_TEXEN_ENABLE;
+    TIMER2->TEXCON = TIMER_TEXCON_MODE_CAP | TIMER_TEXCON_TEXIEN_ENABLE | TIMER_TEXCON_TEX_EDGE_RISING | TIMER_TEXCON_TEXEN_ENABLE | TIMER_TEXCON_TEXDB_ENABLE;
 
     _TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
     _TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
@@ -398,6 +398,7 @@ void TEST_INIT()
 	TestPWM.Port = EXPWM_PORT2;
 	EXPWM_Init(&TestPWM);
 }
+
 /*
 void Motor_Init()
 {
@@ -425,6 +426,11 @@ void DisplayPWM_Init()
 int main(void)
 {
 	SYS_Init();
+
+	// Enable de-bounce for the GPIO. It is a question if this timer is works for the
+	// timer external capture pin also
+	_GPIO_SET_DEBOUNCE_TIME(GPIO_DBNCECON_DBCLKSRC_HCLK, GPIO_DBNCECON_DBCLKSEL_256);
+
 	DISPLAY_Init();
 	// DISPLAY_Mode(DISPLAY_MODE_CAL);
 	DISPLAY_Mode(DISPLAY_MODE_NORMAL);
@@ -456,7 +462,7 @@ int main(void)
 
 
     // PWM timer used for test signal
-    TEST_INIT();
+    // TEST_INIT();
 
 
     // Timer Rotational Speed Measurement
