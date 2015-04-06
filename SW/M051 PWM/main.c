@@ -72,6 +72,9 @@ volatile unsigned char GLOBAL_MOTOR_RPMPRESET_CHANGED; // set to true if somewhe
 // volatile unsigned char GLOBAL_SEMAPHORE_RPM_DISP_AVG;	// semaphore to wait for reading the values for the rpm average
 // volatile unsigned char GLOBAL_SEMAPHORE_RPM_WRITE_AVG;	// semaphore to wait for writing the values for the rpm average
 
+volatile unsigned char tmr_int_handler_running;
+volatile unsigned char serial_busy;
+
 
 const signed char ENCODER_TABLE[] = {0,-1,+1,0,+1,0,0,-1,-1,0,0,+1,0,+1,-1,0};
 static unsigned char ENCODER_PREV_STATE;
@@ -191,8 +194,16 @@ void RPM_Add(unsigned long value)
 
 void TMR2_IRQHandler(void)
 {
-//	int i;
 	unsigned long ccrvalue;
+	_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+	if(tmr_int_handler_running)
+	{
+		while(serial_busy);
+		serial_busy = 1;
+		SERIAL_SendStr("e\r\n");
+		serial_busy = 0;
+	}
+	tmr_int_handler_running = 1;
 	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
 	{
 		// countset_result++;
@@ -204,7 +215,7 @@ void TMR2_IRQHandler(void)
 			counter += 0x1000000;
 		}
 		race_error = 0;
-		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
+//		_TIMER_CLEAR_CMP_INT_FLAG(TIMER2);
 
 
 		if(counter > 0x2000000)
@@ -250,13 +261,17 @@ void TMR2_IRQHandler(void)
 		// countset_result++;
 		RPM_Add(count_result);
 		// Clear TIMER2 Capture Interrupt Flag
-		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
+//		_TIMER_CLEAR_CAP_INT_FLAG(TIMER2);
 		if(CONTROL_FUNCTION == CONTROL_FUNCTION_NORMAL)
 		{
+			while(serial_busy);
+			serial_busy = 1;
 			SERIAL_SendULong(count_result);
 			SERIAL_SendStr("\r\n");
+			serial_busy = 0;
 		}
 	}
+	tmr_int_handler_running = 0;
 }
 
 void DisplayPWM_Callback(void)

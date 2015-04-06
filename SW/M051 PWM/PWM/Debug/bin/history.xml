@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=PWM.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\PWM -TC:\CooCox\CoIDE\configuration\ProgramData\PWM/arm-gcc-link.ld -g">
-      <target file="PWM.elf" lastModified="14c87ca0384">
+      <target file="PWM.elf" lastModified="14c8cd29e5a">
          <source file="..\obj\control.o" lastModified="14c87c9892b"/>
          <source file="..\obj\startup_M051Series.o" lastModified="14c7d5c5889"/>
          <source file="..\obj\ili9341_fonts.o" lastModified="14c7d5c590c"/>
          <source file="..\obj\expwm.o" lastModified="14c7d79afa4"/>
          <source file="..\obj\calibration.o" lastModified="14c87ca002a"/>
-         <source file="..\obj\main.o" lastModified="14c87ca0190"/>
+         <source file="..\obj\main.o" lastModified="14c8cd29c35"/>
          <source file="..\obj\display.o" lastModified="14c7d5c5c26"/>
          <source file="..\obj\motor.o" lastModified="14c87c98b08"/>
          <source file="..\obj\hd44780.o" lastModified="14c7d5c5c98"/>

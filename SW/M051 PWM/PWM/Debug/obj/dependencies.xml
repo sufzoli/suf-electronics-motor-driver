@@ -98,24 +98,6 @@
          <include file="..\..\..\cmsis_lib\inc\UART.h"/>
          <include file="..\..\..\serial.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="14c87c9875d">
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\cmsis_boot\M051Series.h"/>
-         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
-         <include file="..\..\..\cmsis_lib\inc\PWM.h"/>
-         <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
-         <include file="..\..\..\cmsis_lib\inc\TIMER.h"/>
-         <include file="..\..\..\display.h"/>
-         <include file="..\..\..\ili9341.h"/>
-         <include file="..\..\..\ili9341_fonts.h"/>
-         <include file="..\..\..\encoder.h"/>
-         <include file="..\..\..\calibration.h"/>
-         <include file="..\..\..\expwm.h"/>
-         <include file="..\..\..\control.h"/>
-         <include file="..\..\..\motor.h"/>
-         <include file="..\..\..\serial.h"/>
-         <include file="..\..\..\pid.h"/>
-      </source>
       <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14c5a3df480">
       </source>
       <source file="..\..\..\expwm.h" lastModified="14c7d79ad0e">

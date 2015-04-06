@@ -32,9 +32,12 @@ c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none
 Allocating common symbols
 Common symbol       size              file
 
+serial_busy         0x1               ..\obj\main.o
 GLOBAL_MOTOR_RPMPRESET_CHANGED
                     0x1               ..\obj\main.o
 DisplayPWM          0x14              ..\obj\main.o
+tmr_int_handler_running
+                    0x1               ..\obj\main.o
 display_mode        0x1               ..\obj\display.o
 _expwm_callback_arr
                     0x20              ..\obj\expwm.o
@@ -162,7 +165,7 @@ Linker script and memory map
 
                 0x20001000                _eram = 0x20001000
 
-.text           0x00000000     0x6234
+.text           0x00000000     0x628c
  *(.isr_vector)
  .isr_vector    0x00000000       0xc0 ..\obj\startup_M051Series.o
                 0x00000000                g_pfnVectors
@@ -252,172 +255,172 @@ Linker script and memory map
  .text.RPM_Add  0x00000b00       0x70 ..\obj\main.o
                 0x00000b00                RPM_Add
  .text.TMR2_IRQHandler
-                0x00000b70      0x128 ..\obj\main.o
+                0x00000b70      0x17c ..\obj\main.o
                 0x00000b70                TMR2_IRQHandler
  .text.DisplayPWM_Callback
-                0x00000c98       0xa0 ..\obj\main.o
-                0x00000c98                DisplayPWM_Callback
+                0x00000cec       0xa0 ..\obj\main.o
+                0x00000cec                DisplayPWM_Callback
  .text.RPM_COUNT_GetPeriodLength
-                0x00000d38       0x24 ..\obj\main.o
-                0x00000d38                RPM_COUNT_GetPeriodLength
+                0x00000d8c       0x24 ..\obj\main.o
+                0x00000d8c                RPM_COUNT_GetPeriodLength
  .text.GPIOP0P1_IRQHandler
-                0x00000d5c       0x88 ..\obj\main.o
-                0x00000d5c                GPIOP0P1_IRQHandler
+                0x00000db0       0x88 ..\obj\main.o
+                0x00000db0                GPIOP0P1_IRQHandler
  .text.ENCODER_Init
-                0x00000de4       0x8c ..\obj\main.o
-                0x00000de4                ENCODER_Init
+                0x00000e38       0x8c ..\obj\main.o
+                0x00000e38                ENCODER_Init
  .text.ENCODER_Callback
-                0x00000e70       0x9c ..\obj\main.o
-                0x00000e70                ENCODER_Callback
+                0x00000ec4       0x9c ..\obj\main.o
+                0x00000ec4                ENCODER_Callback
  .text.RPM_Init
-                0x00000f0c       0x58 ..\obj\main.o
-                0x00000f0c                RPM_Init
+                0x00000f60       0x58 ..\obj\main.o
+                0x00000f60                RPM_Init
  .text.TEST_INIT
-                0x00000f64       0x40 ..\obj\main.o
-                0x00000f64                TEST_INIT
+                0x00000fb8       0x40 ..\obj\main.o
+                0x00000fb8                TEST_INIT
  .text.DisplayPWM_Init
-                0x00000fa4       0x4c ..\obj\main.o
-                0x00000fa4                DisplayPWM_Init
- .text.main     0x00000ff0       0x8c ..\obj\main.o
-                0x00000ff0                main
+                0x00000ff8       0x4c ..\obj\main.o
+                0x00000ff8                DisplayPWM_Init
+ .text.main     0x00001044       0x8c ..\obj\main.o
+                0x00001044                main
  .text.DISPLAY_Init
-                0x0000107c       0x18 ..\obj\display.o
-                0x0000107c                DISPLAY_Init
+                0x000010d0       0x18 ..\obj\display.o
+                0x000010d0                DISPLAY_Init
  .text.DISPLAY_Mode
-                0x00001094       0xc0 ..\obj\display.o
-                0x00001094                DISPLAY_Mode
+                0x000010e8       0xc0 ..\obj\display.o
+                0x000010e8                DISPLAY_Mode
  .text.DISPLAY_RPM
-                0x00001154       0x80 ..\obj\display.o
-                0x00001154                DISPLAY_RPM
+                0x000011a8       0x80 ..\obj\display.o
+                0x000011a8                DISPLAY_RPM
  .text.DISPLAY_DUTY
-                0x000011d4       0x88 ..\obj\display.o
-                0x000011d4                DISPLAY_DUTY
+                0x00001228       0x88 ..\obj\display.o
+                0x00001228                DISPLAY_DUTY
  .text.DISPLAY_RPM_SET
-                0x0000125c       0x84 ..\obj\display.o
-                0x0000125c                DISPLAY_RPM_SET
+                0x000012b0       0x84 ..\obj\display.o
+                0x000012b0                DISPLAY_RPM_SET
  .text.DISPLAY_CTRL_MODE
-                0x000012e0       0x94 ..\obj\display.o
-                0x000012e0                DISPLAY_CTRL_MODE
+                0x00001334       0x94 ..\obj\display.o
+                0x00001334                DISPLAY_CTRL_MODE
  .text.DISPLAY_CAL_DATA
-                0x00001374       0xb0 ..\obj\display.o
-                0x00001374                DISPLAY_CAL_DATA
+                0x000013c8       0xb0 ..\obj\display.o
+                0x000013c8                DISPLAY_CAL_DATA
  .text.SYS_SysTickDelay
-                0x00001424       0x3c ..\obj\motor.o
+                0x00001478       0x3c ..\obj\motor.o
  .text.Motor_Init
-                0x00001460       0x38 ..\obj\motor.o
-                0x00001460                Motor_Init
+                0x000014b4       0x38 ..\obj\motor.o
+                0x000014b4                Motor_Init
  .text.Motor_GetDuty
-                0x00001498       0x14 ..\obj\motor.o
-                0x00001498                Motor_GetDuty
+                0x000014ec       0x14 ..\obj\motor.o
+                0x000014ec                Motor_GetDuty
  .text.Motor_GracefullStop
-                0x000014ac       0x4c ..\obj\motor.o
-                0x000014ac                Motor_GracefullStop
+                0x00001500       0x4c ..\obj\motor.o
+                0x00001500                Motor_GracefullStop
  .text.SYS_UnlockReg
-                0x000014f8       0x3c ..\obj\system_M051Series.o
+                0x0000154c       0x3c ..\obj\system_M051Series.o
  .text.SYS_LockReg
-                0x00001534       0x14 ..\obj\system_M051Series.o
+                0x00001588       0x14 ..\obj\system_M051Series.o
  .text.SystemInit
-                0x00001548       0xb8 ..\obj\system_M051Series.o
-                0x00001548                SystemInit
+                0x0000159c       0xb8 ..\obj\system_M051Series.o
+                0x0000159c                SystemInit
  .text.SERIAL_Init
-                0x00001600       0x84 ..\obj\serial.o
-                0x00001600                SERIAL_Init
+                0x00001654       0x84 ..\obj\serial.o
+                0x00001654                SERIAL_Init
  .text.SERIAL_SendStr
-                0x00001684       0x38 ..\obj\serial.o
-                0x00001684                SERIAL_SendStr
+                0x000016d8       0x38 ..\obj\serial.o
+                0x000016d8                SERIAL_SendStr
  .text.SERIAL_SendULong
-                0x000016bc       0x78 ..\obj\serial.o
-                0x000016bc                SERIAL_SendULong
+                0x00001710       0x78 ..\obj\serial.o
+                0x00001710                SERIAL_SendULong
  .text.SYS_SysTickDelay
-                0x00001734       0x3c ..\obj\ili9341.o
+                0x00001788       0x3c ..\obj\ili9341.o
  .text.ILI9341_SPISend
-                0x00001770       0xbc ..\obj\ili9341.o
-                0x00001770                ILI9341_SPISend
+                0x000017c4       0xbc ..\obj\ili9341.o
+                0x000017c4                ILI9341_SPISend
  .text.ILI9341_SPISendRaw
-                0x0000182c       0x28 ..\obj\ili9341.o
-                0x0000182c                ILI9341_SPISendRaw
+                0x00001880       0x28 ..\obj\ili9341.o
+                0x00001880                ILI9341_SPISendRaw
  .text.ILI9341_SPIDataLen
-                0x00001854       0x44 ..\obj\ili9341.o
-                0x00001854                ILI9341_SPIDataLen
+                0x000018a8       0x44 ..\obj\ili9341.o
+                0x000018a8                ILI9341_SPIDataLen
  .text.ILI9341_HardReset
-                0x00001898       0x2c ..\obj\ili9341.o
-                0x00001898                ILI9341_HardReset
+                0x000018ec       0x2c ..\obj\ili9341.o
+                0x000018ec                ILI9341_HardReset
  .text.ILI9341_Init
-                0x000018c4      0x464 ..\obj\ili9341.o
-                0x000018c4                ILI9341_Init
+                0x00001918      0x464 ..\obj\ili9341.o
+                0x00001918                ILI9341_Init
  .text.ILI9341_DrawPixel
-                0x00001d28       0x48 ..\obj\ili9341.o
-                0x00001d28                ILI9341_DrawPixel
+                0x00001d7c       0x48 ..\obj\ili9341.o
+                0x00001d7c                ILI9341_DrawPixel
  .text.ILI9341_SetCursorPosition
-                0x00001d70       0x58 ..\obj\ili9341.o
-                0x00001d70                ILI9341_SetCursorPosition
+                0x00001dc4       0x58 ..\obj\ili9341.o
+                0x00001dc4                ILI9341_SetCursorPosition
  .text.ILI9341_FillScreen
-                0x00001dc8       0x54 ..\obj\ili9341.o
-                0x00001dc8                ILI9341_FillScreen
+                0x00001e1c       0x54 ..\obj\ili9341.o
+                0x00001e1c                ILI9341_FillScreen
  .text.ILI9341_FilledReactangle
-                0x00001e1c       0x68 ..\obj\ili9341.o
-                0x00001e1c                ILI9341_FilledReactangle
+                0x00001e70       0x68 ..\obj\ili9341.o
+                0x00001e70                ILI9341_FilledReactangle
  .text.ILI9341_PrintChar
-                0x00001e84       0xf4 ..\obj\ili9341.o
-                0x00001e84                ILI9341_PrintChar
+                0x00001ed8       0xf4 ..\obj\ili9341.o
+                0x00001ed8                ILI9341_PrintChar
  .text.ILI9341_PrintStr
-                0x00001f78       0x54 ..\obj\ili9341.o
-                0x00001f78                ILI9341_PrintStr
+                0x00001fcc       0x54 ..\obj\ili9341.o
+                0x00001fcc                ILI9341_PrintStr
  .text.ILI9341_DisplayN_POS
-                0x00001fcc      0x2e0 ..\obj\ili9341.o
-                0x00001fcc                ILI9341_DisplayN_POS
+                0x00002020      0x2e0 ..\obj\ili9341.o
+                0x00002020                ILI9341_DisplayN_POS
  .text.pid_Limit
-                0x000022ac       0x48 ..\obj\pid.o
-                0x000022ac                pid_Limit
+                0x00002300       0x48 ..\obj\pid.o
+                0x00002300                pid_Limit
  .text.PID_Compute
-                0x000022f4      0x14c ..\obj\pid.o
-                0x000022f4                PID_Compute
+                0x00002348      0x14c ..\obj\pid.o
+                0x00002348                PID_Compute
  .text.PID_Worker
-                0x00002440       0xa4 ..\obj\pid.o
-                0x00002440                PID_Worker
+                0x00002494       0xa4 ..\obj\pid.o
+                0x00002494                PID_Worker
  .text.PID_Init
-                0x000024e4       0x98 ..\obj\pid.o
-                0x000024e4                PID_Init
- .text          0x0000257c      0x120 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
-                0x0000257c                __aeabi_uidiv
-                0x0000257c                __udivsi3
-                0x00002688                __aeabi_uidivmod
- .text          0x0000269c        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x0000269c                __aeabi_idiv0
-                0x0000269c                __aeabi_ldiv0
- .text          0x000026a0       0x7c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
-                0x000026a0                __aeabi_cdrcmple
-                0x000026b0                __aeabi_cdcmple
-                0x000026b0                __aeabi_cdcmpeq
-                0x000026c0                __aeabi_dcmpeq
-                0x000026cc                __aeabi_dcmplt
-                0x000026e0                __aeabi_dcmple
-                0x000026f4                __aeabi_dcmpgt
-                0x00002708                __aeabi_dcmpge
- .text          0x0000271c       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_fixunsdfsi.o)
-                0x0000271c                __aeabi_d2uiz
-                0x0000271c                __fixunsdfsi
- .text          0x00002758      0x650 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
-                0x00002758                __aeabi_dadd
- .text          0x00002da8       0x88 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
-                0x00002da8                __nedf2
-                0x00002da8                __eqdf2
- .text          0x00002e30       0xe0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
-                0x00002e30                __gedf2
-                0x00002e30                __gtdf2
- .text          0x00002f10       0xcc c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
-                0x00002f10                __ledf2
-                0x00002f10                __ltdf2
- .text          0x00002fdc      0x534 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
-                0x00002fdc                __aeabi_dmul
- .text          0x00003510      0x6f4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
-                0x00003510                __aeabi_dsub
- .text          0x00003c04       0x6c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(fixdfsi.o)
-                0x00003c04                __aeabi_d2iz
- .text          0x00003c70       0x64 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(floatunsidf.o)
-                0x00003c70                __aeabi_ui2d
- .text          0x00003cd4       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
-                0x00003cd4                __clzsi2
+                0x00002538       0x98 ..\obj\pid.o
+                0x00002538                PID_Init
+ .text          0x000025d0      0x120 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x000025d0                __aeabi_uidiv
+                0x000025d0                __udivsi3
+                0x000026dc                __aeabi_uidivmod
+ .text          0x000026f0        0x4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x000026f0                __aeabi_idiv0
+                0x000026f0                __aeabi_ldiv0
+ .text          0x000026f4       0x7c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_arm_cmpdf2.o)
+                0x000026f4                __aeabi_cdrcmple
+                0x00002704                __aeabi_cdcmple
+                0x00002704                __aeabi_cdcmpeq
+                0x00002714                __aeabi_dcmpeq
+                0x00002720                __aeabi_dcmplt
+                0x00002734                __aeabi_dcmple
+                0x00002748                __aeabi_dcmpgt
+                0x0000275c                __aeabi_dcmpge
+ .text          0x00002770       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_fixunsdfsi.o)
+                0x00002770                __aeabi_d2uiz
+                0x00002770                __fixunsdfsi
+ .text          0x000027ac      0x650 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(adddf3.o)
+                0x000027ac                __aeabi_dadd
+ .text          0x00002dfc       0x88 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(eqdf2.o)
+                0x00002dfc                __nedf2
+                0x00002dfc                __eqdf2
+ .text          0x00002e84       0xe0 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(gedf2.o)
+                0x00002e84                __gedf2
+                0x00002e84                __gtdf2
+ .text          0x00002f64       0xcc c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(ledf2.o)
+                0x00002f64                __ledf2
+                0x00002f64                __ltdf2
+ .text          0x00003030      0x534 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+                0x00003030                __aeabi_dmul
+ .text          0x00003564      0x6f4 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(subdf3.o)
+                0x00003564                __aeabi_dsub
+ .text          0x00003c58       0x6c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(fixdfsi.o)
+                0x00003c58                __aeabi_d2iz
+ .text          0x00003cc4       0x64 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(floatunsidf.o)
+                0x00003cc4                __aeabi_ui2d
+ .text          0x00003d28       0x3c c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_clzsi2.o)
+                0x00003d28                __clzsi2
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -431,49 +434,49 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x00003d10     0x2490 ..\obj\ili9341_fonts.o
-                0x00003d10                arrFont7x10
-                0x000040c8                Font7x10
-                0x000040d8                arrFont11x18
-                0x00004e34                Font11x18
-                0x00004e44                arrFont16x26
-                0x00006190                Font16x26
- .rodata        0x000061a0        0x4 ..\obj\calibration.o
- .rodata        0x000061a4       0x14 ..\obj\main.o
-                0x000061a4                ENCODER_TABLE
- .rodata        0x000061b8       0x3c ..\obj\display.o
- .rodata        0x000061f4       0x40 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
+ .rodata        0x00003d64     0x2490 ..\obj\ili9341_fonts.o
+                0x00003d64                arrFont7x10
+                0x0000411c                Font7x10
+                0x0000412c                arrFont11x18
+                0x00004e88                Font11x18
+                0x00004e98                arrFont16x26
+                0x000061e4                Font16x26
+ .rodata        0x000061f4        0x4 ..\obj\calibration.o
+ .rodata        0x000061f8       0x18 ..\obj\main.o
+                0x000061f8                ENCODER_TABLE
+ .rodata        0x00006210       0x3c ..\obj\display.o
+ .rodata        0x0000624c       0x40 c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(muldf3.o)
  *(.eh_fram e*)
 
-.glue_7         0x00006234        0x0
+.glue_7         0x0000628c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00006234        0x0
+.glue_7t        0x0000628c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00006234        0x0
+.vfp11_veneer   0x0000628c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00006234        0x0
+.v4_bx          0x0000628c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00006234        0x0
+.iplt           0x0000628c        0x0
  .iplt          0x00000000        0x0 ..\obj\control.o
 
-.rel.dyn        0x00006234        0x0
+.rel.dyn        0x0000628c        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\control.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00006234                __exidx_start = .
+                0x0000628c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00006234                __exidx_end = .
-                0x00006234                __etext = .
-                0x00006234                _sidata = __etext
+                0x0000628c                __exidx_end = .
+                0x0000628c                __etext = .
+                0x0000628c                _sidata = __etext
 
-.data           0x20000000       0x10 load address 0x00006234
+.data           0x20000000       0x10 load address 0x0000628c
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -506,10 +509,10 @@ Linker script and memory map
                 0x20000010                __data_end__ = .
                 0x20000010                _edata = __data_end__
 
-.igot.plt       0x20000010        0x0 load address 0x00006244
+.igot.plt       0x20000010        0x0 load address 0x0000629c
  .igot.plt      0x00000000        0x0 ..\obj\control.o
 
-.bss            0x20000010      0x150 load address 0x00006248
+.bss            0x20000010      0x150 load address 0x000062a0
                 0x20000010                . = ALIGN (0x4)
                 0x20000010                __bss_start__ = .
                 0x20000010                _sbss = __bss_start__
@@ -533,9 +536,11 @@ Linker script and memory map
  COMMON         0x2000007c       0x20 ..\obj\expwm.o
                 0x2000007c                _expwm_callback_arr
  COMMON         0x2000009c       0x34 ..\obj\main.o
-                0x2000009c                GLOBAL_MOTOR_RPMPRESET_CHANGED
+                0x2000009c                serial_busy
+                0x2000009d                GLOBAL_MOTOR_RPMPRESET_CHANGED
                 0x200000a0                DisplayPWM
-                0x200000b4                GLOBAL_MOTOR_DUTY_CHANGED
+                0x200000b4                tmr_int_handler_running
+                0x200000b5                GLOBAL_MOTOR_DUTY_CHANGED
                 0x200000b8                TestPWM
                 0x200000cc                ENCODER_USER_Callback
  COMMON         0x200000d0        0x1 ..\obj\display.o
@@ -557,7 +562,7 @@ Linker script and memory map
  *(.heap*)
                 0x20000160                __HeapLimit = .
 
-.co_stack       0x20000160      0x400 load address 0x00006398
+.co_stack       0x20000160      0x400 load address 0x000063f0
                 0x20000160                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
  .co_stack      0x20000160      0x400 ..\obj\startup_M051Series.o
@@ -586,19 +591,19 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2014q4/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(PWM.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x3204
+.debug_info     0x00000000     0x3226
  .debug_info    0x00000000      0x24d ..\obj\control.o
  .debug_info    0x0000024d       0xff ..\obj\startup_M051Series.o
  .debug_info    0x0000034c      0x12a ..\obj\ili9341_fonts.o
  .debug_info    0x00000476      0x853 ..\obj\expwm.o
  .debug_info    0x00000cc9      0x2de ..\obj\calibration.o
- .debug_info    0x00000fa7      0xaf1 ..\obj\main.o
- .debug_info    0x00001a98      0x223 ..\obj\display.o
- .debug_info    0x00001cbb      0x209 ..\obj\motor.o
- .debug_info    0x00001ec4      0x41a ..\obj\system_M051Series.o
- .debug_info    0x000022de      0x3d2 ..\obj\serial.o
- .debug_info    0x000026b0      0x857 ..\obj\ili9341.o
- .debug_info    0x00002f07      0x2fd ..\obj\pid.o
+ .debug_info    0x00000fa7      0xb13 ..\obj\main.o
+ .debug_info    0x00001aba      0x223 ..\obj\display.o
+ .debug_info    0x00001cdd      0x209 ..\obj\motor.o
+ .debug_info    0x00001ee6      0x41a ..\obj\system_M051Series.o
+ .debug_info    0x00002300      0x3d2 ..\obj\serial.o
+ .debug_info    0x000026d2      0x857 ..\obj\ili9341.o
+ .debug_info    0x00002f29      0x2fd ..\obj\pid.o
 
 .debug_abbrev   0x00000000      0xf7c
  .debug_abbrev  0x00000000      0x120 ..\obj\control.o
@@ -653,21 +658,21 @@ OUTPUT(PWM.elf elf32-littlearm)
  .debug_ranges  0x000001e8       0x70 ..\obj\ili9341.o
  .debug_ranges  0x00000258       0x28 ..\obj\pid.o
 
-.debug_line     0x00000000     0x223a
+.debug_line     0x00000000     0x2251
  .debug_line    0x00000000      0x324 ..\obj\control.o
  .debug_line    0x00000324       0xd6 ..\obj\startup_M051Series.o
  .debug_line    0x000003fa       0x9a ..\obj\ili9341_fonts.o
  .debug_line    0x00000494      0x38c ..\obj\expwm.o
  .debug_line    0x00000820      0x360 ..\obj\calibration.o
- .debug_line    0x00000b80      0x58a ..\obj\main.o
- .debug_line    0x0000110a      0x178 ..\obj\display.o
- .debug_line    0x00001282      0x32d ..\obj\motor.o
- .debug_line    0x000015af      0x287 ..\obj\system_M051Series.o
- .debug_line    0x00001836      0x223 ..\obj\serial.o
- .debug_line    0x00001a59      0x58a ..\obj\ili9341.o
- .debug_line    0x00001fe3      0x257 ..\obj\pid.o
+ .debug_line    0x00000b80      0x5a1 ..\obj\main.o
+ .debug_line    0x00001121      0x178 ..\obj\display.o
+ .debug_line    0x00001299      0x32d ..\obj\motor.o
+ .debug_line    0x000015c6      0x287 ..\obj\system_M051Series.o
+ .debug_line    0x0000184d      0x223 ..\obj\serial.o
+ .debug_line    0x00001a70      0x58a ..\obj\ili9341.o
+ .debug_line    0x00001ffa      0x257 ..\obj\pid.o
 
-.debug_str      0x00000000     0x1306
+.debug_str      0x00000000     0x132a
  .debug_str     0x00000000      0x23a ..\obj\control.o
                                 0x27c (size before relaxing)
  .debug_str     0x0000023a       0xec ..\obj\startup_M051Series.o
@@ -678,19 +683,19 @@ OUTPUT(PWM.elf elf32-littlearm)
                                 0x5f7 (size before relaxing)
  .debug_str     0x0000088e       0xb3 ..\obj\calibration.o
                                 0x2a5 (size before relaxing)
- .debug_str     0x00000941      0x327 ..\obj\main.o
-                                0x7f5 (size before relaxing)
- .debug_str     0x00000c68      0x11e ..\obj\display.o
+ .debug_str     0x00000941      0x34b ..\obj\main.o
+                                0x819 (size before relaxing)
+ .debug_str     0x00000c8c      0x11e ..\obj\display.o
                                 0x235 (size before relaxing)
- .debug_str     0x00000d86       0x7e ..\obj\motor.o
+ .debug_str     0x00000daa       0x7e ..\obj\motor.o
                                 0x271 (size before relaxing)
- .debug_str     0x00000e04      0x1ac ..\obj\system_M051Series.o
+ .debug_str     0x00000e28      0x1ac ..\obj\system_M051Series.o
                                 0x40d (size before relaxing)
- .debug_str     0x00000fb0       0x8c ..\obj\serial.o
+ .debug_str     0x00000fd4       0x8c ..\obj\serial.o
                                 0x2cc (size before relaxing)
- .debug_str     0x0000103c      0x1d1 ..\obj\ili9341.o
+ .debug_str     0x00001060      0x1d1 ..\obj\ili9341.o
                                 0x498 (size before relaxing)
- .debug_str     0x0000120d       0xf9 ..\obj\pid.o
+ .debug_str     0x00001231       0xf9 ..\obj\pid.o
                                 0x2fc (size before relaxing)
 
 .comment        0x00000000       0x70
