@@ -203,6 +203,8 @@ void TMR2_IRQHandler(void)
 		SERIAL_SendStr("e\r\n");
 		serial_busy = 0;
 	}
+	else
+	{
 	tmr_int_handler_running = 1;
 	if(_TIMER_GET_CMP_INT_FLAG(TIMER2))
 	{
@@ -272,6 +274,7 @@ void TMR2_IRQHandler(void)
 		}
 	}
 	tmr_int_handler_running = 0;
+	}
 }
 
 void DisplayPWM_Callback(void)
