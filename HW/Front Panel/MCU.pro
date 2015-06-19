@@ -1,4 +1,4 @@
-update=2015.06.15. 16:01:16
+update=2015.06.19. 14:04:57
 version=1
 last_client=kicad
 [general]
@@ -22,6 +22,19 @@ SolderMaskMinWidth=0.000000000000
 DrawSegmentWidth=0.200000000000
 BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
+[cvpcb]
+version=1
+NetIExt=net
 [eeschema]
 version=1
 LibDir=C:/DATA/KiCAD/library
@@ -56,16 +69,4 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
-[cvpcb]
-version=1
-NetIExt=net
+LibName31=C:/DATA/KiCAD_new/library/suf_led

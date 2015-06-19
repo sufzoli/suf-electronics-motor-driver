@@ -29,7 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:MCU-cache
+LIBS:suf_led
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -96,9 +96,9 @@ Wire Wire Line
 	8475 1250 8425 1250
 Wire Wire Line
 	8425 1250 8425 2550
-Text GLabel 4100 1775 1    40   Input ~ 0
+Text GLabel 3800 1775 1    40   Input ~ 0
 ADC_I
-Text GLabel 4200 1775 1    40   Input ~ 0
+Text GLabel 3700 1775 1    40   Input ~ 0
 ADC_U
 Text GLabel 4300 1775 1    40   Input ~ 0
 ENC_A
@@ -115,15 +115,15 @@ F 3 "" H 6125 1225 60  0000 C CNN
 	1    6125 1225
 	-1   0    0    -1  
 $EndComp
-Text GLabel 4975 2450 2    40   Input ~ 0
+Text GLabel 3300 1775 1    40   Input ~ 0
 MODE_RPM
-Text GLabel 4975 2550 2    40   Input ~ 0
+Text GLabel 2700 3450 0    40   Input ~ 0
 MODE_AUTO
-Text GLabel 4975 2650 2    40   Input ~ 0
+Text GLabel 4300 4000 3    40   Input ~ 0
 CAL
 Text GLabel 8375 1550 0    40   Input ~ 0
 TFT_DC
-Text GLabel 3800 1775 1    40   Input ~ 0
+Text GLabel 3900 4000 3    40   Input ~ 0
 TFT_DC
 Wire Wire Line
 	3800 1775 3800 1900
@@ -145,27 +145,27 @@ Wire Wire Line
 	8475 1550 8375 1550
 Text GLabel 8375 1450 0    40   Input ~ 0
 TFT_RST
-Text GLabel 3700 1775 1    40   Input ~ 0
+Text GLabel 4000 4000 3    40   Input ~ 0
 TFT_RST
-Text GLabel 3600 1775 1    40   Input ~ 0
+Text GLabel 4200 1775 1    40   Input ~ 0
 RXD
 Text GLabel 5950 6775 2    40   Input ~ 0
 RXD
-Text GLabel 3500 1775 1    40   Input ~ 0
+Text GLabel 4100 1775 1    40   Input ~ 0
 TXD
 Text GLabel 5950 6875 2    40   Input ~ 0
 TXD
 Text GLabel 8375 1350 0    40   Input ~ 0
 TFT_CS
-Text GLabel 3400 1775 1    40   Input ~ 0
+Text GLabel 4975 2450 2    40   Input ~ 0
 TFT_CS
 Text GLabel 8375 1650 0    40   Input ~ 0
 TFT_MOSI
-Text GLabel 2725 2350 0    40   Input ~ 0
+Text GLabel 4975 2550 2    40   Input ~ 0
 TFT_MOSI
-Text GLabel 2725 2450 0    40   Input ~ 0
+Text GLabel 4975 2650 2    40   Input ~ 0
 TFT_MISO
-Text GLabel 2725 2550 0    40   Input ~ 0
+Text GLabel 4975 2750 2    40   Input ~ 0
 TFT_SCK
 Text GLabel 8375 1950 0    40   Input ~ 0
 TFT_MISO
@@ -211,9 +211,9 @@ Wire Wire Line
 	2850 2450 2725 2450
 Wire Wire Line
 	2850 2550 2725 2550
-Text GLabel 3900 4000 3    40   Input ~ 0
+Text GLabel 4975 3350 2    40   Input ~ 0
 PWM_0
-Text GLabel 4000 4000 3    40   Input ~ 0
+Text GLabel 4975 3250 2    40   Input ~ 0
 PWM_1
 Text GLabel 4400 4000 3    40   Input ~ 0
 RPM_IN
@@ -667,25 +667,14 @@ $EndComp
 Wire Wire Line
 	4000 950  4000 1900
 $Comp
-L CONN_4 J7
-U 1 1 557F42B8
-P 675 6750
-F 0 "J7" V 625 6750 40  0000 C CNN
-F 1 "CTRL_IN" V 725 6750 40  0000 C CNN
-F 2 "suf_connector_ncw:CONN_NCW254-04S" H 675 6750 60  0001 C CNN
-F 3 "" H 675 6750 60  0000 C CNN
-	1    675  6750
-	-1   0    0    -1  
-$EndComp
-$Comp
 L GND #PWR015
 U 1 1 557F443A
-P 2275 7500
-F 0 "#PWR015" H 2275 7250 50  0001 C CNN
-F 1 "GND" H 2275 7350 50  0000 C CNN
-F 2 "" H 2275 7500 60  0000 C CNN
-F 3 "" H 2275 7500 60  0000 C CNN
-	1    2275 7500
+P 1075 7000
+F 0 "#PWR015" H 1075 6750 50  0001 C CNN
+F 1 "GND" H 1075 6850 50  0000 C CNN
+F 2 "" H 1075 7000 60  0000 C CNN
+F 3 "" H 1075 7000 60  0000 C CNN
+	1    1075 7000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1038,7 +1027,7 @@ L GNDA #PWR026
 U 1 1 55827000
 P 3675 1275
 F 0 "#PWR026" H 3675 1025 50  0001 C CNN
-F 1 "GNDA" H 3675 1125 50  0000 C CNN
+F 1 "GNDA" H 3775 1150 50  0000 C CNN
 F 2 "" H 3675 1275 60  0000 C CNN
 F 3 "" H 3675 1275 60  0000 C CNN
 	1    3675 1275
@@ -1051,18 +1040,18 @@ Wire Wire Line
 $Comp
 L GNDA #PWR027
 U 1 1 55828EA4
-P 2675 2900
-F 0 "#PWR027" H 2675 2650 50  0001 C CNN
-F 1 "GNDA" H 2675 2750 50  0000 C CNN
-F 2 "" H 2675 2900 60  0000 C CNN
-F 3 "" H 2675 2900 60  0000 C CNN
-	1    2675 2900
+P 2325 2900
+F 0 "#PWR027" H 2325 2650 50  0001 C CNN
+F 1 "GNDA" H 2325 2750 50  0000 C CNN
+F 2 "" H 2325 2900 60  0000 C CNN
+F 3 "" H 2325 2900 60  0000 C CNN
+	1    2325 2900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2850 2850 2675 2850
+	2850 2850 2325 2850
 Wire Wire Line
-	2675 2850 2675 2900
+	2325 2850 2325 2900
 Wire Notes Line
 	7700 600  5875 600 
 Wire Notes Line
@@ -1165,141 +1154,16 @@ Wire Wire Line
 	3500 3900 3500 4000
 Wire Wire Line
 	3600 3900 3600 4000
-$Comp
-L KB817 U4
-U 1 1 5582C384
-P 1825 6900
-F 0 "U4" H 1625 7100 50  0000 L CNN
-F 1 "KB817" H 1825 7100 50  0000 L CNN
-F 2 "Opto-Devices:Optocoupler_SMD_HandSoldering_KPC357_LTV35x_PC357_SingleChannel" H 1625 6700 50  0001 L CIN
-F 3 "" H 1825 6900 50  0000 L CNN
-	1    1825 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L KB817 U1
-U 1 1 5582C401
-P 1825 6550
-F 0 "U1" H 1625 6750 50  0000 L CNN
-F 1 "KB817" H 1825 6750 50  0000 L CNN
-F 2 "Opto-Devices:Optocoupler_SMD_HandSoldering_KPC357_LTV35x_PC357_SingleChannel" H 1625 6350 50  0001 L CIN
-F 3 "" H 1825 6550 50  0000 L CNN
-	1    1825 6550
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R12
-U 1 1 5582CD5F
-P 1275 6450
-F 0 "R12" H 1275 6375 40  0000 C CNN
-F 1 "R" H 1275 6525 40  0000 C CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 1275 6450 60  0001 C CNN
-F 3 "" H 1275 6450 60  0000 C CNN
-	1    1275 6450
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R13
-U 1 1 5582CDE8
-P 1275 6800
-F 0 "R13" H 1275 6725 40  0000 C CNN
-F 1 "R" H 1275 6875 40  0000 C CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 1275 6800 60  0001 C CNN
-F 3 "" H 1275 6800 60  0000 C CNN
-	1    1275 6800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1025 6800 1075 6800
-Wire Wire Line
-	1475 6800 1525 6800
-Wire Wire Line
-	1025 6900 1025 7000
-Wire Wire Line
-	1025 7000 1525 7000
-Wire Wire Line
-	1025 6700 1525 6700
-Wire Wire Line
-	1525 6700 1525 6650
-Wire Wire Line
-	1525 6450 1475 6450
-Wire Wire Line
-	1075 6450 1025 6450
-Wire Wire Line
-	1025 6450 1025 6600
-$Comp
-L R R15
-U 1 1 5582D765
-P 2175 7250
-F 0 "R15" H 2175 7175 40  0000 C CNN
-F 1 "R" H 2175 7325 40  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" H 2175 7250 60  0001 C CNN
-F 3 "" H 2175 7250 60  0000 C CNN
-	1    2175 7250
-	0    1    1    0   
-$EndComp
-$Comp
-L R R16
-U 1 1 5582D84A
-P 2375 7250
-F 0 "R16" H 2375 7175 40  0000 C CNN
-F 1 "R" H 2375 7325 40  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" H 2375 7250 60  0001 C CNN
-F 3 "" H 2375 7250 60  0000 C CNN
-	1    2375 7250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	2125 7000 2525 7000
-Wire Wire Line
-	2125 6650 2525 6650
-$Comp
-L VCC #PWR029
-U 1 1 5582DB47
-P 2175 6400
-F 0 "#PWR029" H 2175 6250 50  0001 C CNN
-F 1 "VCC" H 2175 6550 50  0000 C CNN
-F 2 "" H 2175 6400 60  0000 C CNN
-F 3 "" H 2175 6400 60  0000 C CNN
-	1    2175 6400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2175 6400 2175 6800
-Wire Wire Line
-	2175 6450 2125 6450
-Wire Wire Line
-	2175 6800 2125 6800
-Connection ~ 2175 6450
-Wire Wire Line
-	2175 7050 2175 7000
-Connection ~ 2175 7000
-Wire Wire Line
-	2375 7050 2375 6650
-Connection ~ 2375 6650
-Wire Wire Line
-	2175 7450 2375 7450
-Wire Wire Line
-	2275 7450 2275 7500
-Connection ~ 2275 7450
-Text GLabel 2525 6650 2    40   Input ~ 0
+Text GLabel 1125 6700 2    40   Input ~ 0
 SPINDLE_SPEED
-Text GLabel 2525 7000 2    40   Input ~ 0
+Text GLabel 1125 6800 2    40   Input ~ 0
 SPINDLE_SWITCH
-Text GLabel 4100 4000 3    40   Input ~ 0
+Text GLabel 3600 1775 1    40   Input ~ 0
 SPINDLE_SPEED
-Text GLabel 4200 4000 3    40   Input ~ 0
+Text GLabel 4975 3450 2    40   Input ~ 0
 SPINDLE_SWITCH
 Wire Wire Line
 	4200 3900 4200 4000
-Wire Notes Line
-	3125 6125 525  6125
-Wire Notes Line
-	525  6125 525  7725
-Wire Notes Line
-	525  7725 3125 7725
-Wire Notes Line
-	3125 7725 3125 6125
 Text Notes 1250 6225 2    60   ~ 0
 Spindle Control
 Wire Notes Line
@@ -1332,4 +1196,104 @@ Text Notes 3525 6225 0    60   ~ 0
 I2C
 Text Notes 5300 6225 0    60   ~ 0
 Serial
+Wire Wire Line
+	4975 2750 4850 2750
+Wire Wire Line
+	4300 3900 4300 4000
+Wire Wire Line
+	4975 3250 4850 3250
+Wire Wire Line
+	4975 3350 4850 3350
+Text GLabel 4975 2350 2    40   Input ~ 0
+SPINDLE_SPEED
+Wire Wire Line
+	4975 2350 4850 2350
+Wire Wire Line
+	3300 1775 3300 1900
+Wire Wire Line
+	2850 3450 2700 3450
+Text GLabel 3400 1775 1    40   Input ~ 0
+SPI_SS
+Text GLabel 2725 2350 0    40   Input ~ 0
+SPI_MOSI
+Text GLabel 2725 2450 0    40   Input ~ 0
+SPI_MISO
+Text GLabel 2725 2550 0    40   Input ~ 0
+SPI_SCK
+Wire Wire Line
+	4975 3450 4850 3450
+Text GLabel 4100 4000 3    40   Input ~ 0
+PWM_2
+Text GLabel 4200 4000 3    40   Input ~ 0
+PWM_3
+Text GLabel 2725 2750 0    40   Input ~ 0
+PP0
+Text GLabel 2725 2950 0    40   Input ~ 0
+PP1
+Text GLabel 2725 3050 0    40   Input ~ 0
+PP2
+Text GLabel 2725 3150 0    40   Input ~ 0
+PP3
+Text GLabel 2725 3250 0    40   Input ~ 0
+PP4
+Text GLabel 2725 3350 0    40   Input ~ 0
+PP5
+Text GLabel 3300 4000 3    40   Input ~ 0
+PP6
+Text GLabel 3400 4000 3    40   Input ~ 0
+PP7
+Wire Wire Line
+	3400 3900 3400 4000
+Wire Wire Line
+	3300 3900 3300 4000
+Wire Wire Line
+	2850 3350 2725 3350
+Wire Wire Line
+	2850 3250 2725 3250
+Wire Wire Line
+	2850 3150 2725 3150
+Wire Wire Line
+	2850 3050 2725 3050
+Wire Wire Line
+	2850 2750 2725 2750
+Wire Wire Line
+	2850 2950 2725 2950
+$Comp
+L VCC #PWR029
+U 1 1 5582DB47
+P 1075 6450
+F 0 "#PWR029" H 1075 6300 50  0001 C CNN
+F 1 "VCC" H 1075 6600 50  0000 C CNN
+F 2 "" H 1075 6450 60  0000 C CNN
+F 3 "" H 1075 6450 60  0000 C CNN
+	1    1075 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1075 6800 1125 6800
+Wire Wire Line
+	1075 6450 1075 6600
+Wire Wire Line
+	1075 6900 1075 7000
+$Comp
+L CONN_4 J7
+U 1 1 557F42B8
+P 725 6750
+F 0 "J7" V 675 6750 40  0000 C CNN
+F 1 "CTRL_IN" V 775 6750 40  0000 C CNN
+F 2 "suf_connector_ncw:CONN_NCW254-04S" H 725 6750 60  0001 C CNN
+F 3 "" H 725 6750 60  0000 C CNN
+	1    725  6750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1125 6700 1075 6700
+Wire Notes Line
+	525  6125 1750 6125
+Wire Notes Line
+	1750 6125 1750 7200
+Wire Notes Line
+	1750 7200 525  7200
+Wire Notes Line
+	525  7200 525  6125
 $EndSCHEMATC
