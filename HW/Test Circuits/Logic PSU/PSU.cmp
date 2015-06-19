@@ -1,0 +1,66 @@
+Cmp-Mod V01 Created by Cvpcb (after 2015-mar-04 BZR unknown)-product   date = 2015.05.06. 6:19:49
+
+BeginCmp
+TimeStamp = /55493188;
+Reference = C1;
+ValeurCmp = 100uF/63V;
+IdModule  = Capacitors_SMD:c_elec_10x10.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /54950B42;
+Reference = C2;
+ValeurCmp = 220uF/10V Tantalum;
+IdModule  = Capacitors_Tantalum_SMD:TantalC_SizeD_EIA-7343_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /55493076;
+Reference = C3;
+ValeurCmp = 100uF/6.3V Tantalum;
+IdModule  = Capacitors_Tantalum_SMD:TantalC_SizeB_EIA-3528_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /54950B41;
+Reference = D1;
+ValeurCmp = SS14;
+IdModule  = Diodes_SMD:Diode-DO-214AB_Handsoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /54950B37;
+Reference = J1;
+ValeurCmp = PWR;
+IdModule  = suf_connector_ncw:CONN_NCW396-02R;
+EndCmp
+
+BeginCmp
+TimeStamp = /5549955A;
+Reference = J2;
+ValeurCmp = OUT;
+IdModule  = suf_connector_ncw:CONN_NCW396-02R;
+EndCmp
+
+BeginCmp
+TimeStamp = /54950B40;
+Reference = L1;
+ValeurCmp = 100uH;
+IdModule  = Choke_SMD:Choke_SMD_Wuerth-WE-PD-Typ-LS_Handsoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /55493044;
+Reference = L2;
+ValeurCmp = 3.3uH;
+IdModule  = Choke_SMD:Choke_SMD_Wuerth-WE-PD-Typ-M-Typ-S_Handsoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /54950B3E;
+Reference = U1;
+ValeurCmp = LM2594HVM-3.3;
+IdModule  = Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm;
+EndCmp
+
+EndListe
