@@ -1,0 +1,14 @@
+LED 1 - Power Supply
+LED 2 - Spindle
+LED 3 - Enable
+
+
+
+
+
+JP1 - Within 5V / from outside the case
+JP2 - So be able to open/close
+JP3 - Air cooling on/off
+JP4 - Analog on/off
+
+JP5 - Manual on/off
