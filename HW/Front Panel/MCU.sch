@@ -249,22 +249,14 @@ F 3 "" H 10675 4475 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10325 3875 10575 3875
-Wire Wire Line
-	10575 3875 10575 4125
-Wire Wire Line
 	10325 3775 10875 3775
 Wire Wire Line
 	10775 3775 10775 4125
 Text GLabel 10875 3775 2    40   Input ~ 0
 PWM_0
-Text GLabel 10875 3875 2    40   Input ~ 0
+Text GLabel 10875 3950 2    40   Input ~ 0
 PWM_1
 Connection ~ 10775 3775
-Wire Wire Line
-	10675 3875 10875 3875
-Wire Wire Line
-	10675 3875 10675 4125
 Wire Wire Line
 	4675 4900 4675 5000
 Wire Wire Line
@@ -1369,22 +1361,14 @@ F 3 "" H 2650 7550 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2300 6950 2550 6950
-Wire Wire Line
-	2550 6950 2550 7200
-Wire Wire Line
 	2300 6850 2850 6850
 Wire Wire Line
 	2750 6850 2750 7200
 Text GLabel 2850 6850 2    40   Input ~ 0
 PWM_2
-Text GLabel 2850 6950 2    40   Input ~ 0
+Text GLabel 2850 7025 2    40   Input ~ 0
 PWM_3
 Connection ~ 2750 6850
-Wire Wire Line
-	2650 6950 2850 6950
-Wire Wire Line
-	2650 6950 2650 7200
 Wire Wire Line
 	2300 7050 2350 7050
 Wire Wire Line
@@ -1772,4 +1756,20 @@ F 3 "" H 2350 7100 60  0000 C CNN
 	1    2350 7100
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	10325 3875 10675 3875
+Wire Wire Line
+	10675 3875 10675 4125
+Wire Wire Line
+	10875 3950 10575 3950
+Wire Wire Line
+	10575 3950 10575 4125
+Wire Wire Line
+	2850 7025 2550 7025
+Wire Wire Line
+	2550 7025 2550 7200
+Wire Wire Line
+	2300 6950 2650 6950
+Wire Wire Line
+	2650 6950 2650 7200
 $EndSCHEMATC
