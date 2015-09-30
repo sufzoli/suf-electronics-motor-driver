@@ -11,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -30,8 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:pcd-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -513,4 +511,8 @@ Wire Wire Line
 	1375 2700 1150 2700
 Wire Wire Line
 	1300 2800 1150 2800
+Connection ~ 2650 1850
+Connection ~ 2175 1850
+Connection ~ 1375 2700
+Connection ~ 3500 2200
 $EndSCHEMATC

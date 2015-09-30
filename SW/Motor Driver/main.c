@@ -43,6 +43,8 @@
 #include "expwm.h"
 #include "encoder.h"
 
+#include "rpm_count.h"
+
 #include "test_gen.h"
 
 // #include "ili9341.h"
@@ -107,31 +109,31 @@ void DisplayPWM_Callback(void)
 	unsigned long disp_buff;
 	// _PWM_CLEAR_TIMER_PERIOD_INT_FLAG(PWMA,PWM_CH3);
 
-	/*
-	if(countset_ready && (countset_result > 0))
+
+	if(RPM_ready && (RPM_result > 0))
 	{
-		disp_count = 3000000000u / countset_result;
+		disp_count = 3000000000u / RPM_result;
 	}
 	else
 	{
 		disp_count = 0;
 	}
 	DISPLAY_RPM(disp_count);
-	*/
+
 	if(GLOBAL_MOTOR_DUTY_CHANGED)
 	{
 		disp_buff = Motor_GetDuty();
 		DISPLAY_DUTY(disp_buff);
 		GLOBAL_MOTOR_DUTY_CHANGED = 0;
 	}
-	/*
+
 	if(GLOBAL_MOTOR_RPMPRESET_CHANGED && CONTROL_MODE != CONTROL_MODE_DUTY)
 	{
 		disp_buff = CONTROL_RPM_SET;
 		DISPLAY_RPM_SET(disp_buff);
 		GLOBAL_MOTOR_RPMPRESET_CHANGED = 0;
 	}
-	*/
+
 }
 
 void DisplayPWM_Init()

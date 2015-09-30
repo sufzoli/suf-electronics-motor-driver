@@ -8,8 +8,8 @@ volatile static unsigned long counter;
 volatile static unsigned long count_result;
 
 volatile static unsigned int count_pointer;
-volatile static unsigned char countset_ready;
-volatile static unsigned long countset_result;
+volatile unsigned char RPM_ready;
+volatile unsigned long RPM_result;
 volatile static unsigned long count_result_set[13];
 
 // Interrupt interlock error handling
@@ -19,9 +19,9 @@ void RPM_Clear()
 {
 	int i;
 	counter = 0;
-	countset_ready = 0;
+	RPM_ready = 0;
 	count_pointer = 0;
-	countset_result = 0;
+	RPM_result = 0;
 	for(i=0; i<13; i++)
 	{
 		count_result_set[i] = 0;
@@ -30,13 +30,13 @@ void RPM_Clear()
 
 void RPM_Add(unsigned long value)
 {
-	countset_result += value;
+	RPM_result += value;
 	count_result_set[count_pointer] = value;
 	count_pointer = ((count_pointer == 12) ? 0 : (count_pointer + 1));
-	countset_result -= count_result_set[count_pointer];
+	RPM_result -= count_result_set[count_pointer];
 	if(count_pointer == 0)
 	{
-		countset_ready = 1;
+		RPM_ready = 1;
 	}
 }
 

@@ -86,9 +86,9 @@
     <File name="cmsis_core/core_cmFunc.h" path="cmsis_core/core_cmFunc.h" type="1"/>
     <File name="cmsis_lib/inc/SPI.h" path="cmsis_lib/inc/SPI.h" type="1"/>
     <File name="macro_helper.h" path="macro_helper.h" type="1"/>
-    <File name="rpm_count.h" path="rpm_count.h" type="1"/>
     <File name="motor.h" path="motor.h" type="1"/>
     <File name="cmsis_lib/inc/ADC.h" path="cmsis_lib/inc/ADC.h" type="1"/>
+    <File name="rpm_count.h" path="rpm_count.h" type="1"/>
     <File name="motor.c" path="motor.c" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/M051Series.h" path="cmsis_boot/M051Series.h" type="1"/>
