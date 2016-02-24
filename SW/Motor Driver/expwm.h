@@ -19,6 +19,8 @@ typedef struct
 #define EXPWM_PORT4	2
 
 extern void EXPWM_Init(expwmtype *data);
+extern void EXPWM_PortEnable(expwmtype *data);
+extern void EXPWM_PortDisable(expwmtype *data);
 extern void EXPWM_SetDuty(expwmtype *data, unsigned int duty);
 extern unsigned long EXPWM_GetDuty(expwmtype *data);
 

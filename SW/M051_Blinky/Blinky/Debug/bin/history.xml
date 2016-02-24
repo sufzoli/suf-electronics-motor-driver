@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=Blinky.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Blinky -TC:\CooCox\CoIDE\configuration\ProgramData\Blinky/arm-gcc-link.ld -g">
+      <target file="Blinky.elf" lastModified="14f1ac763a7">
+         <source file="..\obj\startup_M051Series.o" lastModified="14f1ac4740d"/>
+         <source file="..\obj\main.o" lastModified="14f1ac760dd"/>
+         <source file="..\obj\system_M051Series.o" lastModified="14f1ac474d1"/>
+      </target>
+   </processor>
+</history>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Motor Driver\cmsis_core -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Motor Driver\cmsis_lib -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Misc\M051 PWM (commited) -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Motor Driver\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Motor Driver -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Misc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\Motor Driver\cmsis_boot">
+      <target file="display.o" lastModified="1501fe6b6d9">
+         <source file="..\..\..\display.c" lastModified="1501fe6af3a"/>
+      </target>
+      <target file="motor.o" lastModified="15077e88187">
+         <source file="..\..\..\motor.c" lastModified="1503ca3acbe"/>
+      </target>
+      <target file="ili9341_fonts.o" lastModified="14f44501a9d">
+         <source file="..\..\..\ili9341_fonts.c" lastModified="14c5a3decb0"/>
+      </target>
+      <target file="ili9341.o" lastModified="14f44501ff9">
+         <source file="..\..\..\ili9341.c" lastModified="14f252dd6f0"/>
+      </target>
+      <target file="system_M051Series.o" lastModified="14f44501f9d">
+         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14f1e1312c1"/>
+      </target>
+      <target file="test_gen.o" lastModified="14f44514756">
+         <source file="..\..\..\..\Misc\M051 PWM (commited)\test_gen.c" lastModified="14f44514517"/>
+      </target>
+      <target file="encoder.o" lastModified="150200c4a85">
+         <source file="..\..\..\encoder.c" lastModified="1501fe6af21"/>
+      </target>
+      <target file="rpm_count.o" lastModified="14fa5fc8a5b">
+         <source file="..\..\..\rpm_count.c" lastModified="14fa5fc87cf"/>
+      </target>
+      <target file="main.o" lastModified="150200c4a49">
+         <source file="..\..\..\main.c" lastModified="1501fe6af09"/>
+      </target>
+      <target file="startup_M051Series.o" lastModified="14f44501a1d">
+         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14f1e1312bf"/>
+      </target>
+      <target file="expwm.o" lastModified="150200c498b">
+         <source file="..\..\..\expwm.c" lastModified="1501ffe5ea0"/>
+      </target>
+      <target file="calibration.o" lastModified="150200c49c2">
+         <source file="..\..\..\calibration.c" lastModified="14f2a9fc251"/>
+      </target>
+      <target file="control.o" lastModified="150200c4882">
+         <source file="..\..\..\control.c" lastModified="14f34cbf997"/>
+      </target>
+   </processor>
+</history>

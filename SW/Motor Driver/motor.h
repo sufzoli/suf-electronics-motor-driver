@@ -10,10 +10,11 @@
 
 extern expwmtype MotorPWM;
 
-#define Motor_SetDuty(x) EXPWM_SetDuty(&MotorPWM, x)
+// #define Motor_SetDuty(x) EXPWM_SetDuty(&MotorPWM, x)
 
 extern void Motor_Init();
 extern void Motor_GracefullStop();
 extern unsigned long Motor_GetDuty();
+extern void Motor_SetDuty(unsigned int duty);
 
 #endif

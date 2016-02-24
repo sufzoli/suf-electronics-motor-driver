@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_lib /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_lib\inc /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_boot /I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_core">
+      <source file="..\..\..\cmsis_boot\M051Series.h" lastModified="14f1ab935ee">
+         <include file="..\..\..\cmsis_core\core_cm0.h"/>
+         <include file="..\..\..\cmsis_boot\system_M051Series.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="14f1ab939e5">
+         <include file="..\..\..\cmsis_core\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis_core\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\inc\SYS.h" lastModified="14f1ab93614">
+         <include file="..\..\..\cmsis_boot\M051Series.h"/>
+      </source>
+      <source file="..\..\..\main.c" lastModified="14f1ac75efa">
+         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
+         <include file="..\..\..\cmsis_lib\inc\GPIO.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="14f1ab93dda">
+      </source>
+      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="14f1ab93dd6">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_M051Series.h" lastModified="14f1ab935f6">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14f1ab93dc4">
+         <include file="..\..\..\cmsis_boot\M051Series.h"/>
+         <include file="..\..\..\cmsis_lib\inc\SYS.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14f1ab935f3">
+      </source>
+      <source file="..\..\..\cmsis_lib\inc\GPIO.h" lastModified="14f1ab935e0">
+         <include file="..\..\..\cmsis_boot\M051Series.h"/>
+      </source>
+   </includePath>
+</dependencies>

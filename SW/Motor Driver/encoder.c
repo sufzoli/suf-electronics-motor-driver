@@ -66,7 +66,7 @@ void ENCODER_Callback(signed char cDirection)
 	{
 		temp = Motor_GetDuty();
 		temp += cDirection;
-		if(temp >= 0 && temp < 250)
+		if(temp >= 0 && temp <= 250)
 		{
 			Motor_SetDuty(temp);
 			GLOBAL_MOTOR_DUTY_CHANGED = 1;

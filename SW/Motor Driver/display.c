@@ -105,7 +105,7 @@ void DISPLAY_DUTY(unsigned int duty)
 	if(!display_busy)
 	{
 		display_busy = 1;
-		duty_percent = (duty + 1) << 2;	// the PWM has 250 steps. If I shift by 2 means x4. The result is percentage x10
+		duty_percent = duty << 2;	// the PWM has 250 steps. If I shift by 2 means x4. The result is percentage x10
 		if(display_mode == DISPLAY_MODE_NORMAL)
 		{
 #ifdef __USE_ILI9341__

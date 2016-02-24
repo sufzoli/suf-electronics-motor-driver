@@ -80,8 +80,8 @@
     <File name="test_gen.c" path="../Misc/M051 PWM (commited)/test_gen.c" type="1"/>
     <File name="cmsis_core/core_cmInstr.h" path="cmsis_core/core_cmInstr.h" type="1"/>
     <File name="ili9341_fonts.c" path="ili9341_fonts.c" type="1"/>
-    <File name="encoder.h" path="encoder.h" type="1"/>
     <File name="control.c" path="control.c" type="1"/>
+    <File name="encoder.h" path="encoder.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="cmsis_core/core_cmFunc.h" path="cmsis_core/core_cmFunc.h" type="1"/>
     <File name="cmsis_lib/inc/SPI.h" path="cmsis_lib/inc/SPI.h" type="1"/>
@@ -92,9 +92,9 @@
     <File name="motor.c" path="motor.c" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/M051Series.h" path="cmsis_boot/M051Series.h" type="1"/>
-    <File name="control.h" path="control.h" type="1"/>
-    <File name="cmsis_core" path="" type="2"/>
     <File name="display.c" path="display.c" type="1"/>
+    <File name="cmsis_core" path="" type="2"/>
+    <File name="control.h" path="control.h" type="1"/>
     <File name="cmsis_boot/system_M051Series.h" path="cmsis_boot/system_M051Series.h" type="1"/>
     <File name="calibration.c" path="calibration.c" type="1"/>
     <File name="expwm.c" path="expwm.c" type="1"/>
@@ -102,8 +102,8 @@
     <File name="ili9341_fonts.h" path="ili9341_fonts.h" type="1"/>
     <File name="cmsis_lib/inc/PWM.h" path="cmsis_lib/inc/PWM.h" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
-    <File name="cmsis_lib/inc/FMC.h" path="cmsis_lib/inc/FMC.h" type="1"/>
     <File name="cmsis_core/core_cm0.h" path="cmsis_core/core_cm0.h" type="1"/>
+    <File name="cmsis_lib/inc/FMC.h" path="cmsis_lib/inc/FMC.h" type="1"/>
     <File name="encoder.c" path="encoder.c" type="1"/>
     <File name="cmsis_lib/inc" path="" type="2"/>
     <File name="rpm_count.c" path="rpm_count.c" type="1"/>

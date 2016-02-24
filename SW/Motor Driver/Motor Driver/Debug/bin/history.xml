@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.9.3 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=Motor Driver.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Motor Driver -TC:\CooCox\CoIDE\configuration\ProgramData\Motor Driver/arm-gcc-link.ld -g">
+      <target file="Motor Driver.elf" lastModified="15077e883ca">
+         <source file="..\obj\control.o" lastModified="150200c4882"/>
+         <source file="..\obj\startup_M051Series.o" lastModified="14f44501a1d"/>
+         <source file="..\obj\ili9341_fonts.o" lastModified="14f44501a9d"/>
+         <source file="..\obj\expwm.o" lastModified="150200c498b"/>
+         <source file="..\obj\calibration.o" lastModified="150200c49c2"/>
+         <source file="..\obj\main.o" lastModified="150200c4a49"/>
+         <source file="..\obj\rpm_count.o" lastModified="14fa5fc8a5b"/>
+         <source file="..\obj\encoder.o" lastModified="150200c4a85"/>
+         <source file="..\obj\test_gen.o" lastModified="14f44514756"/>
+         <source file="..\obj\display.o" lastModified="1501fe6b6d9"/>
+         <source file="..\obj\motor.o" lastModified="15077e88187"/>
+         <source file="..\obj\system_M051Series.o" lastModified="14f44501f9d"/>
+         <source file="..\obj\ili9341.o" lastModified="14f44501ff9"/>
+      </target>
+   </processor>
+</history>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DM0516LDN -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_lib -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_lib\inc -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_boot -I..\..\..\..\..\DATA\SourceControll\SUF-GitHub\Electronics\suf-electronics-motor-driver\SW\M051_Blinky\cmsis_core">
+      <target file="startup_M051Series.o" lastModified="14f1ac4740d">
+         <source file="..\..\..\cmsis_boot\startup\startup_M051Series.c" lastModified="14f1ab935f3"/>
+      </target>
+      <target file="main.o" lastModified="14f1ac760dd">
+         <source file="..\..\..\main.c" lastModified="14f1ac75efa"/>
+      </target>
+      <target file="system_M051Series.o" lastModified="14f1ac474d1">
+         <source file="..\..\..\cmsis_boot\system_M051Series.c" lastModified="14f1ab935f4"/>
+      </target>
+   </processor>
+</history>

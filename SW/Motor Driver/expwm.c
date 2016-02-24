@@ -97,6 +97,37 @@ void EXPWM_Init(expwmtype *data)
 	_PWM_ENABLE_TIMER(PWM_MODULE, Chanell);
 }
 
+void EXPWM_PortEnable(expwmtype *data)
+{
+	switch(data->Port)
+	{
+		case EXPWM_PORT2:
+		    SYS->P2_MFP |= 0x1UL << (data->Channel + 8);
+			break;
+		case EXPWM_PORT4:
+			SYS->P4_MFP |= 0x1UL << data->Channel;
+			break;
+		default:
+			break;
+	}
+}
+
+void EXPWM_PortDisable(expwmtype *data)
+{
+	switch(data->Port)
+	{
+		case EXPWM_PORT2:
+		    SYS->P2_MFP &= ~(0x1UL << (data->Channel + 8));
+			break;
+		case EXPWM_PORT4:
+			SYS->P4_MFP &= ~(0x1UL << data->Channel);
+			break;
+		default:
+			break;
+	}
+}
+
+
 void EXPWM_SetDuty(expwmtype *data, unsigned int duty)
 {
 	unsigned char Chanell = data->Channel;

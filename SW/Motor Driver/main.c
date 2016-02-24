@@ -152,10 +152,15 @@ void DisplayPWM_Init()
 
 int main(void)
 {
+	int i;
 	// Initialize clock and interrupt system
 	SYS_Init();
 	// Enable de-bounce counter. It will be used by the GPIO and Timer inputs
 	_GPIO_SET_DEBOUNCE_TIME(GPIO_DBNCECON_DBCLKSRC_HCLK, GPIO_DBNCECON_DBCLKSEL_512);
+
+	// Wait for the power to stabilize (2s)
+	for(i=0;i<2000;i++)
+		SYS_SysTickDelay(1000);
 
 	// Initialize the display
 	DISPLAY_Init();
